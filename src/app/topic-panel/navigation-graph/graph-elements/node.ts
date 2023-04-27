@@ -50,14 +50,14 @@ export class Node {
         }
 
         if (this.label) {
-            drawedNode
+            SVGContext
                 .append("text")
                 .attr("dx", this.label.position.x)
                 .attr("dy", this.label.position.y)
-                .text(this.label.text)
                 .attr("font-size", this.label.size)
-                .attr("transform", `rotate(${this.label.rotation}deg)`)
-                .attr("transform-origin", "graphcenterxpx, graphcenterypx");
+                .attr("transform", `rotate(${this.label.rotation})`)
+                .attr("transform-origin", `${this.label.position.x} ${this.label.position.y}`)
+                .text(this.label.text);
         }
 
     }
@@ -112,9 +112,9 @@ export class Node {
             size: label.size ?? '10px',
         }
 
-        // if(calculateRotation){
-        //     this.label.rotation = this.getLabelAngle(, this.label.position);
-        // }
+        if (calculateRotation) {
+            this.label.rotation = this.getLabelAngle({ x: 550, y: 550 }, this.label.position);
+        }
 
         return this;
     }
@@ -125,14 +125,14 @@ export class Node {
         }).length > 0;
     }
 
-    private getLabelAngle(graphCenter: Position, point: Position) {
-        const dx = point.x - graphCenter.x;
-        const dy = point.y - graphCenter.y;
+    private getLabelAngle(center: Position, labelPosition: Position) {
+        const dx = labelPosition.x - center.x;
+        const dy = labelPosition.y - center.y;
         let angle = Math.atan2(dy, dx) * (180 / Math.PI);
         if (angle < 0) {
-          angle += 360;
+            angle += 360;
         }
         return angle;
-      }
+    }
 
 }

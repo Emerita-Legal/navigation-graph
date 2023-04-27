@@ -49,3 +49,8 @@
     stroke: rgb(135, 136, 160);
  }
  
+ text {
+   fill: rgb(74, 75, 99);
+   text-align: center;
+   text-shadow: none;
+ }

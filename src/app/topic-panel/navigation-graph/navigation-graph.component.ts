@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { GraphService } from '../../_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
 import { Graph } from './graph-elements/graph';
+import { Circle } from './graph-elements/circle';
 
 @Component({
   selector: 'app-navigation-graph',
@@ -18,7 +19,7 @@ export class NavigationGraphComponent {
   private graph: Graph;
 
   constructor(private graphService: GraphService) {
-    this.graph = this.graphService.getGraphInstance().setWidth(this.width);
+    this.graph = this.graphService.getGraphInstance();
   }
 
   ngAfterViewInit(): void {
@@ -51,6 +52,7 @@ export class NavigationGraphComponent {
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;
     this.height = this.width;
+    Circle.setWidth(this.width);
   }
 
   private applyEffects(): void {
