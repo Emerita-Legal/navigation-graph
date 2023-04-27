@@ -16,6 +16,8 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { SubscriptionBannerComponent } from './topic-panel/topic-browse/subscription-banner/subscription-banner.component';
 import { FieldsetModule } from 'primeng/fieldset';
+import { AccordionModule } from 'primeng/accordion';
+import { PublicationItemComponent } from './topic-panel/topic-browse/topic-publications/publication-item/publication-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { FieldsetModule } from 'primeng/fieldset';
     TopicInteractiveDataComponent,
     TopicBrowseComponent,
     TopicAboutComponent,
-    SubscriptionBannerComponent
+    SubscriptionBannerComponent,
+    PublicationItemComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { FieldsetModule } from 'primeng/fieldset';
     CardModule,
     ButtonModule,
     DividerModule,
-    FieldsetModule
+    FieldsetModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
