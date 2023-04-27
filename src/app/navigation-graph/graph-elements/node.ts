@@ -38,6 +38,7 @@ export class Node {
           .attr("font-family", "sans-serif")
           .attr("font-size", "10px")
           .attr("transform", "rotate()");
+          .attr("transform-origin", "graphcenterxpx, graphcenterypx")
         */
         const drawedNode = SVGContext
             .append("circle")

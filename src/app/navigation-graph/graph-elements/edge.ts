@@ -27,7 +27,8 @@ export class Edge {
         const edge = SVGContext.append("path")
             .style("fill", "none")
             .attr("d", Curve.generate(this.curveType)(this.source.getPosition(), this.target.getPosition()))
-            .attr("id", this.source.getId())
+            .attr("source-id", this.source.getId())
+            .attr("target-id", this.target.getId())
 
         if (this.class) {
             edge.attr("class", this.class);

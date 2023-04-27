@@ -1,9 +1,11 @@
 import { Node, Position } from "./node";
 
-const DEFAULT_WIDTH = 800;
-const DEFAULT_HEIGHT = 800;
-const DEFAULT_RADIUS = 100;
-const DEFAULT_SIZE = 22;
+const DEFAULT_WIDTH = 1200;
+const DEFAULT_HEIGHT = 1200;
+const RADIUS_FACTOR = 4;
+const NODE_SIZE_FACTOR = 53;
+const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.6;
+const INNER_NODES_RADIUS_SCALE_FACTOR = 0.75;
 
 export class Graph {
     private centralNode: Node;
@@ -11,6 +13,7 @@ export class Graph {
     private outerNodes: Node[];
     private width: number;
     private height: number;
+    private nodeBaseSize: number;
     private radius: number;
 
     constructor(
@@ -21,13 +24,15 @@ export class Graph {
             width?: number;
             height?: number;
             radius?: number;
+            nodeBaseSize?: number;
         }) {
         this.centralNode = centralNode;
         this.innerNodes = innerNodes;
         this.outerNodes = outerNodes;
         this.width = options?.width ?? DEFAULT_WIDTH;
         this.height = options?.height ?? DEFAULT_HEIGHT;
-        this.radius = options?.radius ?? DEFAULT_RADIUS;
+        this.radius = options?.radius ?? DEFAULT_WIDTH / RADIUS_FACTOR;
+        this.nodeBaseSize = options?.nodeBaseSize ?? DEFAULT_WIDTH / NODE_SIZE_FACTOR;
     }
 
     public draw(SVGContext: d3.Selection<d3.BaseType, unknown, HTMLElement, any>) {
@@ -42,24 +47,40 @@ export class Graph {
         this.centralNode.draw(SVGContext);
     }
 
+    public setWidth(width: number): Graph {
+        this.width = width;
+        this.height = width;
+        this.nodeBaseSize = width / NODE_SIZE_FACTOR;
+        this.radius = width / RADIUS_FACTOR;
+        return this;
+    }
+
     private updateGraphLayout() {
         this.centralNode
-            .setSize(DEFAULT_SIZE * 3)
+            .setSize(this.nodeBaseSize * 8)
             .setPosition(
                 { x: this.width / 2, y: this.height / 2 }
             );
         this.innerNodes.forEach((node, index) => {
             node.setClass('innerNode')
-                .setSize(DEFAULT_SIZE)
+                .setSize(this.nodeBaseSize)
                 .setPosition(
-                    this.calculateNodePosition(index, this.innerNodes.length, 1)
+                    this.calculateNodePosition(
+                        index,
+                        this.innerNodes.length,
+                        INNER_NODES_RADIUS_SCALE_FACTOR
+                    )
                 );
         });
         this.outerNodes.forEach((node, index) => {
             node.setClass('outerNode')
-                .setSize(DEFAULT_SIZE / 2)
+                .setSize(this.nodeBaseSize / 2)
                 .setPosition(
-                    this.calculateNodePosition(index, this.outerNodes.length, 2)
+                    this.calculateNodePosition(
+                        index,
+                        this.outerNodes.length,
+                        OUTER_NODES_RADIUS_SCALE_FACTOR
+                    )
                 );
         });
     }

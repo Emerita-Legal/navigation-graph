@@ -12,22 +12,22 @@ export class Curve {
             case 'linear':
                 return this.linearCurve;
             case 'smooth':
-                return this.smoothCurvePath;
+                return this.smoothCurve;
         }
     }
 
     private static linearCurve(
         source: { x: number, y: number }, target: { x: number, y: number }
-    ) {
+    ): string {
         const dx = target.x - source.x;
         const dy = target.y - source.y;
         const dr = Math.sqrt(dx * dx + dy * dy) * 2; // Control the curvature
         return `M${source.x},${source.y}A${dr},${dr} 0 0,1 ${target.x},${target.y}`;
     };
 
-    private static smoothCurvePath(
+    private static smoothCurve(
         source: { x: number, y: number }, target: { x: number, y: number }
-    ) {
+    ): string | null {
         const smoothLine = d3.line<{ x: number, y: number }>()
             .x((d) => d.x)
             .y((d) => d.y)

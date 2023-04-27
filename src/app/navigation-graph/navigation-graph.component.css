@@ -1,14 +1,25 @@
  .link{
     stroke: rgb(211, 218, 222);
     stroke-width: 0.125vmin;
-    cursor: pointer;
+ }
+
+ .linkHover, .linkSelected{
+   stroke: #437def;
+   transition: all 300ms ease-in;
  }
 
  .innerNode{
     fill: white;
     stroke: rgb(135, 136, 160);
-    transition: all 300ms ease;
+    transition: all 300ms ease-in;
     cursor: pointer;
+ }
+
+ .innerNodeHover, .innerNodeSelected, .outerNodeSelected, .outerNodeHover{
+   fill: #437def;
+   stroke: #437def;
+   transition: all 300ms ease-in;
+   cursor: pointer;
  }
 
  .innerEdge{
@@ -20,7 +31,7 @@
  .outerNode{
     fill: white;
     stroke: rgb(135, 136, 160);
-    transition: all 300ms ease;
+    transition: all 300ms ease-in-out;
     cursor: pointer;
  }
 
