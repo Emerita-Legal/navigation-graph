@@ -18,21 +18,39 @@ export class NavigationGraphComponent {
   constructor(private graphService: GraphService) {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.initSVG();
-    this.graphService.getGraphInstance().setWidth(this.width).draw(d3.select("svg"));
+    if (this.SVG) {
+      this.graphService.getGraphInstance().setWidth(this.width).draw(this.SVG);
+    }
     this.applyEffects();
   }
 
-  private initSVG() {
-    this.SVG = d3.select("#navigation-container");
-    this.SVG
+  private initSVG(): void {
+    const svg = d3.select("#navigation-container")
       .append("svg")
-      .attr("width", this.width)
-      .attr("height", this.height);
+      .attr("width", '100%');
+
+    this.updateWidth();
+
+    svg.attr("height", this.height);
+
+    this.SVG = d3.select("svg");
   }
 
-  private applyEffects() {
+  private resetSVG(): void {
+    if (this.SVG) {
+      this.SVG.remove();
+      this.initSVG();
+    }
+  }
+
+  private updateWidth(): void {
+    this.width = document.querySelector('svg')?.clientWidth!;
+    this.height = this.width;
+  }
+
+  private applyEffects(): void {
     applyScaleOnHover(1.1)
     highlightEdgesOnClick();
   }
