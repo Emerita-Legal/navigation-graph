@@ -36,14 +36,23 @@ export class Graph {
     }
 
     public draw(SVGContext: d3.Selection<d3.BaseType, unknown, HTMLElement, any>) {
-        this.updateGraphLayout();
+        const drawNodes = () => {
+            [...this.innerNodes, ...this.outerNodes].forEach(node => {
+                node.draw(SVGContext)
+            });
+        }
+
+        const drawEdges = () => {
+            [...this.innerNodes, ...this.outerNodes].forEach(node => {
+                node.getEdges().forEach(edge => edge.draw(SVGContext));
+            });
+        }
+
+        this.prepareGraphLayout();
         /** Draw all the edges before the nodes so the nodes stay always ahead on the layout */
-        [...this.innerNodes, ...this.outerNodes].forEach(node => {
-            node.getEdges().forEach(edge => edge.draw(SVGContext));
-        });
-        [...this.innerNodes, ...this.outerNodes].forEach(node => {
-            node.draw(SVGContext)
-        });
+        drawEdges();
+        drawNodes();
+        
         this.centralNode.draw(SVGContext);
     }
 
@@ -55,7 +64,7 @@ export class Graph {
         return this;
     }
 
-    private updateGraphLayout() {
+    private prepareGraphLayout() {
         this.centralNode
             .setSize(this.nodeBaseSize * 8)
             .setPosition(

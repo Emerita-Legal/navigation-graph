@@ -1,13 +1,15 @@
 import * as d3 from 'd3';
+import { Position } from './node';
 
 export type CurveType = 'smooth' | 'linear';
+
+type CurveFunction = (source: Position, target: Position) => string | null;
 
 export class Curve {
 
     constructor() { }
 
-    static generate(curveType: CurveType):
-        (source: { x: number, y: number }, target: { x: number, y: number }) => string | null {
+    static generate(curveType: CurveType): CurveFunction{
         switch (curveType) {
             case 'linear':
                 return this.linearCurve;
@@ -16,21 +18,17 @@ export class Curve {
         }
     }
 
-    private static linearCurve(
-        source: { x: number, y: number }, target: { x: number, y: number }
-    ): string {
+    private static linearCurve(source: Position, target: Position): string {
         const dx = target.x - source.x;
         const dy = target.y - source.y;
         const dr = Math.sqrt(dx * dx + dy * dy) * 2; // Control the curvature
         return `M${source.x},${source.y}A${dr},${dr} 0 0,1 ${target.x},${target.y}`;
     };
 
-    private static smoothCurve(
-        source: { x: number, y: number }, target: { x: number, y: number }
-    ): string | null {
-        const smoothLine = d3.line<{ x: number, y: number }>()
-            .x((d) => d.x)
-            .y((d) => d.y)
+    private static smoothCurve(source: Position, target: Position): string | null {
+        const smoothLine = d3.line<Position>()
+            .x((position) => position.x)
+            .y((position) => position.y)
             .curve(d3.curveBasis);
 
         const offset = 25;

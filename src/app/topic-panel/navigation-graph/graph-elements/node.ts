@@ -4,12 +4,21 @@ const DEFAULT_SIZE = 22;
 
 export type Position = { x: number, y: number };
 
+export type Label = {
+    text: string;
+    position: Position;
+    fontFamily: string;
+    size: string;
+    rotation: number;
+}
+
 export class Node {
     private readonly id: number;
     private position: Position;
     private size: number;
     private edges: Edge[];
     private class: string;
+    private label?: Label;
 
     constructor(
         id: number,
@@ -18,6 +27,7 @@ export class Node {
             size?: number;
             edges?: Edge[];
             class?: string;
+            label?: Label;
         }
     ) {
         this.id = id;
@@ -25,21 +35,10 @@ export class Node {
         this.size = options?.size ?? DEFAULT_SIZE;
         this.edges = options?.edges ?? [];
         this.class = options?.class ?? '';
+        this.label = options?.label;
     }
 
     public draw(SVGContext: d3.Selection<d3.BaseType, unknown, HTMLElement, any>): void {
-        /*
-    
-        this.SVG
-        .append("text")
-          .attr("dx", node.x + 200)
-          .attr("dy", node.y - 620)
-          .text("Prueba")
-          .attr("font-family", "sans-serif")
-          .attr("font-size", "10px")
-          .attr("transform", "rotate()");
-          .attr("transform-origin", "graphcenterxpx, graphcenterypx")
-        */
         const drawedNode = SVGContext
             .append("circle")
             .attr("cx", this.position.x)
@@ -49,6 +48,18 @@ export class Node {
 
         if (this.class !== undefined) {
             drawedNode.attr("class", this.class)
+        }
+
+        if (this.label) {
+            drawedNode
+                .append("text")
+                .attr("dx", this.label.position.x)
+                .attr("dy", this.label.position.y)
+                .text(this.label.text)
+                .attr("font-family", this.label.fontFamily)
+                .attr("font-size", this.label.size)
+                .attr("transform", `rotate(${this.label.rotation}deg)`)
+                .attr("transform-origin", "graphcenterxpx, graphcenterypx");
         }
 
     }
