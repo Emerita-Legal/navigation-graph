@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Graph } from '../navigation-graph/graph-elements/graph';
-import { Node } from '../navigation-graph/graph-elements/node';
-import { Edge } from '../navigation-graph/graph-elements/edge';
+import { Graph } from '../topic-panel/navigation-graph/graph-elements/graph';
+import { Node } from '../topic-panel/navigation-graph/graph-elements/node';
+import { Edge } from '../topic-panel/navigation-graph/graph-elements/edge';
 
 @Injectable()
 export class GraphService {
