@@ -7,7 +7,6 @@ export type Position = { x: number, y: number };
 export type Label = {
     text: string;
     position: Position;
-    fontFamily: string;
     size: string;
     rotation: number;
 }
@@ -56,7 +55,6 @@ export class Node {
                 .attr("dx", this.label.position.x)
                 .attr("dy", this.label.position.y)
                 .text(this.label.text)
-                .attr("font-family", this.label.fontFamily)
                 .attr("font-size", this.label.size)
                 .attr("transform", `rotate(${this.label.rotation}deg)`)
                 .attr("transform-origin", "graphcenterxpx, graphcenterypx");
@@ -106,10 +104,35 @@ export class Node {
         return this;
     }
 
+    public addLabel(label: { text: string } & Partial<Label>, calculateRotation?: boolean) {
+        this.label = {
+            text: label.text,
+            position: label.position ?? this.position,
+            rotation: label.rotation ?? 0,
+            size: label.size ?? '10px',
+        }
+
+        // if(calculateRotation){
+        //     this.label.rotation = this.getLabelAngle(, this.label.position);
+        // }
+
+        return this;
+    }
+
     private hasEdge(edge: Edge): boolean {
         return this.edges.filter(e => {
             return e.getId() === edge.getId()
         }).length > 0;
     }
+
+    private getLabelAngle(graphCenter: Position, point: Position) {
+        const dx = point.x - graphCenter.x;
+        const dy = point.y - graphCenter.y;
+        let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        if (angle < 0) {
+          angle += 360;
+        }
+        return angle;
+      }
 
 }

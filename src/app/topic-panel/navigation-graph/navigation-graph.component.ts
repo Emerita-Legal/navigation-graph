@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from '../../_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
+import { Graph } from './graph-elements/graph';
 
 @Component({
   selector: 'app-navigation-graph',
@@ -12,16 +13,18 @@ import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
 })
 export class NavigationGraphComponent {
   private SVG: d3.Selection<d3.BaseType, unknown, HTMLElement, any> | null = null;
-  private width = 800;
-  private height = 800;
+  private width = 1100;
+  private height = 1100;
+  private graph: Graph;
 
   constructor(private graphService: GraphService) {
+    this.graph = this.graphService.getGraphInstance().setWidth(this.width);
   }
 
   ngAfterViewInit(): void {
     this.initSVG();
     if (this.SVG) {
-      this.graphService.getGraphInstance().setWidth(this.width).draw(this.SVG);
+      this.graph.draw(this.SVG);
     }
     this.applyEffects();
   }
