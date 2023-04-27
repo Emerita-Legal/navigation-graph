@@ -15,6 +15,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { SubscriptionBannerComponent } from './topic-panel/topic-browse/subscription-banner/subscription-banner.component';
+import { FieldsetModule } from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SubscriptionBannerComponent } from './topic-panel/topic-browse/subscrip
     BrowserAnimationsModule,
     CardModule,
     ButtonModule,
-    DividerModule
+    DividerModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
