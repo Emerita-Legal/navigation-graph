@@ -1,11 +1,14 @@
  .link{
     stroke: rgb(211, 218, 222);
     stroke-width: 0.125vmin;
+    opacity: 0.5;
  }
 
  .linkHover, .linkSelected{
    stroke: #437def;
    transition: all 300ms ease-in;
+   stroke-width: 0.130vmin;
+   opacity: 1;
  }
 
  .innerNode{

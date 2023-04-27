@@ -18,6 +18,9 @@ import { SubscriptionBannerComponent } from './topic-panel/topic-browse/subscrip
 import { FieldsetModule } from 'primeng/fieldset';
 import { AccordionModule } from 'primeng/accordion';
 import { PublicationItemComponent } from './topic-panel/topic-browse/topic-publications/publication-item/publication-item.component';
+import { VideoItemComponent } from './topic-panel/topic-browse/topic-videos/video-item/video-item.component';
+import { InteractiveDataItemComponent } from './topic-panel/topic-browse/topic-interactive-data/interactive-data-item/interactive-data-item.component';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { PublicationItemComponent } from './topic-panel/topic-browse/topic-publi
     TopicBrowseComponent,
     TopicAboutComponent,
     SubscriptionBannerComponent,
-    PublicationItemComponent
+    PublicationItemComponent,
+    VideoItemComponent,
+    InteractiveDataItemComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { PublicationItemComponent } from './topic-panel/topic-browse/topic-publi
     ButtonModule,
     DividerModule,
     FieldsetModule,
-    AccordionModule
+    AccordionModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

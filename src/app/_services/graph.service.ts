@@ -25,6 +25,10 @@ export class GraphService {
             else node.addEdge(new Edge(node, outerNodes[0], { class: 'outerEdge' }))
         });
         outerNodes.forEach((node, index) => node.addEdge(new Edge(node, innerNodes[index % innerNodes.length], { curveType: 'smooth', class: 'link' })));
+        outerNodes.forEach((node, index) => node.addEdge(new Edge(node, innerNodes[index * 2 % innerNodes.length], { curveType: 'smooth', class: 'link' })));
+        outerNodes.forEach((node, index) => node.addEdge(new Edge(node, innerNodes[index * 3 % innerNodes.length], { curveType: 'smooth', class: 'link' })));
+        outerNodes.forEach((node, index) => node.addEdge(new Edge(node, innerNodes[index * 4 % innerNodes.length], { curveType: 'smooth', class: 'link' })));
+
         return new Graph(centralNode, innerNodes, outerNodes);
     };
 }
