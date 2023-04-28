@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { Position } from './node';
+import { Position } from './layout';
 
 export type CurveType = 'smooth' | 'linear';
 

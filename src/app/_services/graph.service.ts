@@ -14,7 +14,6 @@ export class GraphService {
         
         outerNodes.forEach((node, index) => graph.createAndAddEdge(node, innerNodes[index % innerNodes.length]));
         outerNodes.forEach((node, index) => graph.createAndAddEdge(node, innerNodes[index * 2 % innerNodes.length]));
-        outerNodes.forEach((node, index) => graph.createAndAddEdge(node, innerNodes[index * 3 % innerNodes.length]));
         return graph;
     };
 }

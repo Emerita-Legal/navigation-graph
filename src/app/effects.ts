@@ -40,6 +40,7 @@ export const applyScaleOnHover = (scaleFactor: number): void => {
 
 export const highlightEdgesOnClick = (): void => {
     document.querySelectorAll('.innerNode').forEach(node => {
+        console.log(node);
         const edges = Array.from(
             document
                 .querySelectorAll(`.link[target-id=\"${node.getAttribute('id')}\"]`)
@@ -50,7 +51,7 @@ export const highlightEdgesOnClick = (): void => {
                 document.querySelector(`[id=\"${edge.getAttribute('source-id')}\"]`)
             )
             .filter(el => !!el) as Element[];
-
+                console.log(edges, outerNodes);
         node
             .addEventListener('click',
                 () => {

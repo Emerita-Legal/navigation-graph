@@ -2,7 +2,7 @@ import { Circle } from "./circle";
 import { Curve, CurveType } from "./curve";
 import { Edge } from "./edge";
 import { Graph, HierarchyLevels } from "./graph";
-import { Node, Position } from "./node";
+import { Node } from "./node";
 
 const DEFAULT_LAYOUT_WIDTH = 1200;
 const RADIUS_FACTOR = 4;
@@ -10,6 +10,14 @@ const NODE_SIZE_FACTOR = 53;
 const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.4;
 const INNER_NODES_RADIUS_SCALE_FACTOR = 0.65;
 
+export type Position = { x: number, y: number };
+
+export type Label = {
+    text: string;
+    position: Position;
+    size: string;
+    rotation: number;
+}
 export type LayoutContext = d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
 export type PathContext = d3.Selection<SVGPathElement, unknown, HTMLElement, any>;
 
@@ -50,12 +58,12 @@ export class Layout {
         this.bringNodesToFront();
     }
 
-    private bringNodesToFront(){
+    private bringNodesToFront() {
         this.graph
-        .getNodes()
-        .map(node => node.getId())
-        .map(this.findNodeById.bind(this))
-        .forEach(nodeElement => nodeElement.raise());
+            .getNodes()
+            .map(node => node.getId())
+            .map(this.findNodeById.bind(this))
+            .forEach(nodeElement => nodeElement.raise());
     }
 
     private drawLine(start: Position, end: Position, options?: {
@@ -103,13 +111,13 @@ export class Layout {
             }
         )
             .attr("source-id", edge.getSource().getId())
-            .attr("target-id", edge.getSource().getId());
+            .attr("target-id", edge.getTarget().getId());
     }
 
     private drawNode(node: Node, position: Position, options?: { class?: string, size?: number }) {
-        const drawedNode = this.drawCirclePoint(position, options?.size).attr("id", node.getId());
+        const drawnNode = this.drawCirclePoint(position, options?.size).attr("id", node.getId());
         if (options?.class) {
-            drawedNode.attr("class", options.class);
+            drawnNode.attr("class", options.class);
         }
     }
 
@@ -150,9 +158,9 @@ export class Layout {
                 {
                     class: 'innerNode'
                 }
-            )
+            );
+            this.drawLabel({text: 'Prueba', size: '1.8vmin'}, node);
         });
-        //addLabel({ text: 'Prueba', size: '1.8vmin' }, false);
 
         outerNodes.forEach((node, index) => {
             this.drawNode(
@@ -167,18 +175,38 @@ export class Layout {
                     class: 'outerNode',
                     size: this.nodeBaseSize / 2
                 }
-            )
+            );
+            this.drawLabel({text: 'Prueba', size: '1vmin'}, node, true);
         });
-        /**.addLabel({
-                text: 'Prueba',
-                size: '1vmin',
-                position:
-                    Circle.calculateNodePosition(
-                        index,
-                        this.outerNodes.length,
-                        1.5
-                    )
-            }, true); */
+    }
+
+
+    public drawLabel(label: { text: string } & Partial<Label>, node?: Node, calculateRotation?: boolean): void {
+        const context = this.SVGContext;
+        if (node) {
+            label.position = this.getNodePosition(node.getId());
+        }
+
+        if (!label.position) throw new Error("Label needs a position or a reference node to be drawn");
+
+        if (calculateRotation) {
+            label.rotation = Circle.getAngleBetweenPositions(this.center, label.position);
+        }
+
+        const drawnLabel = context.append("text")
+            .attr("dx", label.position.x)
+            .attr("dy", label.position.y)
+            .text(label.text);
+
+        if (label.size) {
+            drawnLabel.attr("font-size", label.size);
+        }
+
+        if (label.rotation) {
+            drawnLabel
+                .attr("transform", `rotate(${label.rotation})`)
+                .attr("transform-origin", `${label.position.x} ${label.position.y}`);
+        }
     }
 
     public setWidth(width: number): Layout {
