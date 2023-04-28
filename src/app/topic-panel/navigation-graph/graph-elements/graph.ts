@@ -27,8 +27,8 @@ export class Graph {
         return this.edges;
     }
 
-    public addNode(hierarchyLevel: HierarchyLevels) {
-        const node = new Node(this.getNextId(), hierarchyLevel);
+    public addNode(name: string, hierarchyLevel: HierarchyLevels) {
+        const node = new Node(this.getNextId(), name, hierarchyLevel);
         this.nodes.push(node);
         return node;
     }

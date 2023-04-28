@@ -159,7 +159,7 @@ export class Layout {
                     class: 'innerNode'
                 }
             );
-            this.drawLabel({text: 'Prueba', size: '1.8vmin'}, node);
+            this.drawLabel({text: node.getName(), size: '1.8vmin'}, node);
         });
 
         outerNodes.forEach((node, index) => {
@@ -176,7 +176,7 @@ export class Layout {
                     size: this.nodeBaseSize / 2
                 }
             );
-            this.drawLabel({text: 'Prueba', size: '1vmin'}, node, true);
+            this.drawLabel({text: node.getName(), size: '1vmin'}, node, true);
         });
     }
 

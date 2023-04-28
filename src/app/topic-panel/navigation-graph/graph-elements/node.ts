@@ -2,13 +2,16 @@ import { HierarchyLevels } from "./graph";
 
 export class Node {
     private readonly id: number;
+    private name: string;
     private hierarchyLevel: HierarchyLevels;
 
     constructor(
         id: number,
-        hierarchyLevel: HierarchyLevels
+        name: string,
+        hierarchyLevel: HierarchyLevels,
     ) {
         this.id = id;
+        this.name = name;
         this.hierarchyLevel = hierarchyLevel;
     }
 
@@ -18,6 +21,10 @@ export class Node {
 
     public getHierarchyLevel(): HierarchyLevels {
         return this.hierarchyLevel;
+    }
+
+    public getName(): string {
+        return this.name;
     }
 
 }

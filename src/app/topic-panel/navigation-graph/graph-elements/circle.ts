@@ -29,12 +29,7 @@ export class Circle {
         const dx = position1.x - position2.x;
         const dy = position1.y - position2.y;
         let angle = Math.atan2(dy, dx) * (180 / Math.PI);
-        if (angle < 0) {
-            angle += 360;
-        }
-        if (angle >= 360) {
-            angle -= 360;
-        }
+        
         return angle;
     }
 }
