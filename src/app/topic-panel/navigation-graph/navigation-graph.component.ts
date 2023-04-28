@@ -2,8 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from '../../_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
-import { Graph } from './graph-elements/graph';
-import { Circle } from './graph-elements/circle';
+import { Layout } from './graph-elements/layout';
 
 @Component({
   selector: 'app-navigation-graph',
@@ -13,46 +12,40 @@ import { Circle } from './graph-elements/circle';
   providers: [GraphService]
 })
 export class NavigationGraphComponent {
-  private SVG: d3.Selection<d3.BaseType, unknown, HTMLElement, any> | null = null;
   private width = 1100;
   private height = 1100;
-  private graph: Graph;
 
-  constructor(private graphService: GraphService) {
-    this.graph = this.graphService.getGraphInstance();
-  }
+  constructor(private graphService: GraphService) {}
 
   ngAfterViewInit(): void {
-    this.initSVG();
-    if (this.SVG) {
-      this.graph.draw(this.SVG);
-    }
+    this.initLayout().draw();
     this.applyEffects();
   }
 
-  private initSVG(): void {
-    const svg = d3.select("#navigation-container")
+  private initLayout(): Layout {
+    const SVG = d3.select("#navigation-container")
       .append("svg")
       .attr("width", '100%');
 
     this.updateWidth();
 
-    svg.attr("height", this.height);
+    SVG.attr("height", this.height);
 
-    this.SVG = d3.select("svg");
+    return new Layout(this.graphService.getGraphInstance(), d3.select("svg"), {
+      width: this.width
+    });
   }
 
-  private resetSVG(): void {
-    if (this.SVG) {
-      this.SVG.remove();
-      this.initSVG();
-    }
-  }
+  // private resetSVG(): void {
+  //   if (this.SVG) {
+  //     this.SVG.remove();
+  //     this.initSVG();
+  //   }
+  // }
 
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;
     this.height = this.width;
-    Circle.setWidth(this.width);
   }
 
   private applyEffects(): void {
