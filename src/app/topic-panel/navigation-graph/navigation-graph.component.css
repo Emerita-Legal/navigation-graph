@@ -1,7 +1,7 @@
  .link{
     stroke: rgb(211, 218, 222);
     stroke-width: 0.125vmin;
-    opacity: 0.5;
+    opacity: 0.9;
  }
 
  .linkHover, .linkSelected{
