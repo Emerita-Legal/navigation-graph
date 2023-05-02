@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { InteractiveDataItemComponent } from './topic-panel/topic-browse/topic-i
 import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     NavigationGraphComponent,
@@ -39,7 +40,6 @@ import { MenubarModule } from 'primeng/menubar';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxGraphModule,
     BrowserAnimationsModule,
     CardModule,
     ButtonModule,
