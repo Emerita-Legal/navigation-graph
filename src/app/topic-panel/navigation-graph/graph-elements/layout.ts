@@ -9,6 +9,7 @@ const RADIUS_FACTOR = 4;
 const NODE_SIZE_FACTOR = 53;
 const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.4;
 const INNER_NODES_RADIUS_SCALE_FACTOR = 0.65;
+const LABEL_MARGIN = 20;
 
 export type Position = { x: number, y: number };
 
@@ -17,6 +18,7 @@ export type Label = {
     position: Position;
     size: string;
     rotation: number;
+    isBold: boolean;
 }
 export type LayoutContext = d3.Selection<d3.BaseType, unknown, HTMLElement, any>;
 export type PathContext = d3.Selection<SVGPathElement, unknown, HTMLElement, any>;
@@ -53,17 +55,10 @@ export class Layout {
     public draw() {
         this.drawCircumference(300, OUTER_NODES_RADIUS_SCALE_FACTOR, { class: 'outerEdge' });
         this.drawCircumference(10, INNER_NODES_RADIUS_SCALE_FACTOR, { class: 'innerEdge' });
-        this.drawNodesInCircularShape();
+        this.drawCentralNode();
+        this.drawInnerNodes();
+        this.drawOuterNodes();
         this.graph.getEdges().forEach(edge => this.drawEdge(edge, { class: 'link' }));
-        this.bringNodesToFront();
-    }
-
-    private bringNodesToFront() {
-        this.graph
-            .getNodes()
-            .map(node => node.getId())
-            .map(this.findNodeById.bind(this))
-            .forEach(nodeElement => nodeElement.raise());
     }
 
     private drawLine(start: Position, end: Position, options?: {
@@ -111,7 +106,8 @@ export class Layout {
             }
         )
             .attr("source-id", edge.getSource().getId())
-            .attr("target-id", edge.getTarget().getId());
+            .attr("target-id", edge.getTarget().getId())
+            .lower();
     }
 
     private drawNode(node: Node, position: Position, options?: { class?: string, size?: number }) {
@@ -130,70 +126,73 @@ export class Layout {
         )
     }
 
-    private drawNodesInCircularShape() {
+    private drawCentralNode() {
         const centralNode = this.graph.getNodesByHierarchyLevel(HierarchyLevels.central)[0];
-        const innerNodes = this.graph.getNodesByHierarchyLevel(HierarchyLevels.inner);
-        const outerNodes = this.graph.getNodesByHierarchyLevel(HierarchyLevels.outer);
-
         if (centralNode) {
-            this.drawNode(
-                centralNode,
-                this.center,
-                {
-                    size: this.nodeBaseSize * 7,
-                    class: 'centralNode'
-                }
-            )
-        }
+            this.drawNode(centralNode, this.center, {
+                size: this.nodeBaseSize * 7,
+                class: 'centralNode'
+            });
 
+            const labelSize = '2.5vmin';
+            const labelPosition = Circle.translatePosition(this.center, this.center, -(this.measureText(centralNode.getName(), labelSize) / 2));
+            this.drawLabel({
+                text: centralNode.getName(), size: labelSize, position: labelPosition, isBold: true
+            });
+        }
+    }
+
+    private drawInnerNodes() {
+        const innerNodes = this.graph.getNodesByHierarchyLevel(HierarchyLevels.inner);
+        const innerRadius = this.radius * INNER_NODES_RADIUS_SCALE_FACTOR;
         innerNodes.forEach((node, index) => {
             const nodePosition = Circle.calculateNodePosition({
-                    index,
-                    totalNodes: innerNodes.length,
-                    radius: this.radius * INNER_NODES_RADIUS_SCALE_FACTOR,
-                    center: this.center
-                });
-            this.drawNode(
-                node,
-                nodePosition,
-                {
-                    class: 'innerNode'
-                }
-            );
+                index,
+                totalNodes: innerNodes.length,
+                radius: innerRadius,
+                center: this.center
+            });
+            this.drawNode(node, nodePosition, { class: 'innerNode' });
+
+            const labelSize = '1.8vmin';
+            const isNodeInLeftHalf = [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition));
+            const labelTranslation = isNodeInLeftHalf ?
+                innerRadius + this.nodeBaseSize + LABEL_MARGIN + this.measureText(node.getName(), labelSize) :
+                innerRadius + this.nodeBaseSize + LABEL_MARGIN;
+
             this.drawLabel({
                 text: node.getName(),
-                position:
-                    [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition)) ?
-                        Circle.translatePosition(nodePosition, this.center, this.radius * INNER_NODES_RADIUS_SCALE_FACTOR + this.measureText(node.getName()) + 80)
-                        :
-                        Circle.translatePosition(nodePosition, this.center, this.radius * INNER_NODES_RADIUS_SCALE_FACTOR + 50),
-                size: '1.8vmin'
+                position: Circle.translatePosition(nodePosition, this.center, labelTranslation),
+                size: labelSize
             }, undefined, true);
         });
+    }
+
+    private drawOuterNodes() {
+        const outerNodes = this.graph.getNodesByHierarchyLevel(HierarchyLevels.outer);
+        const outerRadius = this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR;
+        const nodeSize = this.nodeBaseSize / 2;
 
         outerNodes.forEach((node, index) => {
             const nodePosition = Circle.calculateNodePosition({
                 index,
                 totalNodes: outerNodes.length,
-                radius: this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR,
+                radius: outerRadius,
                 center: this.center
             });
-            this.drawNode(
-                node,
-                nodePosition,
-                {
-                    class: 'outerNode',
-                    size: this.nodeBaseSize / 2
-                }
-            );
-            this.drawLabel({
-                text: node.getName(), position:
-                    [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition)) ?
-                        Circle.translatePosition(nodePosition, this.center, this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR + this.measureText(node.getName()))
-                        :
-                        Circle.translatePosition(nodePosition, this.center, this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR + 15)
+            this.drawNode(node, nodePosition, { class: 'outerNode', size: nodeSize });
 
-                , size: '1vmin'
+            const labelSize = '1vmin';
+            const isNodeInLeftHalf = [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition));
+            const labelTranslation = isNodeInLeftHalf ?
+                outerRadius + nodeSize + LABEL_MARGIN + this.measureText(node.getName(), labelSize) :
+                outerRadius + nodeSize + LABEL_MARGIN;
+
+            this.drawLabel({
+                text: node.getName(),
+                position: Circle.translatePosition(nodePosition, this.center, labelTranslation),
+                size: labelSize,
+                isBold: true
             }, undefined, true);
         });
     }
@@ -227,11 +226,17 @@ export class Layout {
             drawnLabel.attr("font-size", label.size);
         }
 
+        if (label.isBold) {
+            drawnLabel.attr("font-weight", "bold")
+        }
+
         if (label.rotation) {
             drawnLabel
                 .attr("transform", `rotate(${label.rotation})`)
                 .attr("transform-origin", `${label.position.x} ${label.position.y}`);
         }
+
+        drawnLabel.raise();
     }
 
     public setWidth(width: number): Layout {
@@ -242,8 +247,11 @@ export class Layout {
         return this;
     }
 
-    private measureText(text: string): number {
-        const fakeElement = this.SVGContext.append('text').text(text).attr('dx', '-99999').attr('dy', '-99999');
+    private measureText(text: string, fontSize: string): number {
+        const fakeElement = this.SVGContext.append('text').text(text)
+            .attr("font-size", fontSize)
+            .attr('dx', '-99999')
+            .attr('dy', '-99999');
         const size = fakeElement.node()?.getComputedTextLength();
         fakeElement.remove();
         return size ?? 0;
