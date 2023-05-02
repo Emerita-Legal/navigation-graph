@@ -1,4 +1,4 @@
-import { Circle } from "./circle";
+import { Circle, Quarter } from "./circle";
 import { Curve, CurveType } from "./curve";
 import { Edge } from "./edge";
 import { Graph, HierarchyLevels } from "./graph";
@@ -122,7 +122,7 @@ export class Layout {
     }
 
     private drawCircumference(numberOfPoints: number, radiusScaleFactor: number, options?: { class?: string }) {
-        const points = Circle.calculateCirclePoints(numberOfPoints, this.radius * radiusScaleFactor, this.width);
+        const points = Circle.calculateCirclePoints(numberOfPoints, this.radius * radiusScaleFactor, this.center);
         points.forEach(
             (point, index) => {
                 this.drawLine(point, points[(index + 1) % points.length], { class: options?.class })
@@ -147,39 +147,63 @@ export class Layout {
         }
 
         innerNodes.forEach((node, index) => {
-            this.drawNode(
-                node,
-                Circle.calculateNodePosition({
+            const nodePosition = Circle.calculateNodePosition({
                     index,
                     totalNodes: innerNodes.length,
                     radius: this.radius * INNER_NODES_RADIUS_SCALE_FACTOR,
-                    width: this.width
-                }),
+                    center: this.center
+                });
+            this.drawNode(
+                node,
+                nodePosition,
                 {
                     class: 'innerNode'
                 }
             );
-            this.drawLabel({text: node.getName(), size: '1.8vmin'}, node);
+            this.drawLabel({
+                text: node.getName(),
+                position:
+                    [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition)) ?
+                        Circle.translatePosition(nodePosition, this.center, this.radius * INNER_NODES_RADIUS_SCALE_FACTOR + this.measureText(node.getName()) + 80)
+                        :
+                        Circle.translatePosition(nodePosition, this.center, this.radius * INNER_NODES_RADIUS_SCALE_FACTOR + 50),
+                size: '1.8vmin'
+            }, undefined, true);
         });
 
         outerNodes.forEach((node, index) => {
+            const nodePosition = Circle.calculateNodePosition({
+                index,
+                totalNodes: outerNodes.length,
+                radius: this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR,
+                center: this.center
+            });
             this.drawNode(
                 node,
-                Circle.calculateNodePosition({
-                    index,
-                    totalNodes: outerNodes.length,
-                    radius: this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR,
-                    width: this.width
-                }),
+                nodePosition,
                 {
                     class: 'outerNode',
                     size: this.nodeBaseSize / 2
                 }
             );
-            this.drawLabel({text: node.getName(), size: '1vmin'}, node, true);
+            this.drawLabel({
+                text: node.getName(), position:
+                    [Quarter.TopLeft, Quarter.BottomLeft].includes(Circle.getQuarterFromPoint(this.center, nodePosition)) ?
+                        Circle.translatePosition(nodePosition, this.center, this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR + this.measureText(node.getName()))
+                        :
+                        Circle.translatePosition(nodePosition, this.center, this.radius * OUTER_NODES_RADIUS_SCALE_FACTOR + 15)
+
+                , size: '1vmin'
+            }, undefined, true);
         });
     }
 
+    private getLabelRotation(labelPosition: Position): number {
+        const angle = Circle.getAngleBetweenPositions(this.center, labelPosition);
+        if (angle > 90 && angle <= 180) return angle + 180;
+        if (angle < -90 && angle >= -180) return angle - 180;
+        return angle;
+    }
 
     public drawLabel(label: { text: string } & Partial<Label>, node?: Node, calculateRotation?: boolean): void {
         const context = this.SVGContext;
@@ -190,10 +214,11 @@ export class Layout {
         if (!label.position) throw new Error("Label needs a position or a reference node to be drawn");
 
         if (calculateRotation) {
-            label.rotation = Circle.getAngleBetweenPositions(this.center, label.position);
+            label.rotation = this.getLabelRotation(label.position);
         }
 
-        const drawnLabel = context.append("text")
+        const drawnLabel = context
+            .append("text")
             .attr("dx", label.position.x)
             .attr("dy", label.position.y)
             .text(label.text);
@@ -216,4 +241,12 @@ export class Layout {
         this.center = { x: width / 2, y: width / 2 };
         return this;
     }
+
+    private measureText(text: string): number {
+        const fakeElement = this.SVGContext.append('text').text(text).attr('dx', '-99999').attr('dy', '-99999');
+        const size = fakeElement.node()?.getComputedTextLength();
+        fakeElement.remove();
+        return size ?? 0;
+    }
 }
+
