@@ -18,4 +18,15 @@ export class ResourceItemComponent {
   goto(link: string) {
     window.open(link, '__blank');
   }
+
+  getResourceBorder() {
+    switch (this.resource.type) {
+      case 'Abogado':
+        return '5px solid orange';
+      case 'Órgano Judicial':
+        return '5px solid #ADD8E6';
+      default:
+        return '5px solid orange';
+    }
+  }
 }
