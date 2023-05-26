@@ -2,7 +2,7 @@
     <div class="col-8">
         <app-navigation-graph></app-navigation-graph>
     </div>
-    <div class="col-4 p-5">
+    <div class="col-4 p-5" [style.overflow]="'scroll'" [style.max-height]="getMaxHeight()">
         <app-topic-about></app-topic-about>
         <app-topic-browse></app-topic-browse>
     </div>
