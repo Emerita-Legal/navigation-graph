@@ -1,38 +1,38 @@
  .link{
-    stroke: rgb(211, 218, 222);
+    stroke: #eddace;
     stroke-width: 0.125vmin;
     opacity: 0.9;
  }
 
  .linkHover, .linkSelected{
-   stroke: #437def;
+   stroke: #ff8b22;
    transition: all 300ms ease-in;
    stroke-width: 0.130vmin;
    opacity: 1;
  }
 
  .innerNode{
-    fill: white;
+    fill: #fff3eb;
     stroke: rgb(135, 136, 160);
     transition: all 300ms ease-in;
     cursor: pointer;
  }
 
  .innerNodeHover, .innerNodeSelected, .outerNodeSelected, .outerNodeHover{
-   fill: #437def;
-   stroke: #437def;
+   fill: #ff8b22;
+   stroke: #ff8b22;
    transition: all 300ms ease-in;
    cursor: pointer;
  }
 
  .innerEdge{
-    stroke: #437def;
+    stroke: #ff8b22;
     stroke-dasharray: 1.3vmin 0.5vmin; 
     stroke-width: 0.2vmin;
  }
 
  .outerNode{
-    fill: white;
+    fill: #fff3eb;
     stroke: rgb(135, 136, 160);
     transition: all 300ms ease-in-out;
     cursor: pointer;
@@ -45,12 +45,16 @@
 
  .centralNode {
     /* fill: url(#map-image); */
-    fill: white;
+    fill: #0f1820;
     stroke: rgb(135, 136, 160);
+ }
+
+ .centralNode+text {
+   fill: white;
  }
  
  text {
-   fill: rgb(74, 75, 99);
+   fill: #212529;
    text-align: center;
    text-shadow: none;
  }
