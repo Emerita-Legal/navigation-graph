@@ -1,16 +1,18 @@
 <div class="resource-item mt-3" style="cursor:pointer" (click)='goto(resource.href)'>
-    <div class="surface-card shadow-2 border-round pt-3">
+    <div class="surface-card shadow-2 border-round pl-3 pt-2 pb-2">
         <div class="grid">
-            <div class="col-2 flex align-items-center">
-                <p-avatar class="ml-3" image="{{resource.image}}" size="xlarge" shape="circle"></p-avatar>
+            <div class="col-1 flex align-items-center pt-3">
+                <p-avatar image="{{resource.image}}" size="large" shape="circle"></p-avatar>
             </div>
-            <div class="col-10">
-                <span class="block text-500 font-small mb-1">
-                    {{resource.type}} - {{resource.country}}
-                </span>
-                <span class="text-900 font-small text-xl">
-                    {{resource.title}}
-                </span>
+            <div class="col-11 flex align-items-center">
+                <div class="pl-3">
+                    <span class="block text-500 mb-1">
+                        {{resource.type}} - {{resource.country}}
+                    </span>
+                    <span class="text-900 text-lg">
+                        {{resource.title}}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
