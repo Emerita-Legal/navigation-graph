@@ -1,0 +1,17 @@
+<div class="resource-item mt-3" style="cursor:pointer" (click)='goto(resource.href)'>
+    <div class="surface-card shadow-2 border-round pt-3">
+        <div class="grid">
+            <div class="col-2 flex align-items-center">
+                <p-avatar class="ml-3" image="{{resource.image}}" size="xlarge" shape="circle"></p-avatar>
+            </div>
+            <div class="col-10">
+                <span class="block text-500 font-small mb-1">
+                    {{resource.type}} - {{resource.country}}
+                </span>
+                <span class="text-900 font-small text-xl">
+                    {{resource.title}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

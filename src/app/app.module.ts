@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationGraphComponent } from './topic-panel/navigation-graph/navigation-graph.component';
 import { TopicPanelComponent } from './topic-panel/topic-panel.component';
-import { TopicVideosComponent } from './topic-panel/topic-browse/topic-videos/topic-videos.component';
-import { TopicPublicationsComponent } from './topic-panel/topic-browse/topic-publications/topic-publications.component';
-import { TopicInteractiveDataComponent } from './topic-panel/topic-browse/topic-interactive-data/topic-interactive-data.component';
 import { TopicBrowseComponent } from './topic-panel/topic-browse/topic-browse.component';
 import { TopicAboutComponent } from './topic-panel/topic-about/topic-about.component';
 import { CardModule } from 'primeng/card';
@@ -16,10 +13,10 @@ import { DividerModule } from 'primeng/divider';
 import { SubscriptionBannerComponent } from './topic-panel/topic-browse/subscription-banner/subscription-banner.component';
 import { FieldsetModule } from 'primeng/fieldset';
 import { AccordionModule } from 'primeng/accordion';
-import { PublicationItemComponent } from './topic-panel/topic-browse/topic-publications/publication-item/publication-item.component';
-import { VideoItemComponent } from './topic-panel/topic-browse/topic-videos/video-item/video-item.component';
-import { InteractiveDataItemComponent } from './topic-panel/topic-browse/topic-interactive-data/interactive-data-item/interactive-data-item.component';
 import { MenubarModule } from 'primeng/menubar';
+import { AvatarModule } from 'primeng/avatar';
+import { ResourcesListComponent } from './topic-panel/topic-browse/resources-list/resources-list.component';
+import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list/resource-item/resource-item.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -27,15 +24,11 @@ import { MenubarModule } from 'primeng/menubar';
     AppComponent,
     NavigationGraphComponent,
     TopicPanelComponent,
-    TopicVideosComponent,
-    TopicPublicationsComponent,
-    TopicInteractiveDataComponent,
     TopicBrowseComponent,
     TopicAboutComponent,
     SubscriptionBannerComponent,
-    PublicationItemComponent,
-    VideoItemComponent,
-    InteractiveDataItemComponent
+    ResourcesListComponent,
+    ResourceItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +39,10 @@ import { MenubarModule } from 'primeng/menubar';
     DividerModule,
     FieldsetModule,
     AccordionModule,
-    MenubarModule
+    MenubarModule,
+    AvatarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
