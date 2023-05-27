@@ -1,6 +1,11 @@
 .resource-item {
-    border-top: 1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-    border-right: 1px solid #dee2e6;
-    cursor: pointer;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  cursor: pointer;
+}
+
+.resource-item:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease;
 }
