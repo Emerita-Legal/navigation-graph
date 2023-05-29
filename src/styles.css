@@ -18,3 +18,23 @@ body {
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+.p-autocomplete input {
+  text-align: center;
+  font-size: 2rem;
+  padding: 15px 45px 15px 30px;
+  font-weight: 300;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: -0.7px;
+  margin: 0;
+  border: 0;
+}
+
+.p-autocomplete input:enabled:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
+  padding: 1% !important;
+}
