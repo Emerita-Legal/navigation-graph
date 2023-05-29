@@ -15,8 +15,11 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { AccordionModule } from 'primeng/accordion';
 import { MenubarModule } from 'primeng/menubar';
 import { AvatarModule } from 'primeng/avatar';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ResourcesListComponent } from './topic-panel/topic-browse/resources-list/resources-list.component';
 import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list/resource-item/resource-item.component';
+import { HomeComponent } from './home/home.component';
+import { SearchBoxComponent } from './home/search-box/search-box.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -29,6 +32,8 @@ import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list
     SubscriptionBannerComponent,
     ResourcesListComponent,
     ResourceItemComponent,
+    HomeComponent,
+    SearchBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list
     AccordionModule,
     MenubarModule,
     AvatarModule,
+    AutoCompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

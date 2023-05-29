@@ -2,11 +2,17 @@
 @import "primeng/resources/primeng.css";
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
   color: rgb(74, 75, 99);
-  background-color: rgb(247, 247, 247);
+  background-color: #f5f7f8;
   margin: 0;
   padding: 0;
   overflow-y: hidden; /* Hide vertical scrollbar */
