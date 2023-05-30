@@ -53,17 +53,22 @@
   stroke: rgb(135, 136, 160);
 }
 
-.centralNode + text {
+.centralNode + g foreignObject div text {
   fill: white;
 }
 
 text {
   fill: #212529;
-  text-align: center;
+  text-align: right;
   text-shadow: none;
+  font-weight: bold;
 }
 
 figure {
   display: flex;
   justify-content: center;
+}
+
+.label-container {
+  text-align: left;
 }

@@ -5,11 +5,17 @@ import { Graph, HierarchyLevels } from './graph';
 import { Node } from './node';
 
 const DEFAULT_LAYOUT_WIDTH = 1200;
-const RADIUS_FACTOR = 4;
+const RADIUS_FACTOR = 4.5;
 const NODE_SIZE_FACTOR = 53;
 const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.4;
 const INNER_NODES_RADIUS_SCALE_FACTOR = 0.65;
 const LABEL_MARGIN = 20;
+/*TODO: Relative to screen */
+const OUTER_LABEL_MAX_WIDTH = 85;
+const INNER_LABEL_MAX_WIDTH = 200;
+const CENTRAL_LABEL_MAX_WIDTH = 300;
+
+const LABEL_MAX_HEIGHT = 50;
 
 export type Position = { x: number; y: number };
 
@@ -19,6 +25,8 @@ export type Label = {
   size: string;
   rotation: number;
   isBold: boolean;
+  width: number;
+  align?: 'left' | 'right' | 'center';
 };
 export type LayoutContext = d3.Selection<
   d3.BaseType,
@@ -165,7 +173,7 @@ export class Layout {
     )[0];
     if (centralNode) {
       this.drawNode(centralNode, this.center, {
-        size: this.nodeBaseSize * 7,
+        size: this.nodeBaseSize * 6,
         class: 'centralNode',
       });
 
@@ -173,13 +181,15 @@ export class Layout {
       const labelPosition = Circle.translatePosition(
         this.center,
         this.center,
-        -(this.measureText(centralNode.getName(), labelSize) / 2)
+        -(CENTRAL_LABEL_MAX_WIDTH / 2)
       );
       this.drawLabel({
         text: centralNode.getName(),
         size: labelSize,
         position: labelPosition,
         isBold: true,
+        width: CENTRAL_LABEL_MAX_WIDTH,
+        align: 'center',
       });
     }
   }
@@ -198,29 +208,36 @@ export class Layout {
       });
       this.drawNode(node, nodePosition, { class: 'innerNode' });
 
-      const labelSize = '1.8vmin';
+      const labelSize = '1.3vmin';
+
       const isNodeInLeftHalf = [Quarter.TopLeft, Quarter.BottomLeft].includes(
         Circle.getQuarterFromPoint(this.center, nodePosition)
       );
+
       const labelTranslation = isNodeInLeftHalf
-        ? innerRadius +
-          this.nodeBaseSize +
-          LABEL_MARGIN +
-          this.measureText(node.getName(), labelSize)
+        ? innerRadius + this.nodeBaseSize + LABEL_MARGIN
         : innerRadius + this.nodeBaseSize + LABEL_MARGIN;
+
+      const labelPosition = Circle.translatePosition(
+        nodePosition,
+        this.center,
+        labelTranslation
+      );
+
+      if (isNodeInLeftHalf) {
+        labelPosition.x -= INNER_LABEL_MAX_WIDTH;
+      }
 
       this.drawLabel(
         {
           text: node.getName(),
-          position: Circle.translatePosition(
-            nodePosition,
-            this.center,
-            labelTranslation
-          ),
+          position: labelPosition,
           size: labelSize,
+          align: isNodeInLeftHalf ? 'right' : 'left',
+          width: INNER_LABEL_MAX_WIDTH,
         },
         undefined,
-        true
+        false
       );
     });
   }
@@ -241,27 +258,27 @@ export class Layout {
       });
       this.drawNode(node, nodePosition, { class: 'outerNode', size: nodeSize });
 
-      const labelSize = '1vmin';
+      const labelSize = '0.9vmin';
       const isNodeInLeftHalf = [Quarter.TopLeft, Quarter.BottomLeft].includes(
         Circle.getQuarterFromPoint(this.center, nodePosition)
       );
       const labelTranslation = isNodeInLeftHalf
-        ? outerRadius +
-          nodeSize +
-          LABEL_MARGIN +
-          this.measureText(node.getName(), labelSize)
+        ? outerRadius + OUTER_LABEL_MAX_WIDTH + nodeSize + LABEL_MARGIN
         : outerRadius + nodeSize + LABEL_MARGIN;
-
+      const degreeAdjustment = (1.5 * Math.PI) / 180;
       this.drawLabel(
         {
           text: node.getName(),
           position: Circle.translatePosition(
             nodePosition,
             this.center,
-            labelTranslation
+            labelTranslation,
+            isNodeInLeftHalf ? degreeAdjustment : -degreeAdjustment
           ),
+          width: OUTER_LABEL_MAX_WIDTH,
           size: labelSize,
           isBold: true,
+          align: isNodeInLeftHalf ? 'right' : 'left',
         },
         undefined,
         true
@@ -277,7 +294,7 @@ export class Layout {
   }
 
   public drawLabel(
-    label: { text: string } & Partial<Label>,
+    label: { text: string; size: string; width: number } & Partial<Label>,
     node?: Node,
     calculateRotation?: boolean
   ): void {
@@ -292,25 +309,32 @@ export class Layout {
     if (calculateRotation) {
       label.rotation = this.getLabelRotation(label.position);
     }
+    const transform = label.rotation
+      ? `rotate(${label.rotation}) translate(${label.position.x}, ${label.position.y}) `
+      : `translate(${label.position.x}, ${label.position.y})`;
+
+    const capitalizeFirst = (string: string) => {
+      return (
+        string[0].toUpperCase() + string.slice(1, string.length).toLowerCase()
+      );
+    };
 
     const drawnLabel = context
+      .append('g')
+      .attr('transform', transform)
+      .attr('transform-origin', `${label.position.x} ${label.position.y}`)
+      .append('foreignObject')
+      .attr('width', label.width)
+      .attr('height', LABEL_MAX_HEIGHT)
+      .append('xhtml:div')
+      .style('font-size', label.size)
+      .style('text-align', label.align ?? 'left')
+      .attr('class', 'label-container')
       .append('text')
-      .attr('dx', label.position.x)
-      .attr('dy', label.position.y)
-      .text(label.text);
-
-    if (label.size) {
-      drawnLabel.attr('font-size', label.size);
-    }
+      .text(capitalizeFirst(label.text));
 
     if (label.isBold) {
       drawnLabel.attr('font-weight', 'bold');
-    }
-
-    if (label.rotation) {
-      drawnLabel
-        .attr('transform', `rotate(${label.rotation})`)
-        .attr('transform-origin', `${label.position.x} ${label.position.y}`);
     }
 
     drawnLabel.raise();
@@ -322,16 +346,5 @@ export class Layout {
     this.radius = width / RADIUS_FACTOR;
     this.center = { x: width / 2, y: width / 2 };
     return this;
-  }
-
-  private measureText(text: string, fontSize: string): number {
-    const fakeElement = this.SVGContext.append('text')
-      .text(text)
-      .attr('font-size', fontSize)
-      .attr('dx', '-99999')
-      .attr('dy', '-99999');
-    const size = fakeElement.node()?.getComputedTextLength();
-    fakeElement.remove();
-    return size ?? 0;
   }
 }
