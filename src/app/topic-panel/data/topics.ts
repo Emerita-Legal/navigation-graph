@@ -11,7 +11,8 @@ export const topics: Array<Topic> = [
     Publications: [
       {
         id: 1,
-        title: '¿Cuánto se tarda en cobrar una indemnización por accidente laboral?',
+        title:
+          '¿Cuánto se tarda en cobrar una indemnización por accidente laboral?',
         image:
           'https://www.emerita.legal/blog/wp-content/uploads/2023/05/indemnizacion-accidente-laboral.jpg',
         url: 'https://www.emerita.legal/blog/laboral/cobrar-indemnizacion-accidente-laboral-https-www-emerita-legal-abogado-santiago-diez-martinez-141050/',
@@ -332,22 +333,22 @@ export const topics: Array<Topic> = [
           },
           {
             id: 62,
-            name: 'APELACIÓN LABORALLABORALES',
-            title: 'APELACIÓN LABORALLABORALES',
+            name: 'APELACIÓN LABORAL',
+            title: 'APELACIÓN LABORAL',
             description: 'lorem ipsum',
             isCentral: false,
           },
           {
             id: 63,
-            name: 'CONCILIACIÓN LABORALLABORALES',
-            title: 'CONCILIACIÓN LABORALLABORALES',
+            name: 'CONCILIACIÓN LABORAL',
+            title: 'CONCILIACIÓN LABORAL',
             description: 'lorem ipsum',
             isCentral: false,
           },
           {
             id: 66,
-            name: 'MEDIACIÓN LABORALLABORALES',
-            title: 'MEDIACIÓN LABORALLABORALES',
+            name: 'MEDIACIÓN LABORAL',
+            title: 'MEDIACIÓN LABORAL',
             description: 'lorem ipsum',
             isCentral: false,
           },
