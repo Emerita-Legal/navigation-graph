@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import {
   Graph,
   HierarchyLevels,
-} from '../topic-panel/navigation-graph/graph-elements/graph';
-import { Topic } from '../topic-panel/_types/topic';
-import { Node } from '../topic-panel/navigation-graph/graph-elements/node';
-import { topics } from '../topic-panel/data/labor';
+} from '../graph-elements/graph';
+import { Topic } from '../../_types/topic';
+import { Node } from '../graph-elements/node';
+import { topics } from '../../data/labor';
 
 @Injectable()
 export class GraphService {

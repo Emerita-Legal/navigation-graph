@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
-import { GraphService } from '../../_services/graph.service';
+import { GraphService } from './_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
 import { Layout } from './graph-elements/layout';
 
