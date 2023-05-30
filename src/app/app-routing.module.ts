@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { TopicPanelComponent } from './topic-panel/topic-panel.component';
 
 const routes: Routes = [
-  { path: 'graph', component: TopicPanelComponent },
+  { path: 'graph/:id', component: TopicPanelComponent },
   { path: '', component: HomeComponent },
 ];
 

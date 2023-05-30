@@ -1,14 +1,17 @@
-<span class="p-fluid">
-    <p-autoComplete field="name">
-        <ng-template let-country pTemplate="item">
-            <div class="flex align-items-center gap-2">
-                <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
-                    [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
-                <div>{{ country.name }}</div>
-            </div>
+<span class="p-fluid search-box">
+    <p-autoComplete field="name" [(ngModel)]="selectedNode" [suggestions]="filteredNodes" [showEmptyMessage]="true"
+        emptyMessage="No hay resultados" (completeMethod)="filterNodes($event)">
+        <ng-template let-node pTemplate="item">
+            <span [routerLink]="['/graph', node.id]">
+                <div class="align-items-center gap-2 pl-5 font-light text-sm ">
+                    <div class="font-bold">
+                        {{ node.name }}
+                    </div>
+                    <div class="pt-3 pb-1 text-700">
+                        {{node.description}}
+                    </div>
+                </div>
+            </span>
         </ng-template>
     </p-autoComplete>
 </span>
-
-<!-- [(ngModel)]="selectedCountryAdvanced" [suggestions]="filteredCountries"
-    (completeMethod)="filterCountry($event)"  -->
