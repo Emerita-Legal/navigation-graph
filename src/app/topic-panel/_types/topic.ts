@@ -1,6 +1,6 @@
 export interface Topic {
   id: number;
-  label: string;
+  name: string;
   title: string;
   description: string;
   subtitle?: string;

@@ -5,25 +5,29 @@ import {
 } from '../graph-elements/graph';
 import { Topic } from '../../_types/topic';
 import { Node } from '../graph-elements/node';
-import { topics } from '../../data/labor';
+import { topics } from '../../data/topics';
 
 @Injectable()
 export class GraphService {
   constructor() {}
   /* This should be the API connection */
-  public getGraphInstance(): Graph {
-    return this.generateGraph(topics[0]);
+  public getGraphInstance(topicId: number): Graph {
+    const topic = topics.find(topic => topic.id === topicId)
+    if(!topic) {
+      throw new Error("Topic not found")
+    }
+    return this.generateGraph(topic);
   }
 
   private generateGraph(centralTopic: Topic): Graph {
     const graph = new Graph([], []);
-    graph.addNode(centralTopic.label, HierarchyLevels.central);
+    graph.addNode(centralTopic.name, HierarchyLevels.central);
     let outerNodes: Array<Node> = [];
     const innerNodes: Array<Node> = [];
     centralTopic.childs?.forEach((child) => {
-      innerNodes.push(graph.addNode(child.label, HierarchyLevels.inner));
+      innerNodes.push(graph.addNode(child.name, HierarchyLevels.inner));
       child.childs?.forEach((grandson) => {
-        outerNodes.push(graph.addNode(grandson.label, HierarchyLevels.outer));
+        outerNodes.push(graph.addNode(grandson.name, HierarchyLevels.outer));
       });
     });
     outerNodes.forEach((node, index) =>

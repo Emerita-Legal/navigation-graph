@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from './_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
@@ -14,6 +14,8 @@ import { Layout } from './graph-elements/layout';
 export class NavigationGraphComponent {
   private width = 1100;
   private height = 1100;
+
+  @Input() topicId: number | undefined;
 
   constructor(private graphService: GraphService) {}
 
@@ -32,9 +34,16 @@ export class NavigationGraphComponent {
 
     SVG.attr('height', this.height);
 
-    return new Layout(this.graphService.getGraphInstance(), d3.select('svg'), {
-      width: this.width,
-    });
+    if (!this.topicId) {
+      throw new Error('No topic Id provided');
+    }
+    return new Layout(
+      this.graphService.getGraphInstance(this.topicId),
+      d3.select('svg'),
+      {
+        width: this.width,
+      }
+    );
   }
 
   // private resetSVG(): void {
