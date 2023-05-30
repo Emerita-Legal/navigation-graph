@@ -18,21 +18,26 @@ body {
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
-.p-autocomplete input {
+.p-autocomplete input,
+.p-autocomplete input:enabled:focus,
+.p-autocomplete input:enabled:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
   font-size: 2rem;
-  padding: 15px 45px 15px 30px;
+  padding: 1.5%;
   font-weight: 300;
   width: 100%;
   box-sizing: border-box;
   letter-spacing: -0.7px;
   margin: 0;
-  border: 0;
+  border: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-.p-autocomplete input:enabled:focus {
-  border: 0;
-  box-shadow: none;
+.topbar .p-autocomplete input,
+.topbar .p-autocomplete input:enabled:focus,
+.topbar .p-autocomplete input:enabled:hover {
+  font-size: 1rem;
+  border: 1px solid #9d9d9d;
 }
 
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {

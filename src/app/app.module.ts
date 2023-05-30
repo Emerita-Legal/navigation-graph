@@ -20,6 +20,7 @@ import { ResourcesListComponent } from './topic-panel/topic-browse/resources-lis
 import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list/resource-item/resource-item.component';
 import { HomeComponent } from './home/home.component';
 import { SearchBoxComponent } from './home/search-box/search-box.component';
+import { TopbarComponent } from './shared/topbar/topbar.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -34,6 +35,7 @@ import { SearchBoxComponent } from './home/search-box/search-box.component';
     ResourceItemComponent,
     HomeComponent,
     SearchBoxComponent,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
