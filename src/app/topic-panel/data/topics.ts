@@ -240,8 +240,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 44,
-            name: 'FAQ PREGUNTAS FRECUENTAS',
-            title: 'FAQ PREGUNTAS FRECUENTAS',
+            name: 'FAQ PREGUNTAS FRECUENTES',
+            title: 'FAQ PREGUNTAS FRECUENTES',
             description: 'lorem ipsum',
             isCentral: false,
           },
