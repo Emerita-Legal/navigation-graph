@@ -1,8 +1,16 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from './_services/graph.service';
 import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
 import { Layout } from './graph-elements/layout';
+import { Topic } from '../_types/topic';
+import { TopicService } from '../_services/topic.service';
 
 @Component({
   selector: 'app-navigation-graph',
@@ -11,20 +19,27 @@ import { Layout } from './graph-elements/layout';
   encapsulation: ViewEncapsulation.None,
   providers: [GraphService],
 })
-export class NavigationGraphComponent {
+export class NavigationGraphComponent implements AfterViewInit {
   private width = 1100;
   private height = 1100;
 
-  @Input() topicId: number | undefined;
-
-  constructor(private graphService: GraphService) {}
+  constructor(
+    private graphService: GraphService,
+    private topicService: TopicService
+  ) {}
 
   ngAfterViewInit(): void {
-    this.initLayout().draw();
+    this.topicService.topic$.subscribe((topic) => {
+      this.drawGrap(topic);
+    });
+  }
+
+  drawGrap(topic: Topic) {
+    this.initLayout(topic).draw();
     this.applyEffects();
   }
 
-  private initLayout(): Layout {
+  private initLayout(topic: Topic): Layout {
     const SVG = d3
       .select('#navigation-container')
       .append('svg')
@@ -34,11 +49,8 @@ export class NavigationGraphComponent {
 
     SVG.attr('height', this.height);
 
-    if (!this.topicId) {
-      throw new Error('No topic Id provided');
-    }
     return new Layout(
-      this.graphService.getGraphInstance(this.topicId),
+      this.graphService.generateGraph(topic),
       d3.select('svg'),
       {
         width: this.width,
