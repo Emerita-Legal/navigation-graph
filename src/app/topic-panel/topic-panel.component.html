@@ -1,6 +1,9 @@
 <div class="grid">
     <div class="col-8">
-        <app-navigation-graph></app-navigation-graph>
+        <router-outlet></router-outlet>
+        <div class="chat-input-box mt-5">
+            <app-chat-input></app-chat-input>
+        </div>
     </div>
     <div class="col-4 p-5" [style.overflow]="'scroll'" [style.max-height]="getMaxHeight()">
         <app-topic-about></app-topic-about>

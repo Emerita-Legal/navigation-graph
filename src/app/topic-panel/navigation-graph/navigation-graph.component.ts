@@ -9,7 +9,7 @@ import { Layout } from './graph-elements/layout';
   templateUrl: './navigation-graph.component.html',
   styleUrls: ['./navigation-graph.component.css'],
   encapsulation: ViewEncapsulation.None,
-  providers: [GraphService]
+  providers: [GraphService],
 })
 export class NavigationGraphComponent {
   private width = 1100;
@@ -23,16 +23,17 @@ export class NavigationGraphComponent {
   }
 
   private initLayout(): Layout {
-    const SVG = d3.select("#navigation-container")
-      .append("svg")
-      .attr("width", '100%');
+    const SVG = d3
+      .select('#navigation-container')
+      .append('svg')
+      .attr('width', '80%');
 
     this.updateWidth();
 
-    SVG.attr("height", this.height);
+    SVG.attr('height', this.height);
 
-    return new Layout(this.graphService.getGraphInstance(), d3.select("svg"), {
-      width: this.width
+    return new Layout(this.graphService.getGraphInstance(), d3.select('svg'), {
+      width: this.width,
     });
   }
 
@@ -49,7 +50,7 @@ export class NavigationGraphComponent {
   }
 
   private applyEffects(): void {
-    applyScaleOnHover(1.1)
+    applyScaleOnHover(1.1);
     highlightEdgesOnClick();
   }
 }

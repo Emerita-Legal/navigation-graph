@@ -1,60 +1,69 @@
- .link{
-    stroke: #eddace;
-    stroke-width: 0.125vmin;
-    opacity: 0.9;
- }
+.link {
+  stroke: #eddace;
+  stroke-width: 0.125vmin;
+  opacity: 0.9;
+}
 
- .linkHover, .linkSelected{
-   stroke: #ff8b22;
-   transition: all 300ms ease-in;
-   stroke-width: 0.130vmin;
-   opacity: 1;
- }
+.linkHover,
+.linkSelected {
+  stroke: #ff8b22;
+  transition: all 300ms ease-in;
+  stroke-width: 0.13vmin;
+  opacity: 1;
+}
 
- .innerNode{
-    fill: #fff3eb;
-    stroke: rgb(135, 136, 160);
-    transition: all 300ms ease-in;
-    cursor: pointer;
- }
+.innerNode {
+  fill: #fff3eb;
+  stroke: rgb(135, 136, 160);
+  transition: all 300ms ease-in;
+  cursor: pointer;
+}
 
- .innerNodeHover, .innerNodeSelected, .outerNodeSelected, .outerNodeHover{
-   fill: #ff8b22;
-   stroke: #ff8b22;
-   transition: all 300ms ease-in;
-   cursor: pointer;
- }
+.innerNodeHover,
+.innerNodeSelected,
+.outerNodeSelected,
+.outerNodeHover {
+  fill: #ff8b22;
+  stroke: #ff8b22;
+  transition: all 300ms ease-in;
+  cursor: pointer;
+}
 
- .innerEdge{
-    stroke: #ff8b22;
-    stroke-dasharray: 1.3vmin 0.5vmin; 
-    stroke-width: 0.2vmin;
- }
+.innerEdge {
+  stroke: #ff8b22;
+  stroke-dasharray: 1.3vmin 0.5vmin;
+  stroke-width: 0.2vmin;
+}
 
- .outerNode{
-    fill: #fff3eb;
-    stroke: rgb(135, 136, 160);
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
- }
+.outerNode {
+  fill: #fff3eb;
+  stroke: rgb(135, 136, 160);
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+}
 
- .outerEdge{
-    stroke: #8e8e8e;
-    stroke-dasharray: 0.3vmin 0.3vmin; 
- }
+.outerEdge {
+  stroke: #8e8e8e;
+  stroke-dasharray: 0.3vmin 0.3vmin;
+}
 
- .centralNode {
-    /* fill: url(#map-image); */
-    fill: #0f1820;
-    stroke: rgb(135, 136, 160);
- }
+.centralNode {
+  /* fill: url(#map-image); */
+  fill: #0f1820;
+  stroke: rgb(135, 136, 160);
+}
 
- .centralNode+text {
-   fill: white;
- }
- 
- text {
-   fill: #212529;
-   text-align: center;
-   text-shadow: none;
- }
+.centralNode + text {
+  fill: white;
+}
+
+text {
+  fill: #212529;
+  text-align: center;
+  text-shadow: none;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}

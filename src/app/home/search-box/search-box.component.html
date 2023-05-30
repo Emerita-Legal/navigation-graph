@@ -2,7 +2,7 @@
     <p-autoComplete field="name" [(ngModel)]="selectedNode" [suggestions]="filteredNodes" [showEmptyMessage]="true"
         emptyMessage="No hay resultados" (completeMethod)="filterNodes($event)">
         <ng-template let-node pTemplate="item">
-            <span [routerLink]="['/graph', node.id]">
+            <span [routerLink]="['/panel/graph', node.id]">
                 <div class="align-items-center gap-2 pl-5 font-light text-sm ">
                     <div class="font-bold">
                         {{ node.name }}

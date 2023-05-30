@@ -21,6 +21,9 @@ import { ResourceItemComponent } from './topic-panel/topic-browse/resources-list
 import { HomeComponent } from './home/home.component';
 import { SearchBoxComponent } from './home/search-box/search-box.component';
 import { TopbarComponent } from './shared/topbar/topbar.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatInputComponent } from './chat/chat-input/chat-input.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -36,6 +39,8 @@ import { TopbarComponent } from './shared/topbar/topbar.component';
     HomeComponent,
     SearchBoxComponent,
     TopbarComponent,
+    ChatComponent,
+    ChatInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,7 @@ import { TopbarComponent } from './shared/topbar/topbar.component';
     MenubarModule,
     AvatarModule,
     AutoCompleteModule,
+    InputTextareaModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
