@@ -1,24 +1,10 @@
 <div class="grid ">
     <div class="col-10 col-offset-1">
         <div class="message-received">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ut provident voluptas? Odit
-            exercitationem
-            molestias iusto, dignissimos nisi possimus beatae saepe ratione, natus animi accusamus, quis pariatur
-            nostrum
-            eum velit.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quo omnis aperiam placeat accusantium hic
-            rem
-            libero, magnam neque harum vero quaerat mollitia consequuntur necessitatibus, nam eaque reprehenderit ipsum
-            cumque.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quos eveniet? Animi laboriosam dolorum,
-            eligendi
-            praesentium, quo quas natus, minima nobis tenetur inventore harum sequi iste! Soluta porro illo et!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non voluptatem, placeat quis consequatur eaque, at
-            molestiae nostrum a voluptatibus maxime nesciunt et qui consequuntur eveniet quos voluptate fugiat corrupti.
-            Explicabo.
+            {{message?.getContent()}}
         </div>
         <div class="message-time">
-            8:00PM
+            {{message?.getTimestampHHMM()}}
         </div>
     </div>
     <div class="col-1 justify-content-center flex">
