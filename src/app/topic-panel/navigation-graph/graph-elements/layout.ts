@@ -56,7 +56,7 @@ export class Layout {
     this.SVGContext = SVGContext;
     this.width = options?.width ?? DEFAULT_LAYOUT_WIDTH;
     this.height = options?.height ?? this.width;
-    this.radius = options?.radius ?? DEFAULT_LAYOUT_WIDTH / RADIUS_FACTOR;
+    this.radius = options?.radius ?? this.width / RADIUS_FACTOR;
     this.center = Circle.calculateCenter(this.width, this.height);
     this.nodeBaseSize = options?.nodeBaseSize ?? this.width / NODE_SIZE_FACTOR;
   }

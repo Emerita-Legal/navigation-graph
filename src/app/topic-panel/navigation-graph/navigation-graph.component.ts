@@ -68,7 +68,7 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;
-    this.height = this.width - 200;
+    this.height = this.width - this.width / 6;
   }
 
   private applyEffects(): void {
