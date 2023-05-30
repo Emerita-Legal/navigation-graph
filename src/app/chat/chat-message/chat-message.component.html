@@ -1,11 +1,10 @@
 <div class="grid">
     <div class="col-12 chat-message">
-        <div *ngIf="type === 'received'">
-            <app-message-received></app-message-received>
+        <div *ngIf="message?.getType() === 'received'">
+            <app-message-received [message]="message"></app-message-received>
         </div>
-        <div *ngIf="type === 'sent'">
-            <app-message-sent></app-message-sent>
-            <app-message-received></app-message-received>
+        <div *ngIf="message?.getType() === 'sent'">
+            <app-message-sent [message]="message"></app-message-sent>
         </div>
     </div>
 </div>

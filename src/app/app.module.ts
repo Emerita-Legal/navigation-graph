@@ -27,6 +27,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
 import { MessageReceivedComponent } from './chat/chat-message/message-received/message-received.component';
 import { MessageSentComponent } from './chat/chat-message/message-sent/message-sent.component';
+import { ChatService } from './chat/chat.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -62,7 +63,7 @@ import { MessageSentComponent } from './chat/chat-message/message-sent/message-s
     AutoCompleteModule,
     InputTextareaModule,
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
