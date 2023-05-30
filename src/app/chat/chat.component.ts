@@ -17,7 +17,6 @@ export class ChatComponent {
       .getConversationObservable()
       .subscribe((conversation) => {
         this.messages = conversation.getMessages();
-        console.log('Subscribe');
       });
   }
 
