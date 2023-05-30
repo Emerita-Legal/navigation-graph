@@ -1,6 +1,7 @@
 .chat-box {
   height: 80%;
   padding: 2% 5% 2% 5%;
+  max-height: 85vh;
 }
 
 .chat-conversation {

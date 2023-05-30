@@ -30,6 +30,7 @@ export class ChatInputComponent {
     } else if (event.key === 'Enter') {
       event.preventDefault();
       this.onMessageSent();
+      (document.querySelector('textarea') as any).value = '';
     }
   }
 }
