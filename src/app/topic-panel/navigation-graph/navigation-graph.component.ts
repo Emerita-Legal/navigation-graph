@@ -43,7 +43,7 @@ export class NavigationGraphComponent implements AfterViewInit {
     const SVG = d3
       .select('#navigation-container')
       .append('svg')
-      .attr('width', '80%');
+      .attr('width', '100%');
 
     this.updateWidth();
 
@@ -54,6 +54,7 @@ export class NavigationGraphComponent implements AfterViewInit {
       d3.select('svg'),
       {
         width: this.width,
+        height: this.height,
       }
     );
   }
@@ -67,7 +68,7 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;
-    this.height = this.width;
+    this.height = this.width - 200;
   }
 
   private applyEffects(): void {

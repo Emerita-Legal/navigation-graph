@@ -46,6 +46,7 @@ export class Layout {
     graph: Graph,
     SVGContext: LayoutContext,
     options?: {
+      height?: number;
       width?: number;
       radius?: number;
       nodeBaseSize?: number;
@@ -54,11 +55,9 @@ export class Layout {
     this.graph = graph;
     this.SVGContext = SVGContext;
     this.width = options?.width ?? DEFAULT_LAYOUT_WIDTH;
-    this.height = options?.width ?? DEFAULT_LAYOUT_WIDTH;
+    this.height = options?.height ?? this.width;
     this.radius = options?.radius ?? DEFAULT_LAYOUT_WIDTH / RADIUS_FACTOR;
-    this.center = options?.width
-      ? Circle.calculateCenter(options.width)
-      : Circle.calculateCenter(DEFAULT_LAYOUT_WIDTH);
+    this.center = Circle.calculateCenter(this.width, this.height);
     this.nodeBaseSize = options?.nodeBaseSize ?? this.width / NODE_SIZE_FACTOR;
   }
 
