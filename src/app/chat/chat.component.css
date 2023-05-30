@@ -1,0 +1,10 @@
+.chat-box {
+  height: 80%;
+  padding: 2% 5% 2% 5%;
+}
+
+.chat-conversation {
+  height: 100%;
+  width: 100%;
+  padding: 4%;
+}

@@ -1,0 +1,11 @@
+.message-received {
+  background: white;
+  border-radius: 3px;
+  padding: 3% 2% 3% 2%;
+  margin-bottom: 0.2%;
+}
+
+.message-time {
+  text-align: right;
+  margin-bottom: 2%;
+}

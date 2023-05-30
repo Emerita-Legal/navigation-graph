@@ -24,6 +24,9 @@ import { TopbarComponent } from './shared/topbar/topbar.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatInputComponent } from './chat/chat-input/chat-input.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
+import { MessageReceivedComponent } from './chat/chat-message/message-received/message-received.component';
+import { MessageSentComponent } from './chat/chat-message/message-sent/message-sent.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -41,6 +44,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     TopbarComponent,
     ChatComponent,
     ChatInputComponent,
+    ChatMessageComponent,
+    MessageReceivedComponent,
+    MessageSentComponent,
   ],
   imports: [
     BrowserModule,
