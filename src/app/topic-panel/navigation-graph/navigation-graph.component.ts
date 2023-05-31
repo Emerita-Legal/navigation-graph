@@ -1,8 +1,7 @@
 import {
   AfterViewInit,
   Component,
-  Input,
-  OnInit,
+  HostListener,
   ViewEncapsulation,
 } from '@angular/core';
 import * as d3 from 'd3';
@@ -22,24 +21,31 @@ import { TopicService } from '../_services/topic.service';
 export class NavigationGraphComponent implements AfterViewInit {
   private width = 1100;
   private height = 1100;
+  private topic?: Topic;
 
   constructor(
     private graphService: GraphService,
     private topicService: TopicService
   ) {}
 
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.resetSVG();
+  }
+
   ngAfterViewInit(): void {
     this.topicService.topic$.subscribe((topic) => {
-      this.drawGrap(topic);
+      this.topic = topic;
+      this.drawGraph();
     });
   }
 
-  drawGrap(topic: Topic) {
-    this.initLayout(topic).draw();
+  drawGraph() {
+    this.initLayout().draw();
     this.applyEffects();
   }
 
-  private initLayout(topic: Topic): Layout {
+  private initLayout(): Layout {
     const SVG = d3
       .select('#navigation-container')
       .append('svg')
@@ -50,7 +56,7 @@ export class NavigationGraphComponent implements AfterViewInit {
     SVG.attr('height', this.height);
 
     return new Layout(
-      this.graphService.generateGraph(topic),
+      this.graphService.generateGraph(this.topic!),
       d3.select('svg'),
       {
         width: this.width,
@@ -59,12 +65,10 @@ export class NavigationGraphComponent implements AfterViewInit {
     );
   }
 
-  // private resetSVG(): void {
-  //   if (this.SVG) {
-  //     this.SVG.remove();
-  //     this.initSVG();
-  //   }
-  // }
+  private resetSVG(): void {
+    d3.select('#navigation-container svg').remove();
+    this.initLayout().draw();
+  }
 
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;

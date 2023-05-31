@@ -38,7 +38,6 @@ export class Circle {
     const angle =
       Math.atan2(position.y - center.y, position.x - center.x) +
       (translation ?? 0);
-    console.log(angle);
     return {
       x: newRadius * Math.cos(angle) + center.x,
       y: newRadius * Math.sin(angle) + center.y,
