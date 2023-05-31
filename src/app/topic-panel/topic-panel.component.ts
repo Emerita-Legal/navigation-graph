@@ -23,7 +23,7 @@ export class TopicPanelComponent implements OnInit {
   ngOnInit() {
     this.route.firstChild?.params.subscribe((params) => {
       const topic = this.topicRepository.getTopic(+params['id']);
-      this.topicService.emitTopic(topic);
+      this.topicService.emitGraphMasterTopic(topic);
     });
   }
 }

@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { Circle, Quarter } from './circle';
 import { Curve, CurveType } from './curve';
 import { Edge } from './edge';
@@ -49,6 +50,7 @@ export class Layout {
   private graph: Graph;
   private SVGContext: LayoutContext;
   private nodeBaseSize: number;
+  onCircleClickEmitter = new EventEmitter<any>();
 
   constructor(
     graph: Graph,
@@ -103,11 +105,18 @@ export class Layout {
     return line;
   }
 
-  private drawCirclePoint(position: Position, size = this.nodeBaseSize) {
+  private drawCirclePoint(
+    position: Position,
+    node: Node,
+    size = this.nodeBaseSize
+  ) {
     return this.SVGContext.append('circle')
       .attr('cx', position.x)
       .attr('cy', position.y)
-      .attr('r', size);
+      .attr('r', size)
+      .on('click', (event) => {
+        this.onCircleClickEmitter.emit({ ...event, id: node.getId() });
+      });
   }
 
   private findNodeById(id: number): LayoutContext {
@@ -141,7 +150,7 @@ export class Layout {
     position: Position,
     options?: { class?: string; size?: number }
   ) {
-    const drawnNode = this.drawCirclePoint(position, options?.size).attr(
+    const drawnNode = this.drawCirclePoint(position, node, options?.size).attr(
       'id',
       node.getId()
     );

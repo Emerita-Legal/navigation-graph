@@ -34,14 +34,18 @@ export class NavigationGraphComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.topicService.topic$.subscribe((topic) => {
+    this.topicService.graphMasterTopic$.subscribe((topic) => {
       this.topic = topic;
       this.drawGraph();
     });
   }
 
   private drawGraph() {
-    this.initLayout().draw();
+    const lawyout = this.initLayout();
+    lawyout.onCircleClickEmitter.subscribe((e) => {
+      console.log('yea', e);
+    });
+    lawyout.draw();
     this.applyEffects();
   }
 

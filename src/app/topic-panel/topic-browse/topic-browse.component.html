@@ -1,12 +1,18 @@
 <h3>BROWSE</h3>
 <p-divider></p-divider>
 <app-subscription-banner></app-subscription-banner>
-<h3>PERFILES PROFESIONALES</h3>
-<p-divider></p-divider>
-<app-resources-list [resources]="profiles"></app-resources-list>
-<h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
-<p-divider></p-divider>
-<app-resources-list [resources]="laws"></app-resources-list>
-<h3>RECURSOS RELEVANTES</h3>
-<p-divider></p-divider>
-<app-resources-list [resources]="related"></app-resources-list>
+<div *ngIf="topic?.profiles">
+  <h3>PERFILES PROFESIONALES</h3>
+  <p-divider></p-divider>
+</div>
+<app-resources-list [resources]="topic?.profiles"></app-resources-list>
+<div *ngIf="topic?.laws">
+  <h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
+  <p-divider></p-divider>
+</div>
+<app-resources-list [resources]="topic?.laws"></app-resources-list>
+<div *ngIf="topic?.related">
+  <h3>RECURSOS RELEVANTES</h3>
+  <p-divider></p-divider>
+</div>
+<app-resources-list [resources]="topic?.related"></app-resources-list>

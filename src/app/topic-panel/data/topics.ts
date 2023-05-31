@@ -1,4 +1,66 @@
-import { Topic } from '../_types/topic';
+import { Resource, ResourceTypes, Topic } from '../_types/topic';
+const profiles: Resource[] = [
+  {
+    title: 'Pablo Luis Vázquez García',
+    subtitle: 'Abogado',
+    type: ResourceTypes.Lawyer,
+    country: 'España',
+    image:
+      'https://www.emerita.legal/assets/images/profiles/195549-1529919093-profile.jpg',
+    url: 'https://www.emerita.legal',
+  },
+  {
+    title: 'Juzgados de lo Social de A Coruña',
+    type: ResourceTypes.Court,
+    subtitle: 'Órgano Judicial',
+    country: 'España',
+    image:
+      'https://media.istockphoto.com/id/1145896663/es/vector/icono-del-juzgado.jpg?s=170667a&w=0&k=20&c=clTlTtAnRdR9a08jWKoFfmgglVFl0eZTrJBqG3aO27U=',
+    url: 'https://www.emerita.legal',
+  },
+];
+const laws: Resource[] = [
+  {
+    title: 'Artículo 54 - Despido disciplinario',
+    type: ResourceTypes.Law,
+    subtitle: 'Estatuto de los trabajadores',
+    country: 'España',
+    image:
+      'https://e7.pngegg.com/pngimages/661/185/png-clipart-contract-legal-instrument-document-computer-icons-law-recycle-bin-miscellaneous-angle.png',
+    url: 'https://www.emerita.legal',
+  },
+  {
+    title: 'Resolución 1232/22 del Juzgado de lo Social de A Coruña',
+    subtitle: 'Resoluciones - 1ª instancia',
+    type: ResourceTypes.Sentence,
+    country: 'España',
+    image:
+      'https://static.vecteezy.com/system/resources/thumbnails/006/692/271/small/document-icon-template-black-color-editable-document-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector.jpg',
+    url: 'https://www.emerita.legal',
+  },
+];
+const related: Resource[] = [
+  {
+    title: 'Formulario de demanda para despido disciplinario',
+    subtitle: 'Plantillas demandante',
+    type: ResourceTypes.Template,
+    country: 'España',
+    image:
+      'https://static.vecteezy.com/system/resources/previews/000/378/595/original/template-vector-icon.jpg',
+    url: 'https://www.emerita.legal',
+  },
+  {
+    title:
+      'Formulario de demanda para la fase de pruebas de despido disciplinario',
+    subtitle: 'Plantillas demandante',
+    type: ResourceTypes.Template,
+    country: 'España',
+    image:
+      'https://static.vecteezy.com/system/resources/previews/000/378/595/original/template-vector-icon.jpg',
+    url: 'https://www.emerita.legal',
+  },
+];
+
 
 export const topics: Array<Topic> = [
   {
@@ -6,9 +68,11 @@ export const topics: Array<Topic> = [
     name: 'DERECHO LABORAL',
     isCentral: true,
     title: 'DERECHO LABORAL',
+    image:
+      'https://imageproxy-prod.ent.sdy.ai/v1/image/1500x/https://fws.weforum.org/images/topics/a1Gb0000000pTDZEA2/standard',
     description:
       'El derecho laboral es una especialidad que busca proteger a los trabajadores y regular la contratación por parte de las empresas. Las reclamaciones de salarios, los despidos, las indemnizaciones… son de las materias más discutidas en esta rama de derecho',
-    Publications: [
+    publications: [
       {
         id: 1,
         title:
@@ -450,5 +514,10 @@ export const topics: Array<Topic> = [
         ],
       },
     ],
+    profiles,
+    laws,
+    related
   },
 ];
+
+
