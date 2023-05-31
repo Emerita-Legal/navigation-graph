@@ -19,10 +19,8 @@ import { TopicService } from '../_services/topic.service';
   providers: [GraphService],
 })
 export class NavigationGraphComponent implements AfterViewInit {
-  private width = 1100;
-  private height = 1100;
   private topic?: Topic;
-
+  private SVG?: d3.Selection<SVGSVGElement, unknown, HTMLElement, any>;
   constructor(
     private graphService: GraphService,
     private topicService: TopicService
@@ -30,12 +28,17 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
-    this.resetSVG();
+    setTimeout(() => {
+      this.resetSVG();
+    }, 100);
   }
 
   ngAfterViewInit(): void {
-    this.topicService.graphMasterTopic$.subscribe((topic) => {
-      this.topic = topic;
+    this.createSVG();
+    window.addEventListener('load', () => {
+      this.topicService.graphMasterTopic$.subscribe((topic) => {
+        this.topic = topic;
+      });
       this.drawGraph();
     });
   }
@@ -49,35 +52,33 @@ export class NavigationGraphComponent implements AfterViewInit {
     this.applyEffects();
   }
 
-  private initLayout(): Layout {
-    const SVG = d3
+  private createSVG() {
+    this.SVG = d3
       .select('#navigation-container')
       .append('svg')
-      .attr('width', '100%');
+      .attr('width', '100%')
+      .attr('height', '100%');
+  }
 
-    this.updateWidth();
-
-    SVG.attr('height', this.height);
-
+  private initLayout(): Layout {
+    const container = {
+      width: parseFloat(this.SVG!.style('width')),
+      height: parseFloat(this.SVG!.style('height')),
+    };
     return new Layout(
       this.graphService.generateGraph(this.topic!),
       d3.select('svg'),
       {
-        width: this.width,
-        height: this.height,
+        width: container.width,
+        height: container.height,
       }
     );
   }
 
   private resetSVG(): void {
     d3.select('#navigation-container svg').remove();
+    this.createSVG();
     this.initLayout().draw();
-  }
-
-  private updateWidth(): void {
-    this.width = document.querySelector('svg')?.clientWidth!;
-    const percenteageForChatBar = 0.15;
-    this.height = window.innerHeight * (1 - percenteageForChatBar);
   }
 
   private applyEffects(): void {
