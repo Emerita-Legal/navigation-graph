@@ -514,9 +514,9 @@ export const topics: Array<Topic> = [
         ],
       },
     ],
-    profiles,
-    laws,
-    related
+    // profiles,
+    // laws,
+    // related
   },
 ];
 
