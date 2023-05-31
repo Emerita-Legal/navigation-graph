@@ -45,8 +45,8 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   private drawGraph() {
     const lawyout = this.initLayout();
-    lawyout.onCircleClickEmitter.subscribe((topicEvent) => {
-      this.topicService.emitGraphTopic(topicEvent.id);
+    lawyout.onCircleClickEmitter.subscribe((e) => {
+      console.log('yea', e);
     });
     lawyout.draw();
     this.applyEffects();

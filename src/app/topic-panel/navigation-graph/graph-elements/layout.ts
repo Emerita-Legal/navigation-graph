@@ -279,7 +279,7 @@ export class Layout {
           },
           {
             attr: 'font-size',
-            value: '0.8vmin',
+            value: '1vmin',
           },
           {
             attr: 'text-align',
