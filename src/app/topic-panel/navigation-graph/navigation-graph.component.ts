@@ -40,7 +40,7 @@ export class NavigationGraphComponent implements AfterViewInit {
     });
   }
 
-  drawGraph() {
+  private drawGraph() {
     this.initLayout().draw();
     this.applyEffects();
   }
@@ -72,7 +72,8 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   private updateWidth(): void {
     this.width = document.querySelector('svg')?.clientWidth!;
-    this.height = this.width - this.width / 6;
+    const percenteageForChatBar = 0.15;
+    this.height = window.innerHeight * (1 - percenteageForChatBar);
   }
 
   private applyEffects(): void {
