@@ -14,9 +14,9 @@ export class GraphService {
     let outerNodes: Array<Node> = [];
     const innerNodes: Array<Node> = [];
     centralTopic.childs?.forEach((child) => {
-      innerNodes.push(graph.addNode(child.name, HierarchyLevels.inner));
+      innerNodes.push(graph.addNode(child.name, HierarchyLevels.inner, child.id));
       child.childs?.forEach((grandson) => {
-        outerNodes.push(graph.addNode(grandson.name, HierarchyLevels.outer));
+        outerNodes.push(graph.addNode(grandson.name, HierarchyLevels.outer, grandson.id));
       });
     });
     outerNodes.forEach((node, index) =>
