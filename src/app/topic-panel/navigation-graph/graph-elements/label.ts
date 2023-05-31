@@ -5,47 +5,57 @@ const LABEL_MAX_HEIGHT = 50;
 export class Label {
   constructor(
     private text: string,
-    private position: Position,
-    private width: number,
-    private options?: {
+    private options: {
+      width: number;
+      height: number;
+      position: Position;
       rotation?: number;
       styles?: { attr: string; value: string }[];
     }
   ) {}
 
-  public static calculateRotation(position: Position, center: Position) {
+  public static calculateRotation(
+    position: Position,
+    center: Position
+  ): number {
     const angle = Circle.getAngleBetweenPositions(center, position);
     if (angle > 90 && angle <= 180) return angle + 180;
     if (angle < -90 && angle >= -180) return angle - 180;
     return angle;
   }
 
-  public draw(layoutContext: LayoutContext): void {
-    const transform = this.options?.rotation
-      ? `rotate(${this.options.rotation}) translate(${this.position.x}, ${this.position.y}) `
-      : `translate(${this.position.x}, ${this.position.y})`;
+  public draw(
+    layoutContext: LayoutContext
+  ): d3.Selection<SVGTextElement, unknown, HTMLElement, any> {
+    const transform = this.options.rotation
+      ? `rotate(${this.options.rotation}) translate(${this.options.position.x}, ${this.options.position.y}) `
+      : `translate(${this.options.position.x}, ${this.options.position.y})`;
 
-    const drawnLabel = layoutContext
+    let labelContainer = layoutContext
       .append('g')
       .attr('transform', transform)
-      .attr('transform-origin', `${this.position.x} ${this.position.y}`)
+      .attr(
+        'transform-origin',
+        `${this.options.position.x} ${this.options.position.y}`
+      )
       .append('foreignObject')
-      .attr('width', this.width)
-      .attr('height', LABEL_MAX_HEIGHT)
+      .attr('width', this.options.width)
+      .attr('height', this.options.height)
       .append('xhtml:div');
 
     if (this.options?.styles) {
       for (const style of this.options.styles) {
-        drawnLabel.style(style.attr, style.value);
+        labelContainer.style(style.attr, style.value);
       }
     }
 
-    drawnLabel
+    const textElement = labelContainer
       .attr('class', 'label-container')
       .append('text')
       .text(capitalizeFirst(this.text));
 
-    drawnLabel.raise();
+    textElement.raise();
+    return textElement;
   }
 }
 

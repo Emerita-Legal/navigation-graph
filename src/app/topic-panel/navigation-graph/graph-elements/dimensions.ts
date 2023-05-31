@@ -1,14 +1,10 @@
 import { Circle } from './circle';
 import { Position } from './layout';
 
-const RADIUS_FACTOR = 5;
+const RADIUS_FACTOR = 3.8;
 const NODE_SIZE_FACTOR = 53;
 const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.4;
 const INNER_NODES_RADIUS_SCALE_FACTOR = 0.65;
-/*TODO: Relative to screen */
-const LABEL_MARGIN = 20;
-const OUTER_LABEL_MAX_WIDTH = 85;
-const INNER_LABEL_MAX_WIDTH = 200;
 
 export class Dimensions {
   private radius: number;
@@ -22,7 +18,8 @@ export class Dimensions {
       nodeBaseSize?: number;
     }
   ) {
-    this.radius = options?.radius ?? this.width / RADIUS_FACTOR;
+    this.radius =
+      options?.radius ?? Math.min(this.width, this.height) / RADIUS_FACTOR;
     this.center = Circle.calculateCenter(this.width, this.height);
     this.nodeBaseSize = options?.nodeBaseSize ?? this.width / NODE_SIZE_FACTOR;
   }
@@ -44,7 +41,9 @@ export class Dimensions {
   }
 
   getCentralNodeSize(): number {
-    return this.radius * INNER_NODES_RADIUS_SCALE_FACTOR - this.nodeBaseSize;
+    return (
+      this.radius * INNER_NODES_RADIUS_SCALE_FACTOR - this.nodeBaseSize * 1.5
+    );
   }
 
   getInnerNodeSize(): number {
@@ -60,18 +59,18 @@ export class Dimensions {
   }
 
   getInnerLabelSize(): number {
-    return INNER_LABEL_MAX_WIDTH;
+    return this.getOuterNodesRadius() - this.getInnerNodesRadius();
   }
 
   getInnerlabelMargin(): number {
-    return LABEL_MARGIN;
+    return this.radius * 0.1;
   }
 
   getOuterLabelSize(): number {
-    return OUTER_LABEL_MAX_WIDTH;
+    return this.getOuterNodesRadius() / 3.5;
   }
 
   getOuterLabelMargin(): number {
-    return LABEL_MARGIN;
+    return this.radius * 0.05;
   }
 }

@@ -153,20 +153,25 @@ export class Layout {
         size: this.dimensions.getCentralNodeSize(),
         class: 'centralNode',
       });
-      new Label(
-        centralNode.getName(),
+
+      const labelPosition = Circle.translatePosition(
         this.dimensions.getCenter(),
-        this.dimensions.getCentralLabelSize(),
-        {
-          styles: [
-            { attr: 'color', value: 'white' },
-            {
-              attr: 'font-size',
-              value: '2.5vmin',
-            },
-          ],
-        }
-      ).draw(this.SVGContext);
+        this.dimensions.getCenter(),
+        -this.dimensions.getCentralLabelSize() / 2
+      );
+
+      new Label(centralNode.getName(), {
+        position: labelPosition,
+        width: 2 * this.dimensions.getCentralLabelSize(),
+        height: this.dimensions.getCentralLabelSize(),
+        styles: [
+          { attr: 'color', value: 'white' },
+          {
+            attr: 'font-size',
+            value: '2.5vmin',
+          },
+        ],
+      }).draw(this.SVGContext);
     }
   }
 
@@ -205,23 +210,21 @@ export class Layout {
         labelPosition.x -= this.dimensions.getInnerLabelSize();
       }
 
-      new Label(
-        node.getName(),
-        labelPosition,
-        this.dimensions.getInnerLabelSize(),
-        {
-          styles: [
-            {
-              attr: 'font-size',
-              value: '1.3vmin',
-            },
-            {
-              attr: 'text-align',
-              value: isNodeInLeftHalf ? 'right' : 'left',
-            },
-          ],
-        }
-      ).draw(this.SVGContext);
+      new Label(node.getName(), {
+        position: labelPosition,
+        width: this.dimensions.getInnerLabelSize(),
+        height: 2 * this.dimensions.getInnerNodeSize(),
+        styles: [
+          {
+            attr: 'font-size',
+            value: '1.3vmin',
+          },
+          {
+            attr: 'text-align',
+            value: isNodeInLeftHalf ? 'right' : 'left',
+          },
+        ],
+      }).draw(this.SVGContext);
     });
   }
 
@@ -265,31 +268,29 @@ export class Layout {
         isNodeInLeftHalf ? degreeAdjustment : -degreeAdjustment
       );
 
-      new Label(
-        node.getName(),
-        labelPosition,
-        this.dimensions.getOuterLabelSize(),
-        {
-          styles: [
-            {
-              attr: 'font-weight',
-              value: 'bold',
-            },
-            {
-              attr: 'font-size',
-              value: '0.9vmin',
-            },
-            {
-              attr: 'text-align',
-              value: isNodeInLeftHalf ? 'right' : 'left',
-            },
-          ],
-          rotation: Label.calculateRotation(
-            labelPosition,
-            this.dimensions.getCenter()
-          ),
-        }
-      ).draw(this.SVGContext);
+      new Label(node.getName(), {
+        position: labelPosition,
+        width: this.dimensions.getOuterLabelSize(),
+        height: 2 * this.dimensions.getInnerNodeSize(),
+        styles: [
+          {
+            attr: 'font-weight',
+            value: 'bold',
+          },
+          {
+            attr: 'font-size',
+            value: '0.8vmin',
+          },
+          {
+            attr: 'text-align',
+            value: isNodeInLeftHalf ? 'right' : 'left',
+          },
+        ],
+        rotation: Label.calculateRotation(
+          labelPosition,
+          this.dimensions.getCenter()
+        ),
+      }).draw(this.SVGContext);
     });
   }
 }
