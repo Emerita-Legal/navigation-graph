@@ -68,10 +68,8 @@ export class NavigationGraphComponent implements AfterViewInit {
     return new Layout(
       this.graphService.generateGraph(this.topic!),
       d3.select('svg'),
-      {
-        width: container.width,
-        height: container.height,
-      }
+      container.width,
+      container.height
     );
   }
 

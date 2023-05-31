@@ -8,12 +8,14 @@ type CurveFunction = (source: Position, target: Position) => string | null;
 export class Curve {
   constructor() {}
 
-  static generate(curveType: CurveType): CurveFunction {
+  static generate(curveType?: CurveType): CurveFunction {
     switch (curveType) {
       case 'linear':
         return this.linearCurve;
       case 'smooth':
         return this.smoothCurve;
+      default:
+        return this.linearCurve;
     }
   }
 
