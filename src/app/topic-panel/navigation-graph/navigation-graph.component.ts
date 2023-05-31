@@ -28,28 +28,27 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
-    setTimeout(() => {
-      this.resetSVG();
-    }, 100);
+    this.resetSVG();
   }
 
   ngAfterViewInit(): void {
-    this.createSVG();
-    window.addEventListener('load', () => {
-      this.topicService.graphMasterTopic$.subscribe((topic) => {
-        this.topic = topic;
-        this.drawGraph();
-      });
+    this.topicService.graphMasterTopic$.subscribe((topic) => {
+      this.topic = topic;
+      this.drawGraph();
     });
   }
 
   private drawGraph() {
-    const lawyout = this.initLayout();
-    lawyout.onCircleClickEmitter.subscribe((e) => {
-      console.log('yea', e);
-    });
-    lawyout.draw();
-    this.applyEffects();
+    setTimeout(() => {
+      d3.select('#navigation-container svg').remove();
+      this.createSVG();
+      const lawyout = this.initLayout();
+      lawyout.onCircleClickEmitter.subscribe((e) => {
+        console.log('yea', e);
+      });
+      lawyout.draw();
+      this.applyEffects();
+    }, 100);
   }
 
   private createSVG() {
@@ -65,8 +64,9 @@ export class NavigationGraphComponent implements AfterViewInit {
       width: parseFloat(this.SVG!.style('width')),
       height: parseFloat(this.SVG!.style('height')),
     };
+    if (!this.topic) throw new Error('Topic not initialized yet');
     return new Layout(
-      this.graphService.generateGraph(this.topic!),
+      this.graphService.generateGraph(this.topic),
       d3.select('svg'),
       container.width,
       container.height
@@ -74,9 +74,7 @@ export class NavigationGraphComponent implements AfterViewInit {
   }
 
   private resetSVG(): void {
-    d3.select('#navigation-container svg').remove();
-    this.createSVG();
-    this.initLayout().draw();
+    this.drawGraph();
   }
 
   private applyEffects(): void {

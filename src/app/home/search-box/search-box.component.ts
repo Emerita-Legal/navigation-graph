@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { topics } from '../../topic-panel/data/topics';
 
 type SearchBoxNode = {
   id: number;
@@ -28,14 +29,11 @@ export class SearchBoxComponent {
   }
 
   loadNodes(): SearchBoxNode[] {
-    return [
-      {
-        id: 0,
-        name: 'Derecho Laboral',
-        description: 'El derecho laboral es...',
-      },
-      { id: 1, name: 'Derecho Civil', description: 'El derecho civil es...' },
-      { id: 2, name: 'Derecho Penal', description: 'El derecho penal es...' },
-    ];
+    return topics
+      .filter((topic) => topic.isCentral)
+      .map((topic) => ({
+        ...topic,
+        description: topic.description.slice(0, 80) + '...',
+      }));
   }
 }
