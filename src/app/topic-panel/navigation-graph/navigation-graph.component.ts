@@ -38,8 +38,8 @@ export class NavigationGraphComponent implements AfterViewInit {
     window.addEventListener('load', () => {
       this.topicService.graphMasterTopic$.subscribe((topic) => {
         this.topic = topic;
+        this.drawGraph();
       });
-      this.drawGraph();
     });
   }
 
