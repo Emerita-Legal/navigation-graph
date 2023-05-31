@@ -154,21 +154,31 @@ export class Layout {
         class: 'centralNode',
       });
 
-      const labelPosition = Circle.translatePosition(
-        this.dimensions.getCenter(),
-        this.dimensions.getCenter(),
-        -this.dimensions.getCentralLabelSize() / 2
-      );
+      const labelPosition = this.dimensions.getCenter();
+      labelPosition.x -= this.dimensions.getCentralLabelSize();
+      labelPosition.y -= this.dimensions.getCentralNodeSize();
 
       new Label(centralNode.getName(), {
         position: labelPosition,
         width: 2 * this.dimensions.getCentralLabelSize(),
-        height: this.dimensions.getCentralLabelSize(),
+        height: 2 * this.dimensions.getCentralNodeSize(),
         styles: [
           { attr: 'color', value: 'white' },
           {
             attr: 'font-size',
             value: '2.5vmin',
+          },
+          {
+            attr: 'text-align',
+            value: 'center',
+          },
+          {
+            attr: 'position',
+            value: 'relative',
+          },
+          {
+            attr: 'top',
+            value: '40%',
           },
         ],
       }).draw(this.SVGContext);

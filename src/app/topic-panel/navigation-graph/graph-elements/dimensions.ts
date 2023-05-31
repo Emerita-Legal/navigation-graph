@@ -25,7 +25,7 @@ export class Dimensions {
   }
 
   getCenter(): Position {
-    return this.center;
+    return { ...this.center };
   }
 
   getNodeBaseSize(): number {
