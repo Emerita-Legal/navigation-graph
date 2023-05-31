@@ -1,32 +1,21 @@
 <p-card>
     <ng-template pTemplate="header">
         <div class="max-h-9rem p-5 header-img"
-            style='background-image: url("https://imageproxy-prod.ent.sdy.ai/v1/image/1500x/https://fws.weforum.org/images/topics/a1Gb0000000pTDZEA2/standard");'>
+            style='background-image: url("{{topic?.image}}");'>
             <div class="header-title">
                 <p class="font-light">
-                    GLOBAL ISSUE
+                    
                 </p>
                 <h3>
-                    Civic Participation: The New Decision-Maker
+                    {{ topic?.title }}
                 </h3>
                 <p class="font-light">
-                    Curation: Missions Publiques
+                    {{ topic?.subtitle}}
                 </p>
             </div>
         </div>
     </ng-template>
     <span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque
-        quas!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque
-        quas!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque
-        quas!
+       {{ topic?.description}}
     </span>
 </p-card>

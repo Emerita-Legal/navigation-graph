@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Resource, ResourceTypes } from './resource';
+import { Resource, ResourceTypes } from '../../../_types/topic';
 
 @Component({
   selector: 'app-resource-item',
@@ -13,7 +13,7 @@ export class ResourceItemComponent {
     image: '',
     country: '',
     type: ResourceTypes.Lawyer,
-    href: '',
+    url: '',
   };
 
   goto(link: string) {

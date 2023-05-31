@@ -1,8 +1,6 @@
 import {
   AfterViewInit,
   Component,
-  Input,
-  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import * as d3 from 'd3';
@@ -29,7 +27,7 @@ export class NavigationGraphComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this.topicService.topic$.subscribe((topic) => {
+    this.topicService.graphMasterTopic$.subscribe((topic) => {
       this.drawGrap(topic);
     });
   }

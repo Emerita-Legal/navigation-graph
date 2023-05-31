@@ -4,28 +4,33 @@ export interface Topic {
   title: string;
   description: string;
   subtitle?: string;
-  Lawyers?: Array<Lawyer>;
-  Courts?: Array<Court>;
-  Documents?: Array<Document>;
-  Publications?: Array<Publication>;
+  profiles?: Array<Resource>;
+  courts?: Array<Resource>;
+  laws?: Array<Resource>;
+  related?: Array<Resource>;
+  publications?: Array<Resource>;
   childs?: Array<Topic>;
   isCentral: boolean;
   image?: string;
 }
 
-interface Lawyer {
-  id: number;
+
+export interface Resource {
+  id?: number;
+  url?: string;
+  snippet?: string;
+  image: string;
+  title: string;
+  subtitle?: string;
+  type?: ResourceTypes;
+  country?: string;
 }
-interface Court {
-  id: number;
-}
-interface Document {
-  id: number;
-}
-interface Publication {
-    id: number,
-    title: string,
-    url: string,
-    image: string,
-    snippet: string
+
+export enum ResourceTypes {
+  Lawyer,
+  Court,
+  Law,
+  Sentence,
+  Article,
+  Template,
 }

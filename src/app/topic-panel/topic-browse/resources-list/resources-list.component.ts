@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Resource } from './resource-item/resource';
+import { Resource } from '../../_types/topic';
 
 @Component({
   selector: 'app-resources-list',
@@ -7,5 +7,5 @@ import { Resource } from './resource-item/resource';
   styleUrls: ['./resources-list.component.css'],
 })
 export class ResourcesListComponent {
-  @Input() resources: Resource[] = [];
+  @Input() resources: Resource[] | undefined = [];
 }
