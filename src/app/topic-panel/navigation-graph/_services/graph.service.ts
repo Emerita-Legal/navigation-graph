@@ -11,20 +11,13 @@ export class GraphService {
   generateGraph(centralTopic: Topic): Graph {
     const graph = new Graph([], []);
     graph.addNode(centralTopic.name, HierarchyLevels.central);
-    let outerNodes: Array<Node> = [];
-    const innerNodes: Array<Node> = [];
     centralTopic.childs?.forEach((child) => {
-      innerNodes.push(graph.addNode(child.name, HierarchyLevels.inner, child.id));
+      const innerNode = graph.addNode(child.name, HierarchyLevels.inner, child.id);
       child.childs?.forEach((grandson) => {
-        outerNodes.push(graph.addNode(grandson.name, HierarchyLevels.outer, grandson.id));
+        const outerNode = graph.addNode(grandson.name, HierarchyLevels.outer, grandson.id);
+        graph.createAndAddEdge(outerNode, innerNode)
       });
     });
-    outerNodes.forEach((node, index) =>
-      graph.createAndAddEdge(node, innerNodes[index % innerNodes.length])
-    );
-    outerNodes.forEach((node, index) =>
-      graph.createAndAddEdge(node, innerNodes[(index * 2) % innerNodes.length])
-    );
     return graph;
   }
 }
