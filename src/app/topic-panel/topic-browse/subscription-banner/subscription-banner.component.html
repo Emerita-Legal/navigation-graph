@@ -1,26 +1,33 @@
-<p-fieldset legend="Free Access" [toggleable]="true">
-    <div class="grid">
-        <div class="col-7">
-            <b>Log in or sign up
-            </b>
-            <ul>
-                <li>Expert analysis on 250+ global issues
-                </li>
-                <li>Latest research and analysis from the world’s leading research institutions
-                </li>
-            </ul>
-        </div>
-        <div class="col-5">
-            <div class="grid">
-                <div class="col-12">
-                    <p-button label="SIGN UP FOR FREE"></p-button>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-12">
-                    <p-button label="LOG IN" styleClass="p-button-outlined"></p-button>
-                </div>
-            </div>
-        </div>
+<div class="register-block" *ngIf="!user">
+    <h3>
+        <a (click)="showDialog()">Regístrate</a> para ver todo nuestro contenido
+    </h3>
+    <ul>
+        <li>Investigación y análisis en más de 250 temas</li>
+        <li>Contenido actualizado diariamente por nuestros expertos</li>
+    </ul>
+</div>
+<div class="register-block" *ngIf="user">
+    <h3>Ahora que estás registrado,
+        <a>hazte miembro</a> para ver nuestro contenido premium
+    </h3>
+    <ul>
+        <li>Investigación y análisis en más de 250 temas</li>
+        <li>Contenido actualizado diariamente por nuestros expertos</li>
+    </ul>
+</div>
+
+<p-dialog header="¿Qué tipo de profesional eres?" [(visible)]="dialogVisible">
+    <div class="flex align-items-center justify-items-center p-1">
+        <p-button (click)="signUp()" class="mr-2"
+            [style]="{background:'#fff3eb', border: 'none', color:'#ff8b22', 'font-weight':'bold'}">
+            <i class="pi pi-user mr-2"></i>
+            Abogado/a
+        </p-button>
+        <p-button (click)="signUp()"
+            [style]="{background:'#fff3eb', border: 'none', color:'#ff8b22', 'font-weight':'bold'}">
+            <i class="pi pi-building  mr-2"></i>
+            Empresario/a
+        </p-button>
     </div>
-</p-fieldset>
+</p-dialog>

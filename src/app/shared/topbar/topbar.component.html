@@ -8,10 +8,13 @@
         <div class="col-4 col-offset-3 relative">
             <app-search-box *ngIf="!isHomeURL()"></app-search-box>
         </div>
-        <div class="col-1 col-offset-3 align-items-center justify-content-center flex">
-            <p-avatar
-                image="https://estaticos-cdn.epe.es/clip/9311c47b-e3ff-4250-a4be-a869326b0abf_alta-libre-aspect-ratio_default_0.jpg"
-                size="medium" shape="circle"></p-avatar>
+        <div class="col-1 col-offset-3 ">
+            <div class="align-items-center justify-content-center flex" *ngIf="user">
+                <p-avatar
+                    image="https://estaticos-cdn.epe.es/clip/9311c47b-e3ff-4250-a4be-a869326b0abf_alta-libre-aspect-ratio_default_0.jpg"
+                    size="medium" shape="circle"></p-avatar> Usuario
+
+            </div>
         </div>
     </div>
 </div>

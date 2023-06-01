@@ -1,0 +1,17 @@
+.register-block {
+  background: #0f1820;
+  padding: 2% 1% 2% 5%;
+  color: white;
+  border-radius: 3px;
+}
+
+.register-block a {
+  font-weight: bold;
+  color: #ff8b22;
+  text-decoration: underline;
+}
+
+.register-block a:hover {
+  color: #ff8b2299;
+  cursor: pointer;
+}

@@ -31,6 +31,8 @@ import { ChatService } from './chat/chat.service';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GraphSwitchComponent } from './topic-panel/graph-switch/graph-switch.component';
+import { DialogModule } from 'primeng/dialog';
+import { UserService } from './shared/_services/user.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -69,8 +71,9 @@ import { GraphSwitchComponent } from './topic-panel/graph-switch/graph-switch.co
     SelectButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    DialogModule,
   ],
-  providers: [ChatService],
+  providers: [ChatService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,7 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./topbar.component.css'],
 })
 export class TopbarComponent {
-  constructor(private router: Router) {}
+  user = false;
+
+  constructor(private router: Router, private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.getUser().subscribe((user) => {
+      this.user = user;
+    });
+  }
+
   isHomeURL() {
     return this.router.url === '/';
   }
