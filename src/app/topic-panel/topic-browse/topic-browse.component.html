@@ -1,20 +1,24 @@
-<div *ngIf="topic?.profiles">
-  <h3>PERFILES PROFESIONALES</h3>
-  <p-divider></p-divider>
-</div>
-<app-resources-list [resources]="topic?.profiles"></app-resources-list>
-<div *ngIf="topic?.laws">
-  <h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
-  <p-divider></p-divider>
-</div>
-<app-resources-list [resources]="topic?.laws"></app-resources-list>
-<div *ngIf="topic?.related">
-  <h3>RECURSOS RELEVANTES</h3>
-  <p-divider></p-divider>
-</div>
-<app-resources-list [resources]="topic?.related"></app-resources-list>
-<div *ngIf="topic?.publications">
-  <h3>PUBLICACIONES</h3>
-  <p-divider></p-divider>
-</div>
-<app-resources-list [resources]="topic?.publications"></app-resources-list>
+<span [ngClass]="{'register-wall': !user}">
+  <div class="mt-5">
+    <div *ngIf="topic?.profiles">
+      <h3>PERFILES PROFESIONALES</h3>
+      <p-divider></p-divider>
+    </div>
+    <app-resources-list [resources]="topic?.profiles"></app-resources-list>
+    <div *ngIf="topic?.laws">
+      <h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
+      <p-divider></p-divider>
+    </div>
+    <app-resources-list [resources]="topic?.laws"></app-resources-list>
+    <div *ngIf="topic?.related">
+      <h3>RECURSOS RELEVANTES</h3>
+      <p-divider></p-divider>
+    </div>
+    <app-resources-list [resources]="topic?.related"></app-resources-list>
+    <div *ngIf="topic?.publications">
+      <h3>PUBLICACIONES</h3>
+      <p-divider></p-divider>
+    </div>
+    <app-resources-list [resources]="topic?.publications"></app-resources-list>
+  </div>
+</span>
