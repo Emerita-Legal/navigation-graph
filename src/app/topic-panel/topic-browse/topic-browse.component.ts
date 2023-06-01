@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Resource, ResourceTypes, Topic } from '../_types/topic';
+import { Topic } from '../_types/topic';
 import { TopicService } from '../_services/topic.service';
+import { UserService } from '../../shared/_services/user.service';
 
 @Component({
   selector: 'app-topic-browse',
@@ -8,13 +9,20 @@ import { TopicService } from '../_services/topic.service';
   styleUrls: ['./topic-browse.component.css'],
 })
 export class TopicBrowseComponent {
+  user: boolean = false;
   topic: Topic | undefined;
 
-  constructor(private topicService: TopicService) {}
+  constructor(
+    private topicService: TopicService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.topicService.graphTopic$.subscribe((topic) => {
       this.topic = topic;
+    });
+    this.userService.getUser().subscribe((user) => {
+      this.user = user;
     });
   }
 }

@@ -19,7 +19,7 @@
 }
 
 .innerNode {
-  fill: #fff3eb;
+  fill: #f5f7f8;
   stroke: rgb(135, 136, 160);
   transition: all 300ms ease-in;
   cursor: pointer;
@@ -42,7 +42,7 @@
 }
 
 .outerNode {
-  fill: #fff3eb;
+  fill: #f5f7f8;
   stroke: rgb(135, 136, 160);
   transition: all 300ms ease-in-out;
   cursor: pointer;
@@ -54,8 +54,6 @@
 }
 
 .centralNode {
-  /* fill: url(#map-image); */
-  fill: #0f1820;
   stroke: rgb(135, 136, 160);
 }
 

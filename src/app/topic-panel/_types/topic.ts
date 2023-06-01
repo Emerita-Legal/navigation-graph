@@ -1,6 +1,7 @@
 export interface Topic {
   id: number;
   name: string;
+  type: string;
   title: string;
   description: string;
   subtitle?: string;
@@ -13,7 +14,6 @@ export interface Topic {
   isCentral: boolean;
   image?: string;
 }
-
 
 export interface Resource {
   id?: number;

@@ -9,10 +9,27 @@ import { Topic } from '../_types/topic';
 })
 export class TopicAboutComponent {
   topic: Topic | undefined;
+  description: { value?: string; expanded: boolean } = {
+    value: '',
+    expanded: false,
+  };
 
   constructor(private topicService: TopicService) {}
 
   ngOnInit() {
-    this.topicService.graphTopic$.subscribe((topic) => (this.topic = topic));
+    this.topicService.graphTopic$.subscribe((topic) => {
+      this.topic = topic;
+      this.description.value = this.descriptionBeforeExpand();
+      console.log(this.description);
+    });
+  }
+
+  onExpand() {
+    this.description.value = this.topic?.description;
+    this.description.expanded = true;
+  }
+
+  descriptionBeforeExpand() {
+    return this.topic?.description.split('.')[0] + '.';
   }
 }
