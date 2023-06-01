@@ -1,21 +1,23 @@
 <p-card>
     <ng-template pTemplate="header">
-        <div class="max-h-9rem p-5 header-img"
-            style='background-image: url("{{topic?.image}}");'>
+        <div class="max-h-9rem p-5 header-img" style='background-image: url("{{topic?.image}}");'>
             <div class="header-title">
-                <p class="font-light">
-                    
+                <p class="font-light text-sm">
+                    {{topic?.type}}
                 </p>
-                <h3>
-                    {{ topic?.title }}
-                </h3>
-                <p class="font-light">
-                    {{ topic?.subtitle}}
-                </p>
+                <h1>
+                    {{topic?.title}}
+                </h1>
+                <div class="font-light">
+                    {{topic?.subtitle}}
+                </div>
             </div>
         </div>
     </ng-template>
-    <span>
-       {{ topic?.description}}
+    <span class="description">
+        {{ description.value}}
+        <span *ngIf="!description.expanded">
+            <a (click)="onExpand()">Leer más</a>
+        </span>
     </span>
 </p-card>
