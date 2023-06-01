@@ -17,13 +17,15 @@ export class TopicPanelComponent implements OnInit {
     private topicRepository: TopicRepositoryService,
     private topicService: TopicService
   ) {}
-  getMaxHeight() {
-    return window.innerHeight - 20 + 'px';
-  }
+
   ngOnInit() {
     this.route.firstChild?.params.subscribe((params) => {
       const topic = this.topicRepository.getTopic(+params['id']);
       this.topicService.emitGraphMasterTopic(topic);
     });
+  }
+
+  getMaxHeight() {
+    return window.innerHeight - 70 + 'px';
   }
 }
