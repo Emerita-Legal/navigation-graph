@@ -43,8 +43,8 @@ export class NavigationGraphComponent implements AfterViewInit {
       d3.select('#navigation-container svg').remove();
       this.createSVG();
       const lawyout = this.initLayout();
-      lawyout.onCircleClickEmitter.subscribe((e) => {
-        console.log('yea', e);
+      lawyout.onCircleClickEmitter.subscribe((topicEvent) => {
+        this.topicService.emitGraphTopic(topicEvent.id);
       });
       lawyout.draw();
       this.applyEffects();
