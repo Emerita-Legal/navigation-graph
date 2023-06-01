@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TopicService } from './_services/topic.service';
 import { TopicRepositoryService } from './_services/topic-repository.service';
@@ -15,17 +20,24 @@ export class TopicPanelComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private topicRepository: TopicRepositoryService,
-    private topicService: TopicService
+    private topicService: TopicService,
+    private cdr: ChangeDetectorRef
   ) {}
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.cdr.detectChanges();
+  }
 
   ngOnInit() {
     this.route.firstChild?.params.subscribe((params) => {
       const topic = this.topicRepository.getTopic(+params['id']);
+      this.topicId = topic.id;
       this.topicService.emitGraphMasterTopic(topic);
     });
   }
 
   getMaxHeight() {
-    return window.innerHeight - 70 + 'px';
+    return window.innerHeight - 80 + 'px';
   }
 }

@@ -28,6 +28,9 @@ import { ChatMessageComponent } from './chat/chat-message/chat-message.component
 import { MessageReceivedComponent } from './chat/chat-message/message-received/message-received.component';
 import { MessageSentComponent } from './chat/chat-message/message-sent/message-sent.component';
 import { ChatService } from './chat/chat.service';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GraphSwitchComponent } from './topic-panel/graph-switch/graph-switch.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -48,6 +51,7 @@ import { ChatService } from './chat/chat.service';
     ChatMessageComponent,
     MessageReceivedComponent,
     MessageSentComponent,
+    GraphSwitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,9 @@ import { ChatService } from './chat/chat.service';
     AvatarModule,
     AutoCompleteModule,
     InputTextareaModule,
+    SelectButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [ChatService],
   bootstrap: [AppComponent],

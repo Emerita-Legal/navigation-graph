@@ -43,3 +43,12 @@ body {
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
   padding: 1% !important;
 }
+
+.graph-switch .p-selectbutton .p-button.p-highlight,
+.graph-switch .p-selectbutton .p-button.p-highlight:hover,
+.graph-switch .p-selectbutton .p-button.p-highlight:focus,
+.graph-switch .p-selectbutton .p-button.p-highlight:active {
+  background-color: #0f1820;
+  border-color: #0f1820;
+  box-shadow: none;
+}
