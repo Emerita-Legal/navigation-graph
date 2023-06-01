@@ -40,6 +40,8 @@ export class Layout {
   }
 
   public draw() {
+    this.createOpacityFilter();
+    this.drawCentralImage();
     this.drawCircumference(300, this.dimensions.getOuterNodesRadius(), {
       class: 'outerEdge',
     });
@@ -52,6 +54,42 @@ export class Layout {
     this.graph
       .getEdges()
       .forEach((edge) => this.drawEdge(edge, { class: 'link' }));
+  }
+
+  private createOpacityFilter() {
+    const opacity = 0.8;
+    this.SVGContext.append('defs')
+      .append('filter')
+      .attr('id', 'darken-filter')
+      .append('feColorMatrix')
+      .attr('type', 'matrix')
+      .attr(
+        'values',
+        `${1 - opacity} 0 0 0 0 
+        0 ${1 - opacity} 0 0 0 
+        0 0 ${1 - opacity} 0 0 
+        0 0 0 1 0`
+      )
+      .attr('result', 'colored');
+  }
+
+  private drawCentralImage() {
+    /** In order to use a background image later, we have to define it beforehand  */
+    this.SVGContext.select('defs')
+      .append('pattern')
+      .attr('id', 'central-image')
+      .attr('width', 1)
+      .attr('height', 1)
+      .append('image')
+      .attr(
+        'xlink:href',
+        'https://imageproxy-prod.ent.sdy.ai/v1/image/1500x/https://fws.weforum.org/images/topics/a1Gb0000000pTDZEA2/standard'
+      )
+      .attr('width', this.dimensions.getCentralNodeSize() * 4)
+      .attr('height', this.dimensions.getCentralNodeSize() * 4)
+      .attr('x', -this.dimensions.getCentralNodeSize())
+      .attr('y', -this.dimensions.getCentralNodeSize())
+      .style('filter', 'url(#darken-filter)');
   }
 
   private drawLine(
@@ -142,6 +180,7 @@ export class Layout {
     if (options?.class) {
       drawnNode.attr('class', options.class);
     }
+    return drawnNode;
   }
 
   private drawCentralNode() {
@@ -149,10 +188,16 @@ export class Layout {
       HierarchyLevels.central
     )[0];
     if (centralNode) {
-      this.drawNode(centralNode, this.dimensions.getCenter(), {
-        size: this.dimensions.getCentralNodeSize(),
-        class: 'centralNode',
-      });
+      const drawnNode = this.drawNode(
+        centralNode,
+        this.dimensions.getCenter(),
+        {
+          size: this.dimensions.getCentralNodeSize(),
+          class: 'centralNode',
+        }
+      );
+
+      drawnNode.style('fill', 'url(#central-image)');
 
       const labelPosition = this.dimensions.getCenter();
       labelPosition.x -= this.dimensions.getCentralLabelSize();
