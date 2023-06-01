@@ -6,10 +6,11 @@ import {
 } from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from './_services/graph.service';
-import { applyScaleOnHover, highlightEdgesOnClick } from '../../effects';
+import { applyScaleOnHover, highlightEdges } from '../../effects';
 import { Layout } from './graph-elements/layout';
 import { Topic } from '../_types/topic';
 import { TopicService } from '../_services/topic.service';
+import { debounce, debounceTime, last, take, takeLast } from 'rxjs';
 
 @Component({
   selector: 'app-navigation-graph',
@@ -45,10 +46,17 @@ export class NavigationGraphComponent implements AfterViewInit {
       const lawyout = this.initLayout();
       lawyout.onCircleClickEmitter.subscribe((topicEvent) => {
         this.topicService.emitGraphTopic(topicEvent.id);
+        this.applyEffects(topicEvent.id);
       });
       lawyout.draw();
-      this.applyEffects();
+      this.getLastTopicValue().subscribe((lastTopic) => {
+        this.applyEffects(lastTopic.id);
+      });
     }, 100);
+  }
+
+  private getLastTopicValue() {
+    return this.topicService.graphTopic$.pipe(debounceTime(0), take(1));
   }
 
   private createSVG() {
@@ -77,8 +85,8 @@ export class NavigationGraphComponent implements AfterViewInit {
     this.drawGraph();
   }
 
-  private applyEffects(): void {
+  private applyEffects(nodeId: number): void {
     applyScaleOnHover(1.1);
-    highlightEdgesOnClick();
+    highlightEdges(nodeId + '');
   }
 }

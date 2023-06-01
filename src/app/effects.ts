@@ -32,47 +32,49 @@ export const applyScaleOnHover = (scaleFactor: number): void => {
   });
 };
 
-export const highlightEdgesOnClick = (): void => {
-  document.querySelectorAll('.innerNode').forEach((node) => {
-    const edges = Array.from(
-      document.querySelectorAll(
-        `.link[target-id=\"${node.getAttribute('id')}\"]`
-      )
-    );
+export const highlightEdges = (nodeId: string): void => {
+  const node = document.getElementById(nodeId);
+  if (!node) throw new Error('Node not found');
+  resetAllSelectedClasses();
+  addSelectedClasses(node);
+};
 
-    const outerNodes = edges
-      .map((edge) =>
-        document.querySelector(`[id=\"${edge.getAttribute('source-id')}\"]`)
-      )
-      .filter((el) => !!el) as Element[];
-    node.addEventListener('click', () => {
-      document.querySelector('.innerNodeSelected')?.classList.add('innerNode');
-      document
-        .querySelector('.innerNodeSelected')
-        ?.classList.remove('innerNodeSelected');
-      document.querySelector('.linkSelected')?.classList.add('link');
-      document.querySelector('.linkSelected')?.classList.remove('linkSelected');
-      document
-        .querySelectorAll('.outerNodeSelected')
-        .forEach((outerNodeSelected) => {
-          outerNodeSelected.classList.remove('outerNodeSelected');
-          outerNodeSelected.classList.add('outerNode');
-        });
-      document
-        .querySelectorAll('.linkSelected')
-        .forEach((outerNodeSelected) => {
-          outerNodeSelected.classList.remove('linkSelected');
-          outerNodeSelected.classList.add('link');
-        });
-      node.classList.add('innerNodeSelected');
-      outerNodes.forEach((outerNode) => {
-        outerNode.classList.remove('outerNode');
-        outerNode.classList.add('outerNodeSelected');
-      });
-      edges.forEach((edge) => {
-        edge.classList.remove('link');
-        edge.classList.add('linkSelected');
-      });
+const resetAllSelectedClasses = () => {
+  document.querySelector('.innerNodeSelected')?.classList.add('innerNode');
+  document
+    .querySelector('.innerNodeSelected')
+    ?.classList.remove('innerNodeSelected');
+  document.querySelector('.linkSelected')?.classList.add('link');
+  document.querySelector('.linkSelected')?.classList.remove('linkSelected');
+  document
+    .querySelectorAll('.outerNodeSelected')
+    .forEach((outerNodeSelected) => {
+      outerNodeSelected.classList.remove('outerNodeSelected');
+      outerNodeSelected.classList.add('outerNode');
     });
+  document.querySelectorAll('.linkSelected').forEach((outerNodeSelected) => {
+    outerNodeSelected.classList.remove('linkSelected');
+    outerNodeSelected.classList.add('link');
+  });
+};
+
+const addSelectedClasses = (node: any) => {
+  const edges = Array.from(
+    document.querySelectorAll(`.link[target-id=\"${node.getAttribute('id')}\"]`)
+  );
+  const outerNodes = edges
+    .map((edge) =>
+      document.querySelector(`[id=\"${edge.getAttribute('source-id')}\"]`)
+    )
+    .filter((el) => !!el) as Element[];
+
+  node.classList.add('innerNodeSelected');
+  outerNodes.forEach((outerNode) => {
+    outerNode.classList.remove('outerNode');
+    outerNode.classList.add('outerNodeSelected');
+  });
+  edges.forEach((edge) => {
+    edge.classList.remove('link');
+    edge.classList.add('linkSelected');
   });
 };
