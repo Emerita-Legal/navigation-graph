@@ -495,7 +495,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 66,
+            id: 57,
             name: 'MEDIACIÓN LABORAL',
             title: 'MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
@@ -504,7 +504,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 65,
+            id: 58,
             name: 'ARBITRAJE LABORAL',
             title: 'ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
