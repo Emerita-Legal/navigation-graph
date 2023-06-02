@@ -193,8 +193,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 32,
-            name: 'DERECHO COLECTIVO DEL TRABAJOLA',
-            title: 'DERECHO COLECTIVO DEL TRABAJOLA',
+            name: 'DERECHO COLECTIVO DEL TRABAJO',
+            title: 'DERECHO COLECTIVO DEL TRABAJO',
             subtitle: 'Revisado por 150 expertos en la materia',
             description: 'lorem ipsum',
             type: 'Derecho',
@@ -368,8 +368,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 51234,
-            name: 'ASESORAIMIENTO LABORAL',
-            title: 'ASESORAIMIENTO LABORAL',
+            name: 'ASESORAMIENTO LABORAL',
+            title: 'ASESORAMIENTO LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
             description: 'lorem ipsum',
             type: 'Derecho',
@@ -422,8 +422,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 551,
-            name: 'REVISIÓN DE DOCIMENTOS LABORALES',
-            title: 'REVISIÓN DE DOCIMENTOS LABORALES',
+            name: 'REVISIÓN DE DOCUMENTOS LABORALES',
+            title: 'REVISIÓN DE DOCUMENTOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description: 'lorem ipsum',
             type: 'Derecho',
@@ -495,7 +495,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 66,
+            id: 57,
             name: 'MEDIACIÓN LABORAL',
             title: 'MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
@@ -504,7 +504,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 65,
+            id: 58,
             name: 'ARBITRAJE LABORAL',
             title: 'ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
