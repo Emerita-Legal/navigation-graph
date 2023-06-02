@@ -314,7 +314,7 @@ export class Layout {
           this.dimensions.getOuterNodeSize() +
           this.dimensions.getOuterLabelMargin();
 
-      const degreeAdjustment = (1.5 * Math.PI) / 180;
+      const degreeAdjustment = ((node.getName().length / 10) * Math.PI) / 180;
 
       const labelPosition = Circle.translatePosition(
         nodePosition,
@@ -326,7 +326,7 @@ export class Layout {
       new Label(node.getName(), {
         position: labelPosition,
         width: this.dimensions.getOuterLabelSize(),
-        height: 2 * this.dimensions.getInnerNodeSize(),
+        height: 3 * this.dimensions.getInnerNodeSize(),
         styles: [
           {
             attr: 'font-weight',

@@ -1,6 +1,5 @@
 import { Circle } from './circle';
 import { LayoutContext, Position } from './layout';
-const LABEL_MAX_HEIGHT = 50;
 
 export class Label {
   constructor(
