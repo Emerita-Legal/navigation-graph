@@ -3,16 +3,18 @@
         <div class="col-1">
             <a routerLink="/"><img
                     src="https://19719549.fs1.hubspotusercontent-na1.net/hub/19719549/hubfs/Emerita-legal-logo-2.png?width=108&height=108"
-                    height="40" /></a>
+                    height="30" /></a>
         </div>
         <div class="col-4 col-offset-3 relative">
             <app-search-box *ngIf="!isHomeURL()"></app-search-box>
         </div>
         <div class="col-1 col-offset-3 ">
             <div class="align-items-center justify-content-center flex" *ngIf="user">
-                <p-avatar
-                    image="https://estaticos-cdn.epe.es/clip/9311c47b-e3ff-4250-a4be-a869326b0abf_alta-libre-aspect-ratio_default_0.jpg"
-                    size="medium" shape="circle"></p-avatar> Usuario
+                <p-avatar image="https://assets.stickpng.com/images/585e4beacb11b227491c3399.png" size="small"
+                    shape="circle"></p-avatar>
+                <div class="ml-2">
+                    <p>Usuario</p>
+                </div>
 
             </div>
         </div>

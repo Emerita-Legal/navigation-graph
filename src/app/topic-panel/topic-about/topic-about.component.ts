@@ -20,7 +20,7 @@ export class TopicAboutComponent {
     this.topicService.graphTopic$.subscribe((topic) => {
       this.topic = topic;
       this.description.value = this.descriptionBeforeExpand();
-      console.log(this.description);
+      this.description.expanded = false;
     });
   }
 
