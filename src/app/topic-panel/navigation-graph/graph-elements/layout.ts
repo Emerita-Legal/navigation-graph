@@ -54,6 +54,19 @@ export class Layout {
     this.graph
       .getEdges()
       .forEach((edge) => this.drawEdge(edge, { class: 'link' }));
+
+    // click event for the image central node
+    const centralNode = this.graph.getNodesByHierarchyLevel(
+      HierarchyLevels.central
+    )[0];
+    if (!centralNode) {
+      throw new Error('Central node not found');
+    }
+    document
+      .querySelector('app-navigation-graph foreignObject')
+      ?.addEventListener('click', (event) => {
+        this.onCircleClickEmitter.emit({ ...event, id: centralNode.getId() });
+      });
   }
 
   private createOpacityFilter() {
@@ -226,7 +239,11 @@ export class Layout {
             value: '40%',
           },
         ],
-      }).draw(this.SVGContext);
+      })
+        .draw(this.SVGContext)
+        .on('click', (event) => {
+          this.onCircleClickEmitter.emit({ ...event, id: centralNode.getId() });
+        });
     }
   }
 
