@@ -8,4 +8,8 @@ import { Message } from '../../chat-elements/message';
 })
 export class MessageReceivedComponent {
   @Input() message?: Message;
+
+  ngOnInit() {
+    setTimeout( () => this.message?.getChart()?.draw(), 0);
+  }
 }

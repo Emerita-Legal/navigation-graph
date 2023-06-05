@@ -18,7 +18,6 @@ export interface Topic {
 export interface Resource {
   id?: number;
   url?: string;
-  snippet?: string;
   image: string;
   title: string;
   subtitle?: string;
@@ -33,4 +32,5 @@ export enum ResourceTypes {
   Sentence,
   Article,
   Template,
+  Publication
 }
