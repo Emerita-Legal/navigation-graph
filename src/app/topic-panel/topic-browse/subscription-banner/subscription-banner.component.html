@@ -19,12 +19,12 @@
 
 <p-dialog header="¿Qué tipo de profesional eres?" [(visible)]="dialogVisible">
     <div class="flex align-items-center justify-items-center p-1">
-        <p-button (click)="signUp()" class="mr-2"
+        <p-button (click)="signUp('Abogada')" class="mr-2"
             [style]="{background:'#fff3eb', border: 'none', color:'#ff8b22', 'font-weight':'bold'}">
             <i class="pi pi-user mr-2"></i>
             Abogado/a
         </p-button>
-        <p-button (click)="signUp()"
+        <p-button (click)="signUp('Empresaria')"
             [style]="{background:'#fff3eb', border: 'none', color:'#ff8b22', 'font-weight':'bold'}">
             <i class="pi pi-building  mr-2"></i>
             Empresario/a

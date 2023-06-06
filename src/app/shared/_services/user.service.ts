@@ -3,14 +3,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {
-  private isRegistered: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private isRegistered: BehaviorSubject<{ type: string }> = new BehaviorSubject(
+    { type: 'Abogada' }
+  );
   constructor() {}
 
-  signUp() {
-    this.isRegistered.next(true);
+  signUp(type: string) {
+    this.isRegistered.next({ type });
   }
 
-  getUser(): Observable<boolean> {
+  getUser(): Observable<{ type: string }> {
     return this.isRegistered.asObservable();
   }
 }

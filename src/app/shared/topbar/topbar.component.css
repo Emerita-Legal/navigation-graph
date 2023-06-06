@@ -15,3 +15,7 @@ app-search-box {
 p {
   margin: 0;
 }
+
+.text-sm {
+  color: #ff8b34;
+}

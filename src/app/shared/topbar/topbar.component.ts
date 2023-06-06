@@ -8,7 +8,7 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./topbar.component.css'],
 })
 export class TopbarComponent {
-  user = false;
+  user: { type: string } | null = null;
 
   constructor(private router: Router, private userService: UserService) {}
 

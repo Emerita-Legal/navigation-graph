@@ -9,7 +9,7 @@ import { UserService } from '../../shared/_services/user.service';
   styleUrls: ['./topic-browse.component.css'],
 })
 export class TopicBrowseComponent {
-  user: boolean = false;
+  user: { type: string } | null = null;
   topic: Topic | undefined;
 
   constructor(

@@ -7,7 +7,7 @@ import { UserService } from '../../../shared/_services/user.service';
   styleUrls: ['./subscription-banner.component.css'],
 })
 export class SubscriptionBannerComponent {
-  user = false;
+  user: { type: string } | null = null;
   dialogVisible = false;
 
   constructor(private userService: UserService) {}
@@ -22,8 +22,8 @@ export class SubscriptionBannerComponent {
     this.dialogVisible = true;
   }
 
-  signUp() {
-    this.userService.signUp();
+  signUp(type: string) {
+    this.userService.signUp(type);
     this.dialogVisible = false;
   }
 }
