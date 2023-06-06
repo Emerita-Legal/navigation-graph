@@ -1,14 +1,17 @@
-<div class="home">
-    <div class="grid">
-        <div class="col-8 col-offset-2 md:col-6 md:col-offset-3">
-            <img src="https://www.comparador-legaltech.com/media/1934/icono.png" [style.max-height]="80" width="60%"
-                [style.margin-left]="'20%'" alt="">
-            <p class="text-center text-xl text-700">Busca un tema</p>
-            <app-search-box></app-search-box>
-            <p class="text-center text-lg text-900 font-bold">O</p>
-            <p class="text-center text-lg text-900"> <a routerLink="/panel/graph/1">Navega por nuestro grafo de
-                    conocimiento</a>
-            </p>
+<div class="home-container">
+    <div class="overlay"></div>
+    <div class="home">
+        <div class="grid">
+            <div class="col-8 col-offset-2 md:col-offset-1 md:col-4">
+                <img src="https://www.comparador-legaltech.com/media/1934/icono.png" [style.max-height]="80" width="60%"
+                    [style.margin-left]="'20%'" alt="">
+                <p class="text-center text-xl text-700">Busca un tema</p>
+                <app-search-box></app-search-box>
+                <p class="text-center text-lg text-700">o</p>
+                <p class="text-center text-lg text-900"> <a routerLink="/panel/graph/1">Navega por nuestro grafo de
+                        conocimiento</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
