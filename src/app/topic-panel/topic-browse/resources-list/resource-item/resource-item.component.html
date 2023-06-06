@@ -1,19 +1,37 @@
-<div class="resource-item mt-3" [style.border-left]='getResourceBorder()'>
-    <div class="surface-card shadow-2 border-round pl-3 pt-2 pb-2 pr-1">
-        <div class="grid">
-            <div class="col-2 flex align-items-center pt-3">
-                <p-avatar image="{{resource.image}}" size="large" shape="circle"></p-avatar>
-            </div>
-            <div class="col-10 flex align-items-center pr-5">
-                <div>
-                    <span class="block text-500 mb-1" *ngIf="resource.subtitle && resource.country" r>
-                        {{resource.subtitle}} - {{resource.country}}
-                    </span>
-                    <span class="text-900 text-lg">
-                        {{resource.title}}
-                    </span>
-                </div>
-            </div>
+<div class="resource-item mt-3" [style.border-left]="getResourceBorder()">
+  <div class="surface-card shadow-2 border-round pl-3 pt-2 pb-2 pr-1">
+    <div class="grid">
+      <div class="col-2 d-flex align-items-center justify-content-center pt-3">
+        <p-avatar
+          class="d-flex"
+          image="{{ resource.image }}"
+          size="large"
+          shape="circle"
+        ></p-avatar>
+      </div>
+      <div class="col-10 flex align-items-center pr-5">
+        <div>
+          <span
+            class="block text-500 mb-1"
+            *ngIf="resource.subtitle && resource.country"
+            r
+          >
+            {{ resource.subtitle }} - {{ resource.country }}
+          </span>
+          <span class="text-900 text-lg">
+            {{ resource.title }}
+          </span>
+          <span
+            class="block text-400 text-xs mb-1"
+            *ngIf="
+              resourceTypes.Publication == resource.type && resource.subtitle
+            "
+            r
+          >
+            {{ resource.subtitle | slice : 0 : 120 }}...
+          </span>
         </div>
+      </div>
     </div>
+  </div>
 </div>

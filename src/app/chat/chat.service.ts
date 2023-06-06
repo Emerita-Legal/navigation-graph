@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Conversation } from './chat-elements/conversation';
 import { Message } from './chat-elements/message';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, debounceTime } from 'rxjs';
+import { BarChart } from './chat-message/BarChart';
 
 @Injectable()
 export class ChatService {
+  messageId = 0;
   private conversation: BehaviorSubject<Conversation> =
     new BehaviorSubject<Conversation>(new Conversation());
   constructor() {}
@@ -24,12 +26,13 @@ export class ChatService {
     setTimeout(() => {
       this.conversation.getValue().addMessage(
         new Message(
-          0,
+          ++this.messageId,
           `Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
             Labore a voluptates corporis illum quae, quasi esse dicta vitae maxime aspernatur? 
             Earum atque reiciendis odit molestiae culpa quisquam fuga repellat`,
           new Date(),
-          'received'
+          'received',
+          this.messageId % 2 === 1 ? new BarChart([3,1,3,4], this.messageId) : undefined
         )
       );
     }, 1000);

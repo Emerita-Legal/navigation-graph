@@ -14,7 +14,9 @@ export class ResourceItemComponent {
     country: '',
     type: ResourceTypes.Lawyer,
     url: '',
-  };
+ };
+
+ resourceTypes = ResourceTypes;
 
   goto(link: string) {
     window.open(link, '__blank');

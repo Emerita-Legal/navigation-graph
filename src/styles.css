@@ -52,3 +52,17 @@ body {
   border-color: #0f1820;
   box-shadow: none;
 }
+
+.d-flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+
+.bar {
+  fill: #0f1820;
+}
