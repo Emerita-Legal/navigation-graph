@@ -57,9 +57,12 @@ body {
   display: flex;
 }
 .align-items-center {
-  align-items: center
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
 }
 
 .bar {
-  fill: #0f1820;;
+  fill: #0f1820;
 }

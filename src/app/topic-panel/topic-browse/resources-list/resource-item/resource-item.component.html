@@ -1,8 +1,9 @@
 <div class="resource-item mt-3" [style.border-left]="getResourceBorder()">
   <div class="surface-card shadow-2 border-round pl-3 pt-2 pb-2 pr-1">
     <div class="grid">
-      <div class="col-2 flex align-items-center pt-3">
+      <div class="col-2 d-flex align-items-center justify-content-center pt-3">
         <p-avatar
+          class="d-flex"
           image="{{ resource.image }}"
           size="large"
           shape="circle"
@@ -27,7 +28,7 @@
             "
             r
           >
-            {{ resource.subtitle | slice:0:120 }}...
+            {{ resource.subtitle | slice : 0 : 120 }}...
           </span>
         </div>
       </div>
