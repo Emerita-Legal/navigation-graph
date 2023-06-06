@@ -1,14 +1,7 @@
 <div class="grid">
   <div class="col-10 col-offset-1">
-    <div class="d-flex message-received">
-      <div *ngIf="message?.hasChart()">
-        <svg id="chart{{ message?.getChart()?.getId() }}"></svg>
-      </div>
-      <div class="d-flex align-items-center">
-        <span>
-          {{ message?.getContent() }}
-        </span>
-      </div>
+    <div class="d-flex flex-direction-column message-received">
+      <app-sub-menssage *ngFor="let subMessage of message?.getSubMessages()" [subMessage]="subMessage"></app-sub-menssage>
     </div>
     <div class="message-time">
       {{ message?.getTimestampHHMM() }}

@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { Message } from '../../chat-elements/message';
+import { BarChartComponent } from '../sub-messages/bar-chart.component';
+import { SubMessageDirective } from '../subMessageDirective';
 
 @Component({
   selector: 'app-message-received',
@@ -8,8 +10,4 @@ import { Message } from '../../chat-elements/message';
 })
 export class MessageReceivedComponent {
   @Input() message?: Message;
-
-  ngOnInit() {
-    setTimeout( () => this.message?.getChart()?.draw(), 0);
-  }
 }

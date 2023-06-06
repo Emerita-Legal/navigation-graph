@@ -1,19 +1,19 @@
+import { Component, Input } from '@angular/core';
 import * as d3 from 'd3';
 
-export interface IChart {
-  draw(): void;
-  getId(): number;
-}
+@Component({
+  template: `<svg id="bar-chart"></svg>`,
+})
+export class BarChartComponent {
+  @Input() data: number[] = [];
+  private id: number = 1;
 
-export class BarChart implements IChart {
-  private data: number[];
-  private id: number;
+  constructor() {}
 
-  constructor(data: any, id: number) {
-    this.data = data;
-    this.id = id;
+  ngOnInit() {
+    this.draw();
   }
-  
+
   getId() {
     return this.id;
   }
@@ -28,7 +28,7 @@ export class BarChart implements IChart {
 
     // Create the SVG container
     const svg = d3
-      .select('#chart' + this.id)
+      .select('#bar-chart')
       .attr('width', svgWidth)
       .attr('height', svgHeight);
 

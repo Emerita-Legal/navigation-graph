@@ -1,4 +1,4 @@
-import { IChart } from '../chat-message/BarChart';
+import { SubMessage } from './subMessage';
 
 export class Message {
   constructor(
@@ -6,8 +6,12 @@ export class Message {
     private content: string,
     private timestamp: Date,
     private type: 'sent' | 'received',
-    private chart?: IChart
+    private subMessages: Array<SubMessage> = []
   ) {}
+
+  getSubMessages() {
+    return this.subMessages;
+  }
 
   getType() {
     return this.type;
@@ -19,14 +23,6 @@ export class Message {
 
   getTimestamp() {
     return this.timestamp;
-  }
-
-  hasChart() {
-    return !!this.chart;
-  }
-
-  getChart(): IChart | undefined {
-    return this.chart;
   }
 
   getTimestampHHMM() {

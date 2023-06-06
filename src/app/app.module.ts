@@ -33,6 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GraphSwitchComponent } from './topic-panel/graph-switch/graph-switch.component';
 import { DialogModule } from 'primeng/dialog';
 import { UserService } from './shared/_services/user.service';
+import { SubMessageDirective } from './chat/chat-message/subMessageDirective';
+import { TextComponent } from './chat/chat-message/sub-messages/text.component';
+import { SubMessageComponent } from './chat/chat-message/sub-messages/sub-message.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -54,6 +57,9 @@ import { UserService } from './shared/_services/user.service';
     MessageReceivedComponent,
     MessageSentComponent,
     GraphSwitchComponent,
+    SubMessageDirective,
+    TextComponent,
+    SubMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,7 @@ import { UserService } from './shared/_services/user.service';
     SelectButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    DialogModule,
+    DialogModule
   ],
   providers: [ChatService, UserService],
   bootstrap: [AppComponent],
