@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   ngAfterViewInit() {
     setTimeout(() => {
-      (document.querySelector('.home') as any).style.opacity = 1;
+      (document.querySelector('.home-container') as any).style.opacity = 1;
     }, 500);
   }
 }

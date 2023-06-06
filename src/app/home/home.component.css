@@ -16,8 +16,6 @@ a:hover {
 .home {
   position: relative;
   top: 35%;
-  opacity: 0;
-  transition: 1.5s all ease-in;
 }
 
 .home-container {
@@ -30,6 +28,8 @@ a:hover {
   background-repeat: no-repeat;
   background-position: right;
   background-color: white;
+  opacity: 0;
+  transition: 1.5s all ease-in;
 }
 
 .overlay {
