@@ -53,7 +53,7 @@ export class Layout {
     this.drawOuterNodes();
     this.graph
       .getEdges()
-      .forEach((edge) => this.drawEdge(edge, { class: 'link' }));
+      .forEach((edge) => this.drawEdge(edge, { class: 'link link-start' }));
   }
 
   private createOpacityFilter() {

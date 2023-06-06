@@ -10,7 +10,12 @@
   opacity: 0.9;
 }
 
-.linkHover,
+.link-start {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.link:hover,
 .linkSelected {
   stroke: #ff8b22;
   transition: all 300ms ease-in;
@@ -25,12 +30,14 @@
   cursor: pointer;
 }
 
-.innerNodeHover,
-.innerNodeSelected,
-.outerNodeSelected,
-.outerNodeHover {
-  fill: #ff8b22;
-  stroke: #ff8b22;
+.nodePreSelected {
+  transition: all 300ms ease-in;
+}
+
+.nodeHovered,
+.nodeSelected {
+  fill: #ff8b22 !important;
+  stroke: #ff8b22 !important;
   transition: all 300ms ease-in;
   cursor: pointer;
 }

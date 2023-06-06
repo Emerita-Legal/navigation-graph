@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import * as d3 from 'd3';
 import { GraphService } from './_services/graph.service';
-import { applyScaleOnHover, highlightEdges } from '../../effects';
+import { applyEffects } from '../../effects';
 import { Layout } from './graph-elements/layout';
 import { Topic } from '../_types/topic';
 import { TopicService } from '../_services/topic.service';
@@ -29,7 +29,7 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
-    this.resetSVG();
+    this.drawGraph();
   }
 
   ngAfterViewInit(): void {
@@ -41,18 +41,21 @@ export class NavigationGraphComponent implements AfterViewInit {
 
   private drawGraph() {
     setTimeout(() => {
-      d3.select('#navigation-container svg').remove();
       this.createSVG();
-      const lawyout = this.initLayout();
-      lawyout.onCircleClickEmitter.subscribe((topicEvent) => {
-        this.topicService.emitGraphTopic(topicEvent.id);
-        this.applyEffects(topicEvent.id);
-      });
-      lawyout.draw();
-      this.getLastTopicValue().subscribe((lastTopic) => {
-        this.applyEffects(lastTopic.id);
-      });
+      const layout = this.initLayout();
+      this.subscribeToGraphEvents(layout);
+      layout.draw();
+      applyEffects();
     }, 100);
+  }
+
+  private subscribeToGraphEvents(layout: Layout) {
+    layout.onCircleClickEmitter.subscribe((topicEvent) => {
+      this.topicService.emitGraphTopic(topicEvent.id);
+    });
+    this.getLastTopicValue().subscribe((lastTopic) => {
+      this.clickOnNode(lastTopic.id);
+    });
   }
 
   private getLastTopicValue() {
@@ -60,6 +63,7 @@ export class NavigationGraphComponent implements AfterViewInit {
   }
 
   private createSVG() {
+    d3.select('#navigation-container svg').remove();
     this.SVG = d3
       .select('#navigation-container')
       .append('svg')
@@ -81,12 +85,10 @@ export class NavigationGraphComponent implements AfterViewInit {
     );
   }
 
-  private resetSVG(): void {
-    this.drawGraph();
-  }
-
-  private applyEffects(nodeId: number): void {
-    applyScaleOnHover(1.1);
-    highlightEdges(nodeId + '');
+  private clickOnNode(nodeId: number) {
+    const node = document.getElementById(`${nodeId}`);
+    if (node) {
+      node.dispatchEvent(new MouseEvent('click'));
+    }
   }
 }

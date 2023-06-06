@@ -1,80 +1,134 @@
-export const applyScaleOnHover = (scaleFactor: number): void => {
-  document.querySelectorAll('.innerNode, .outerNode').forEach((node) => {
+/**
+ * Cuando se carga el grafo, solo estan las circunferencias
+ * Después las labels y los nodos hacen pop, primero el central, luego los inner
+ * Las relaciones hacen desde opacity 0 a 1
+ * Y de ultimo hacen pop los outer
+ */
+
+export const applyEffects = () => {
+  popOnLoad();
+  scaleOnHover();
+  highlightOnNodeClick();
+  highlightEdgesOnInnerClick();
+  highlightEdgesOnOuterClick();
+};
+
+const getAllEdgesFromNode = (node: Element, type: 'source' | 'target') => {
+  return Array.from(
+    document.querySelectorAll(
+      `.link[${type}-id=\"${node.getAttribute('id')}\"]`
+    )
+  );
+};
+
+const getTargetNode = (node: Element) => {
+  const nodeId = document
+    .querySelector(`.link[source-id=\"${node.getAttribute('id')}\"]`)
+    ?.getAttribute('target-id');
+  return document.querySelector(`[id=\"${nodeId}\"]`);
+};
+
+const removeAllNodeHighLightClasses = (querySelector: string) => {
+  document.querySelectorAll(querySelector).forEach((n) => {
+    n.classList.remove('nodeSelected');
+    n.classList.remove('nodePreSelected');
+  });
+};
+
+const removeAllEdgeHighLightClasses = () => {
+  document
+    .querySelectorAll('.link')
+    .forEach((edge) => edge.classList.remove('linkSelected'));
+};
+
+const scaleOnHover = () => {
+  const SCALE_FACTOR = 1.1;
+  document.querySelectorAll('circle').forEach((node) => {
     const baseSize = node.getAttribute('r');
     if (!baseSize) throw new Error('Element has no size');
     node.addEventListener('mouseover', () => {
-      node.setAttribute('r', (parseFloat(baseSize) * scaleFactor).toString());
-      if (node.classList.contains('innerNode')) {
-        node.classList.remove('innerNode');
-        node.classList.add('innerNodeHover');
-      }
-      if (node.classList.contains('outerNode')) {
-        node.classList.remove('outerNode');
-        node.classList.add('outerNodeHover');
-      }
+      node.setAttribute('r', (parseFloat(baseSize) * SCALE_FACTOR).toString());
+      node.classList.add('nodeHovered');
     });
     node.addEventListener('mouseout', () => {
-      node.setAttribute('r', baseSize);
-      if (node.classList.contains('innerNodeHover')) {
-        node.classList.remove('innerNodeHover');
-        if (!node.classList.contains('innerNodeSelected')) {
-          node.classList.add('innerNode');
-        }
-      }
-      if (node.classList.contains('outerNodeHover')) {
-        node.classList.remove('outerNodeHover');
-        if (!node.classList.contains('outerNodeSelected')) {
-          node.classList.add('outerNode');
-        }
-      }
+      node.setAttribute('r', parseFloat(baseSize).toString());
+      node.classList.remove('nodeHovered');
     });
-    return node;
   });
 };
 
-export const highlightEdges = (nodeId: string): void => {
-  const node = document.getElementById(nodeId);
-  if (!node) throw new Error('Node not found');
-  resetAllSelectedClasses();
-  addSelectedClasses(node);
-};
-
-const resetAllSelectedClasses = () => {
-  document.querySelector('.innerNodeSelected')?.classList.add('innerNode');
-  document
-    .querySelector('.innerNodeSelected')
-    ?.classList.remove('innerNodeSelected');
-  document.querySelector('.linkSelected')?.classList.add('link');
-  document.querySelector('.linkSelected')?.classList.remove('linkSelected');
-  document
-    .querySelectorAll('.outerNodeSelected')
-    .forEach((outerNodeSelected) => {
-      outerNodeSelected.classList.remove('outerNodeSelected');
-      outerNodeSelected.classList.add('outerNode');
+const highlightOnNodeClick = () => {
+  const nodes = document.querySelectorAll('.innerNode, .outerNode');
+  nodes.forEach((node) => {
+    node.addEventListener('click', () => {
+      removeAllNodeHighLightClasses('.innerNode, .outerNode');
+      node.classList.add('nodeSelected');
     });
-  document.querySelectorAll('.linkSelected').forEach((outerNodeSelected) => {
-    outerNodeSelected.classList.remove('linkSelected');
-    outerNodeSelected.classList.add('link');
   });
 };
 
-const addSelectedClasses = (node: any) => {
-  const edges = Array.from(
-    document.querySelectorAll(`.link[target-id=\"${node.getAttribute('id')}\"]`)
-  );
+const highlightEdgesOnInnerClick = () => {
+  document.querySelectorAll('.innerNode').forEach((node) => {
+    node.addEventListener('click', () => {
+      const edges = getAllEdgesFromNode(node, 'target');
+      removeAllEdgeHighLightClasses();
+      edges.forEach((edge) => edge.classList.add('linkSelected'));
+      highlightOuterFromEdges(edges);
+    });
+  });
+};
+
+const highlightEdgesOnOuterClick = () => {
+  document.querySelectorAll('.outerNode').forEach((node) => {
+    node.addEventListener('click', () => {
+      const targetNode = getTargetNode(node);
+      if (targetNode) {
+        const edges = getAllEdgesFromNode(targetNode, 'target');
+        removeAllEdgeHighLightClasses();
+        edges.forEach((edge) => edge.classList.add('linkSelected'));
+        highlightOuterFromEdges(edges);
+        node.classList.add('nodeSelected');
+        targetNode.classList.add('nodeSelected');
+      }
+    });
+  });
+};
+
+const highlightOuterFromEdges = (edges: Element[]) => {
   const outerNodes = edges
     .map((edge) =>
       document.querySelector(`[id=\"${edge.getAttribute('source-id')}\"]`)
     )
     .filter((el) => !!el) as Element[];
+  removeAllNodeHighLightClasses('.outerNode');
+  outerNodes.forEach((node) => node.classList.add('nodePreSelected'));
+};
 
-  node.classList.add('innerNodeSelected');
-  outerNodes.forEach((outerNode) => {
-    outerNode.classList.remove('outerNode');
-    outerNode.classList.add('outerNodeSelected');
+const popOnLoad = () => {
+  document.querySelectorAll('circle').forEach((node, index) => {
+    node.style.transform = 'scale(0)';
+    node.style.transition = `transform ${
+      index > 8 ? '300m' : '1'
+    }s ease-in-out`;
+    setTimeout(() => {
+      node.style.transform = 'scale(1)';
+    }, 100 + index * 30);
   });
-  edges.forEach((edge) => {
-    edge.classList.remove('link');
-    edge.classList.add('linkSelected');
+  document.querySelectorAll('.label-container').forEach((node: any, index) => {
+    node.style.transform = 'scale(0)';
+    node.style.transition = `transform ${
+      index > 8 ? '300m' : '1'
+    }s ease-in-out`;
+    setTimeout(() => {
+      node.style.transform = 'scale(1)';
+    }, 100 + (index > 8 ? index * 30 : 0));
+  });
+  document.querySelectorAll('.link-start').forEach((node: any) => {
+    setTimeout(() => {
+      node.style.opacity = '0.9';
+    }, 1500);
   });
 };
+
+// TODO: Mantener efectos on resize
+// const onLoadGraph
