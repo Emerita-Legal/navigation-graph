@@ -105,23 +105,24 @@ const highlightOuterFromEdges = (edges: Element[]) => {
 };
 
 const popOnLoad = () => {
+  const centralNodeNumber = document.querySelectorAll('.innerNodes').length + 1;
   document.querySelectorAll('circle').forEach((node, index) => {
     node.style.transform = 'scale(0)';
     node.style.transition = `transform ${
-      index > 8 ? '300m' : '1'
+      index > centralNodeNumber ? '300m' : '1'
     }s ease-in-out`;
     setTimeout(() => {
       node.style.transform = 'scale(1)';
-    }, 100 + index * 30);
+    }, 300 + index * 30);
   });
   document.querySelectorAll('.label-container').forEach((node: any, index) => {
     node.style.transform = 'scale(0)';
     node.style.transition = `transform ${
-      index > 8 ? '300m' : '1'
+      index > centralNodeNumber ? '300m' : '1'
     }s ease-in-out`;
     setTimeout(() => {
       node.style.transform = 'scale(1)';
-    }, 100 + (index > 8 ? index * 30 : 0));
+    }, 300 + (index > centralNodeNumber ? index * 30 : 0));
   });
   document.querySelectorAll('.link-start').forEach((node: any) => {
     setTimeout(() => {
