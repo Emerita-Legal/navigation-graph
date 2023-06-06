@@ -1,9 +1,9 @@
 <p-card>
     <ng-template pTemplate="header">
-        <div class="max-h-9rem p-5 header-img" style='background-image: url("{{topic?.image}}");'>
+        <div class="p-5 header-img" style='background-image: url("{{topic?.image}}");'>
             <div class="header-title">
                 <p class="font-light text-sm">
-                    {{topic?.type}}
+                    {{breadcrumbs.join(" > ")}}
                 </p>
                 <h1>
                     {{topic?.title}}

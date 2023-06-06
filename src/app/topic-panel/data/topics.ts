@@ -83,7 +83,7 @@ export const topics: Array<Topic> = [
         url: 'https://www.emerita.legal/blog/laboral/cobrar-indemnizacion-accidente-laboral-https-www-emerita-legal-abogado-santiago-diez-martinez-141050/',
         subtitle:
           'Indemnización por accidente laboral: ¿Qué es una indemnización laboral? ¿Qué tipo de indemnización/prestaciones puedes reclamar tras sufrir un accidente laboral? ¿Qué pasa si el seguro no se pone en contacto conmigo? Ejemplos de casos en cobros de indemnización por accidente laboral. Estas son algunas de las preguntas que más se buscan en relación a esta casuística y el abogado Santiago Diez Martínez, te da la respuesta y ofrece su asistencia.',
-        type: ResourceTypes.Publication
+        type: ResourceTypes.Publication,
       },
       {
         id: 2,
@@ -93,7 +93,7 @@ export const topics: Array<Topic> = [
         url: 'https://www.emerita.legal/blog/laboral/redactar-una-carta-de-despido-improcedente-actualizado-2023-73129/',
         subtitle:
           '¿Qué implica que la empresa admita la improcedencia del despido? Proceso de envío y recepción de la carta de despido. ¿Qué elementos deben figurar si o si en la carta de despido improcedente? Consejos para redactar la carta de despido. Modelo de redacción de carta de despido. ¿Qué pasa si la carta de despido tiene errores? Ejemplos de casos de errores en la carta de despido improcedente. Estas son algunas de las preguntas más buscadas en internet durante el último mes. Por ello, le hemos pedido al abogado experto en derecho del trabajo, Joaquín Sánchez, que les dé respuesta. A continuación todos los detalles.',
-        type: ResourceTypes.Publication
+        type: ResourceTypes.Publication,
       },
       {
         id: 3,
@@ -103,7 +103,7 @@ export const topics: Array<Topic> = [
         url: 'https://www.emerita.legal/blog/laboral/extincion-contrato-trabajo-trabajador-73129/',
         subtitle:
           'Causas de la extinción del contrato de trabajo por parte del trabajador. ¿Cómo solicitar la extinción del contrato de trabajo por parte del trabajador? ¿Cuándo puede un trabajador solicitar la extinción del contrato y cobrar indemnización? ¿Qué consecuencias tiene la extinción del contrato de trabajo por parte del trabajador? Ejemplos de casos de extinción del contrato de trabajo por parte del trabajador. Estas son algunas de las preguntas más buscadas en internet durante el último mes. Por ello, le hemos pedido al abogado experto en derecho del trabajo, Joaquín Sánchez, que les dé respuesta. A continuación todos los detalles.',
-        type: ResourceTypes.Publication
+        type: ResourceTypes.Publication,
       },
     ],
     childs: [
@@ -125,7 +125,6 @@ export const topics: Array<Topic> = [
             type: 'Derecho',
             isCentral: false,
           },
-          ,
           {
             id: 21,
             name: 'DERECHOS DE LOS EMPLEADOS',
@@ -135,7 +134,6 @@ export const topics: Array<Topic> = [
             type: 'Derecho',
             isCentral: false,
           },
-          ,
           {
             id: 22,
             name: 'DERECHOS DE LOS AUTÓNOMOS',
@@ -145,7 +143,6 @@ export const topics: Array<Topic> = [
             type: 'Derecho',
             isCentral: false,
           },
-          ,
           {
             id: 23,
             name: 'DERECHOS DE LOS TRABAJADORES INTERNACIONALES',
@@ -155,7 +152,6 @@ export const topics: Array<Topic> = [
             type: 'Derecho',
             isCentral: false,
           },
-          ,
           {
             id: 24,
             name: 'DERECHOS EN CASO DE DISCRIMINACIÓN O ACOSO LABORAL',
@@ -634,8 +630,4 @@ export const topics: Array<Topic> = [
     // laws,
     // related
   },
-].map((topic) => ({ ...topic, title: capitalizeFirst(topic.title) }));
-
-function capitalizeFirst(string: string) {
-  return string[0].toUpperCase() + string.slice(1, string.length).toLowerCase();
-}
+];

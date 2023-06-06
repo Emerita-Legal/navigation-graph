@@ -14,4 +14,25 @@ export class TopicRepositoryService {
     }
     return topic;
   }
+
+  public getTopicsParents(topicId: number): string[] {
+    return getTopicParents(topicId, topics).map((el) => el.name);
+  }
+}
+
+function getTopicParents(
+  topicId: number,
+  levelTopics: Topic[],
+  parents: Topic[] = []
+) {
+  const originalTopics = topics;
+  for (const topic of levelTopics.filter((t) => !!t.childs)) {
+    if (!!topic.childs?.find((t) => t.id === topicId)) {
+      parents.push(topic);
+      getTopicParents(topic.id, originalTopics, parents);
+    } else {
+      getTopicParents(topicId, topic.childs! ?? [], parents);
+    }
+  }
+  return parents;
 }
