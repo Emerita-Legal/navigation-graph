@@ -39,9 +39,9 @@ export class Layout {
     this.dimensions = new Dimensions(height, width);
   }
 
-  public draw() {
+  public draw(centralImageURL: string) {
     this.createOpacityFilter();
-    this.drawCentralImage();
+    this.drawCentralImage(centralImageURL);
     this.drawCircumference(300, this.dimensions.getOuterNodesRadius(), {
       class: 'outerEdge',
     });
@@ -86,7 +86,7 @@ export class Layout {
       .attr('result', 'colored');
   }
 
-  private drawCentralImage() {
+  private drawCentralImage(centralImageURL: string) {
     /** In order to use a background image later, we have to define it beforehand  */
     this.SVGContext.select('defs')
       .append('pattern')
@@ -94,10 +94,7 @@ export class Layout {
       .attr('width', 1)
       .attr('height', 1)
       .append('image')
-      .attr(
-        'xlink:href',
-        'https://imageproxy-prod.ent.sdy.ai/v1/image/1500x/https://fws.weforum.org/images/topics/a1Gb0000000pTDZEA2/standard'
-      )
+      .attr('xlink:href', centralImageURL)
       .attr('width', this.dimensions.getCentralNodeSize() * 4)
       .attr('height', this.dimensions.getCentralNodeSize() * 4)
       .attr('x', -this.dimensions.getCentralNodeSize())

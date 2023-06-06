@@ -69,50 +69,18 @@ export const topics: Array<Topic> = [
     isCentral: true,
     title: 'DERECHO LABORAL',
     image:
-      'https://imageproxy-prod.ent.sdy.ai/v1/image/1500x/https://fws.weforum.org/images/topics/a1Gb0000000pTDZEA2/standard',
+      'https://humanidades.com/wp-content/uploads/2017/03/derecho-laboral-e1563660386267.jpg',
     subtitle: 'Revisado por 150 expertos en la materia',
     description:
       'El derecho laboral es una especialidad que busca proteger a los trabajadores y regular la contratación por parte de las empresas. Las reclamaciones de salarios, los despidos, las indemnizaciones… son de las materias más discutidas en esta rama de derecho',
-    publications: [
-      {
-        id: 1,
-        title:
-          '¿Cuánto se tarda en cobrar una indemnización por accidente laboral?',
-        image:
-          'https://www.emerita.legal/blog/wp-content/uploads/2023/05/indemnizacion-accidente-laboral.jpg',
-        url: 'https://www.emerita.legal/blog/laboral/cobrar-indemnizacion-accidente-laboral-https-www-emerita-legal-abogado-santiago-diez-martinez-141050/',
-        subtitle:
-          'Indemnización por accidente laboral: ¿Qué es una indemnización laboral? ¿Qué tipo de indemnización/prestaciones puedes reclamar tras sufrir un accidente laboral? ¿Qué pasa si el seguro no se pone en contacto conmigo? Ejemplos de casos en cobros de indemnización por accidente laboral. Estas son algunas de las preguntas que más se buscan en relación a esta casuística y el abogado Santiago Diez Martínez, te da la respuesta y ofrece su asistencia.',
-        type: ResourceTypes.Publication,
-      },
-      {
-        id: 2,
-        title: 'Redactar una carta de despido improcedente. Actualizado 2023',
-        image:
-          'https://www.emerita.legal/blog/wp-content/uploads/2023/04/Redactar-una-carta-de-despido-improcedente-Actualizado-2023.jpg',
-        url: 'https://www.emerita.legal/blog/laboral/redactar-una-carta-de-despido-improcedente-actualizado-2023-73129/',
-        subtitle:
-          '¿Qué implica que la empresa admita la improcedencia del despido? Proceso de envío y recepción de la carta de despido. ¿Qué elementos deben figurar si o si en la carta de despido improcedente? Consejos para redactar la carta de despido. Modelo de redacción de carta de despido. ¿Qué pasa si la carta de despido tiene errores? Ejemplos de casos de errores en la carta de despido improcedente. Estas son algunas de las preguntas más buscadas en internet durante el último mes. Por ello, le hemos pedido al abogado experto en derecho del trabajo, Joaquín Sánchez, que les dé respuesta. A continuación todos los detalles.',
-        type: ResourceTypes.Publication,
-      },
-      {
-        id: 3,
-        title: 'Extinción del contrato de trabajo por parte del trabajador',
-        image:
-          'https://www.emerita.legal/blog/wp-content/uploads/2023/04/Extincion-del-contrato-de-trabajo-por-parte-del-trabajador.jpg',
-        url: 'https://www.emerita.legal/blog/laboral/extincion-contrato-trabajo-trabajador-73129/',
-        subtitle:
-          'Causas de la extinción del contrato de trabajo por parte del trabajador. ¿Cómo solicitar la extinción del contrato de trabajo por parte del trabajador? ¿Cuándo puede un trabajador solicitar la extinción del contrato y cobrar indemnización? ¿Qué consecuencias tiene la extinción del contrato de trabajo por parte del trabajador? Ejemplos de casos de extinción del contrato de trabajo por parte del trabajador. Estas son algunas de las preguntas más buscadas en internet durante el último mes. Por ello, le hemos pedido al abogado experto en derecho del trabajo, Joaquín Sánchez, que les dé respuesta. A continuación todos los detalles.',
-        type: ResourceTypes.Publication,
-      },
-    ],
     childs: [
       {
         id: 2,
         name: 'DERECHOS',
         title: 'DERECHOS',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -121,7 +89,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHOS DE LOS EMPLEADORES',
             title: 'DERECHOS DE LOS EMPLEADORES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -130,7 +99,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHOS DE LOS EMPLEADOS',
             title: 'DERECHOS DE LOS EMPLEADOS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -139,7 +109,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHOS DE LOS AUTÓNOMOS',
             title: 'DERECHOS DE LOS AUTÓNOMOS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -148,7 +119,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHOS DE LOS TRABAJADORES INTERNACIONALES',
             title: 'DERECHOS DE LOS TRABAJADORES INTERNACIONALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -157,7 +129,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHOS EN CASO DE DISCRIMINACIÓN O ACOSO LABORAL',
             title: 'DERECHOS EN CASO DE DISCRIMINACIÓN O ACOSO LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -167,26 +140,98 @@ export const topics: Array<Topic> = [
         id: 3,
         name: 'MATERIAS',
         title: 'MATERIAS',
+        image:
+          'https://bbl-bdb.s3.amazonaws.com/sets/images/derecho_laboral.jpg',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
+        publications: [
+          {
+            id: 1,
+            title: 'Baja voluntaria y abandono del trabajo: ¿es lo mismo?',
+            image:
+              'https://www.emerita.legal/blog/wp-content/uploads/2021/03/baja-voluntaria-abandono-trabajo.png',
+            url: 'https://www.emerita.legal/blog/laboral/baja-voluntaria-abandono-trabajo-mismo-133686/',
+            subtitle:
+              '¿Cuál es la diferencia entre la baja voluntaria y el abandono del puesto de trabajo?, ¿tengo derecho a paro si curso la baja voluntaria?, ¿cuáles son las consecuencias del abandono del puesto de trabajo? Javier Monge Abad experto en Derecho del Trabajo, nos lo cuenta todo sobre esta cuestión.',
+            type: ResourceTypes.Publication,
+          },
+          {
+            id: 2,
+            title: '¿Cómo actuar ante una inspección de trabajo?',
+            image:
+              'https://www.emerita.legal/blog/wp-content/uploads/2021/02/inspeccion-de-trabajo.jpg',
+            url: 'https://www.emerita.legal/blog/laboral/inspeccion-de-trabajo-97637/',
+            subtitle:
+              '¿Quieres saber cómo actuar ante una inspección de trabajo?, ¿conoces la documentación que puede solicitar el inpector?, ¿deseas saber si puedes reclamar en caso de no estar de acuerdo con la sanción que te interponga el inspector de trabajo?, la abogada especializada en Control administrativo, Amanda Grande Troncoso, resuelve todas las dudas relacionadas a este temática.',
+            type: ResourceTypes.Publication,
+          },
+          {
+            id: 3,
+            title: '¿Puede la empresa obligarme a coger vacaciones?',
+            image:
+              'https://www.emerita.legal/blog/wp-content/uploads/2021/03/pexels-anna-shvets-5711914.jpg',
+            url: 'https://www.emerita.legal/blog/laboral/obligarme-coger-vacaciones-92327/',
+            subtitle:
+              '¿Cómo puedo calcular los días que puedo coger de vacaciones?, ¿puede la empresa obligarme a coger vacaciones?, ¿qué pasa si las vacaciones me coinciden con una baja?, el abogado Miguel Escandell Pérez, experto en Derecho del trabajo, resuelve todas las dudas relacionadas a este tema.',
+            type: ResourceTypes.Publication,
+          },
+        ],
         childs: [
           {
             id: 30,
             name: 'DERECHO DEL CONFLICTO LABORAL',
             title: 'DERECHO DEL CONFLICTO LABORAL',
+            image:
+              'https://economipedia.com/wp-content/uploads/conflicto-laboral.jpg',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
+            publications: [
+              {
+                id: 1,
+                title:
+                  '¿Cómo denunciar a una empresa que tiene trabajadores sin contrato?',
+                image:
+                  'https://www.emerita.legal/blog/wp-content/uploads/2023/03/denunciar-empresa-tiene-trabajadores-sin-contrato.jpg',
+                url: 'https://www.emerita.legal/blog/laboral/como-denunciar-empresa-tiene-trabajadores-sin-contrato-142561/',
+                subtitle:
+                  'Motivos para denunciar a una empresa que tiene trabajadores sin contrato. ¿Qué hay que hacer para denunciar por tener trabajadores sin contrato? ¿Qué pruebas se necesitan para denunciar que se trabaja sin contrato? ¿Cómo va a ser el proceso una vez se ponga la denuncia? ¿Cuáles pueden ser las consecuencias si denuncio a la empresa por tener trabajadores sin contrato? Ejemplos de casos de denuncias a empresas por tener trabajadores sin contrato. Estas son algunas de las preguntas que más se buscan en relación a esta casuística y el abogado experto en derecho del trabajo, José Ramón Millán Cidón, te da la respuesta y ofrece su asistencia.',
+                type: ResourceTypes.Publication,
+              },
+              {
+                id: 2,
+                title: 'Despido durante la baja de paternidad ¿Es legal?',
+                image:
+                  'https://www.emerita.legal/blog/wp-content/uploads/2023/03/Despido-durante-baja-paternidad.jpg',
+                url: 'https://www.emerita.legal/blog/laboral/despido-durante-baja-paternidad-legal-98760/',
+                subtitle:
+                  '¿Es legal que me despidan durante la baja de paternidad? ¿Cómo puede justificar la empresa el despido? ¿Cobro salarios de tramitación si he percibido el paro? ¿Qué hago si me han despedido durante la baja por paternidad? ¿Qué va a pasar después de demandar a la empresa? Ejemplos de casos de despidos durante la baja por paternidad. Estas son algunas de las preguntas que más se buscan en relación a esta casuística y José Manuel Laguna Redondo, abogado especialista en derecho del trabajo, te da la respuesta y ofrece su asistencia en el siguiente artículo.',
+                type: ResourceTypes.Publication,
+              },
+              {
+                id: 3,
+                title: 'Despido nulo por represalias',
+                image:
+                  'https://www.emerita.legal/blog/wp-content/uploads/2023/01/despido-nulo-por-represalias.jpg',
+                url: 'https://www.emerita.legal/blog/laboral/despido-nulo-represalias-143455/',
+                subtitle:
+                  '¿Qué es un despido por vulneración de la garantía de indemnidad? ¿Cuál es la garantía de indemnidad que protege al trabajador? ¿Cómo recurrir un despido por represalias a la empresa? ¿Es posible recuperar tu trabajo si el despido es considerado como nulo por un juez? Estas son algunas de las preguntas que más se buscan en relación a esta casuística y el abogado experto en Derecho Laboral y Derecho de la Seguridad Social, Diego Lorenzo Riveiro, te da la respuesta y ofrece su asistencia.',
+                type: ResourceTypes.Publication,
+              },
+            ],
           },
           {
             id: 31,
             name: 'DERECHO DE LA CONTRATACIÓN LABORAL',
             title: 'DERECHO DE LA CONTRATACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -195,7 +240,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHO COLECTIVO DEL TRABAJO',
             title: 'DERECHO COLECTIVO DEL TRABAJO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -204,7 +250,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHO SINDICAL Y PATRONAL',
             title: 'DERECHO SINDICAL Y PATRONAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -213,7 +260,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHO DE LA NEGOCIACIÓN COLECTIVA',
             title: 'DERECHO DE LA NEGOCIACIÓN COLECTIVA',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -222,7 +270,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHO DE LA PREVENCIÓN DE RIESGOS LABORALES',
             title: 'DERECHO DE LA PREVENCIÓN DE RIESGOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -231,7 +280,8 @@ export const topics: Array<Topic> = [
             name: 'DERECHO ARBITRAL',
             title: 'DERECHO ARBITRAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -242,7 +292,8 @@ export const topics: Array<Topic> = [
         name: 'LEGISLACIÓN',
         title: 'LEGISLACIÓN',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -251,7 +302,8 @@ export const topics: Array<Topic> = [
             name: 'ESTATUTO DE LOS TRABAJADORES',
             title: 'ESTATUTO DE LOS TRABAJADORES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -260,7 +312,8 @@ export const topics: Array<Topic> = [
             name: 'CONSTITUCIÓN ESPAÑOLA',
             title: 'CONSTITUCIÓN ESPAÑOLA',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -269,7 +322,8 @@ export const topics: Array<Topic> = [
             name: 'LEY DE PREVENCIÓN DE RIESGOS LABORALES',
             title: 'LEY DE PREVENCIÓN DE RIESGOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -278,7 +332,8 @@ export const topics: Array<Topic> = [
             name: 'LEY ORGÁNICA DE LIBERTAD SINDICAL',
             title: 'LEY ORGÁNICA DE LIBERTAD SINDICAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -287,7 +342,8 @@ export const topics: Array<Topic> = [
             name: 'LEY SOBRE INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
             title: 'LEY SOBRE INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -296,7 +352,8 @@ export const topics: Array<Topic> = [
             name: 'CONVENIOS COLECTIVOS',
             title: 'CONVENIOS COLECTIVOS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -305,7 +362,8 @@ export const topics: Array<Topic> = [
             name: 'LEY DE EMPLEO',
             title: 'LEY DE EMPLEO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -316,7 +374,8 @@ export const topics: Array<Topic> = [
         name: 'SERVICIOS',
         title: 'SERVICIOS',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -325,7 +384,8 @@ export const topics: Array<Topic> = [
             name: 'ABOGADOS LABORALISTAS',
             title: 'ABOGADOS LABORALISTAS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -334,7 +394,8 @@ export const topics: Array<Topic> = [
             name: 'DESPACHOS LABORALISTAS',
             title: 'DESPACHOS LABORALISTAS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -343,7 +404,8 @@ export const topics: Array<Topic> = [
             name: 'RANKING ABOGADOS LABORALISTAS',
             title: 'RANKING ABOGADOS LABORALISTAS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -352,7 +414,8 @@ export const topics: Array<Topic> = [
             name: 'RANKING DESPACHOS LABORALISTAS',
             title: 'RANKING DESPACHOS LABORALISTAS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -361,7 +424,8 @@ export const topics: Array<Topic> = [
             name: 'FAQ PREGUNTAS FRECUENTES',
             title: 'FAQ PREGUNTAS FRECUENTES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -370,7 +434,8 @@ export const topics: Array<Topic> = [
             name: 'ASESORAMIENTO LABORAL',
             title: 'ASESORAMIENTO LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -379,7 +444,8 @@ export const topics: Array<Topic> = [
             name: 'REPRESENTACIÓN EN JUICIOS LABORALES',
             title: 'REPRESENTACIÓN EN JUICIOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -388,7 +454,8 @@ export const topics: Array<Topic> = [
             name: 'MEDIACIÓN LABORAL',
             title: 'MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -397,7 +464,8 @@ export const topics: Array<Topic> = [
             name: 'ARBITRAJE LABORAL',
             title: 'ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -406,7 +474,8 @@ export const topics: Array<Topic> = [
             name: 'JUICIOS Y APELACIONES LABORALES',
             title: 'JUICIOS Y APELACIONES LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -415,7 +484,8 @@ export const topics: Array<Topic> = [
             name: 'CONSULTAS LABORALES',
             title: 'CONSULTAS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -424,7 +494,8 @@ export const topics: Array<Topic> = [
             name: 'REVISIÓN DE DOCUMENTOS LABORALES',
             title: 'REVISIÓN DE DOCUMENTOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -433,7 +504,8 @@ export const topics: Array<Topic> = [
             name: 'ASESORAMIENTO EN CUMPLIMIENTO NORMATIVO',
             title: 'ASESORAMIENTO EN CUMPLIMIENTO NORMATIVO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -442,7 +514,8 @@ export const topics: Array<Topic> = [
             name: 'ASESORAMIENTO EN RELACIONES LABORALES INTERNACIONALES',
             title: 'ASESORAMIENTO EN RELACIONES LABORALES INTERNACIONALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -453,7 +526,8 @@ export const topics: Array<Topic> = [
         name: 'PROCEDIMIENTOS',
         title: 'PROCEDIMIENTOS',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -462,7 +536,8 @@ export const topics: Array<Topic> = [
             name: 'RECLAMACIONES LABORALES',
             title: 'RECLAMACIONES LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -471,7 +546,8 @@ export const topics: Array<Topic> = [
             name: 'JUICIOS LABORALES',
             title: 'JUICIOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -480,7 +556,8 @@ export const topics: Array<Topic> = [
             name: 'APELACIÓN LABORAL',
             title: 'APELACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -489,7 +566,8 @@ export const topics: Array<Topic> = [
             name: 'CONCILIACIÓN LABORAL',
             title: 'CONCILIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -498,7 +576,8 @@ export const topics: Array<Topic> = [
             name: 'MEDIACIÓN LABORAL',
             title: 'MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -507,7 +586,8 @@ export const topics: Array<Topic> = [
             name: 'ARBITRAJE LABORAL',
             title: 'ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -518,7 +598,8 @@ export const topics: Array<Topic> = [
         name: 'DOCUMENTACIÓN',
         title: 'DOCUMENTACIÓN',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -527,7 +608,8 @@ export const topics: Array<Topic> = [
             name: 'CONTRATOS DE TRABAJO',
             title: 'CONTRATOS DE TRABAJO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -536,7 +618,8 @@ export const topics: Array<Topic> = [
             name: 'CARTAS DE DESPIDO',
             title: 'CARTAS DE DESPIDO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -545,7 +628,8 @@ export const topics: Array<Topic> = [
             name: 'ACUERDOS LABORALES',
             title: 'ACUERDOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -554,7 +638,8 @@ export const topics: Array<Topic> = [
             name: 'DOCUMENTACIÓN LEGAL LABORAL',
             title: 'DOCUMENTACIÓN LEGAL LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -563,7 +648,8 @@ export const topics: Array<Topic> = [
             name: 'SENTENCIAS',
             title: 'SENTENCIAS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -572,7 +658,8 @@ export const topics: Array<Topic> = [
             name: 'DOCTRINA Y JURISPUDENCIA',
             title: 'DOCTRINA Y JURISPUDENCIA',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -583,7 +670,8 @@ export const topics: Array<Topic> = [
         name: 'CASOS',
         title: 'CASOS',
         subtitle: 'Revisado por 150 expertos en la materia',
-        description: 'lorem ipsum',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
         isCentral: false,
         childs: [
@@ -592,7 +680,8 @@ export const topics: Array<Topic> = [
             name: 'CASOS LABORALES RESUELTOS',
             title: 'CASOS LABORALES RESUELTOS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -601,7 +690,8 @@ export const topics: Array<Topic> = [
             name: 'CASOS LABORALES EN CURSO',
             title: 'CASOS LABORALES EN CURSO',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -610,7 +700,8 @@ export const topics: Array<Topic> = [
             name: 'ESTUDIOS DE CASOS',
             title: 'ESTUDIOS DE CASOS',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },
@@ -619,7 +710,8 @@ export const topics: Array<Topic> = [
             name: 'GLOSARIO LEGAL LABORAL',
             title: 'GLOSARIO LEGAL LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
-            description: 'lorem ipsum',
+            description:
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
             isCentral: false,
           },

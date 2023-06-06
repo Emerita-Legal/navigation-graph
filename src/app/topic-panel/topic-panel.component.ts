@@ -33,7 +33,7 @@ export class TopicPanelComponent implements OnInit {
     this.route.firstChild?.params.subscribe((params) => {
       const topic = this.topicRepository.getTopic(+params['id']);
       this.topicId = topic.id;
-      this.topicService.emitGraphMasterTopic(topic);
+      this.topicService.emitGraphCentralTopic(topic);
     });
   }
 

@@ -25,4 +25,8 @@ export class TopicBrowseComponent {
       this.user = user;
     });
   }
+
+  onDescriptionClick(topicId: number) {
+    this.topicService.emitGraphTopic(topicId);
+  }
 }

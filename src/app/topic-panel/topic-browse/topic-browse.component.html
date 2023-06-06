@@ -1,26 +1,42 @@
 <span [ngClass]="{'register-wall': !user}">
-  <div class="mt-5">
-    <div *ngIf="topic?.profiles && !!topic?.profiles?.length">
-      <h3>PERFILES PROFESIONALES</h3>
-      <p-divider></p-divider>
-      <app-resources-list [resources]="topic?.profiles"></app-resources-list>
-    </div>
-    <div *ngIf="topic?.laws && !!topic?.laws?.length">
-      <h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
-      <p-divider></p-divider>
-      <app-resources-list [resources]="topic?.laws"></app-resources-list>
+  <span *ngIf="!topic?.isCentral">
+    <div class="mt-5">
+      <div *ngIf="topic?.profiles && !!topic?.profiles?.length">
+        <h3>PERFILES PROFESIONALES</h3>
+        <p-divider></p-divider>
+        <app-resources-list [resources]="topic?.profiles"></app-resources-list>
+      </div>
+      <div *ngIf="topic?.laws && !!topic?.laws?.length">
+        <h3>LEGISLACIÓN Y JURISPRUDENCIA</h3>
+        <p-divider></p-divider>
+        <app-resources-list [resources]="topic?.laws"></app-resources-list>
+      </div>
+
+      <div *ngIf="topic?.related && !!topic?.related?.length">
+        <h3>RECURSOS RELEVANTES</h3>
+        <p-divider></p-divider>
+        <app-resources-list [resources]="topic?.related"></app-resources-list>
+      </div>
+
+      <div *ngIf="topic?.publications && !!topic?.publications?.length">
+        <h3>PUBLICACIONES</h3>
+        <p-divider></p-divider>
+        <app-resources-list [resources]="topic?.publications"></app-resources-list>
+      </div>
     </div>
 
-    <div *ngIf="topic?.related && !!topic?.related?.length">
-      <h3>RECURSOS RELEVANTES</h3>
-      <p-divider></p-divider>
-      <app-resources-list [resources]="topic?.related"></app-resources-list>
+  </span>
+  <span *ngIf="topic?.isCentral">
+    <div class="node-description-link" *ngFor="let t of topic?.childs">
+      <div>
+        <div class="flex align-items-center">
+          <a (click)="onDescriptionClick(t.id)"><i class="pi pi-arrow-up-left"></i></a>
+          <h3 class="ml-2">{{t.name}}</h3>
+        </div>
+      </div>
+      <div class="description-container">
+        <p>{{t.description}}</p>
+      </div>
     </div>
-
-    <div *ngIf="topic?.publications && !!topic?.publications?.length">
-      <h3>PUBLICACIONES</h3>
-      <p-divider></p-divider>
-      <app-resources-list [resources]="topic?.publications"></app-resources-list>
-    </div>
-  </div>
+  </span>
 </span>

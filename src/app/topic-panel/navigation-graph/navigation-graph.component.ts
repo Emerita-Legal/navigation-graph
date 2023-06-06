@@ -20,7 +20,8 @@ import { debounce, debounceTime, last, take, takeLast } from 'rxjs';
   providers: [GraphService],
 })
 export class NavigationGraphComponent implements AfterViewInit {
-  private topic?: Topic;
+  private centralTopic?: Topic;
+  private selectedTopic?: Topic;
   private SVG?: d3.Selection<SVGSVGElement, unknown, HTMLElement, any>;
   constructor(
     private graphService: GraphService,
@@ -33,8 +34,8 @@ export class NavigationGraphComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.topicService.graphMasterTopic$.subscribe((topic) => {
-      this.topic = topic;
+    this.topicService.graphCentralTopic$.subscribe((topic) => {
+      this.centralTopic = topic;
       this.drawGraph();
     });
   }
@@ -44,7 +45,7 @@ export class NavigationGraphComponent implements AfterViewInit {
       this.createSVG();
       const layout = this.initLayout();
       this.subscribeToGraphEvents(layout);
-      layout.draw();
+      layout.draw(this.centralTopic!.image!);
       applyEffects();
     }, 100);
   }
@@ -52,6 +53,12 @@ export class NavigationGraphComponent implements AfterViewInit {
   private subscribeToGraphEvents(layout: Layout) {
     layout.onCircleClickEmitter.subscribe((topicEvent) => {
       this.topicService.emitGraphTopic(topicEvent.id);
+    });
+    this.topicService.graphTopic$.subscribe((topic) => {
+      if (topic.id !== this.selectedTopic?.id) {
+        this.selectedTopic = topic;
+        this.clickOnNode(topic.id);
+      }
     });
     this.getLastTopicValue().subscribe((lastTopic) => {
       this.clickOnNode(lastTopic.id);
@@ -76,9 +83,9 @@ export class NavigationGraphComponent implements AfterViewInit {
       width: parseFloat(this.SVG!.style('width')),
       height: parseFloat(this.SVG!.style('height')),
     };
-    if (!this.topic) throw new Error('Topic not initialized yet');
+    if (!this.centralTopic) throw new Error('Topic not initialized yet');
     return new Layout(
-      this.graphService.generateGraph(this.topic),
+      this.graphService.generateGraph(this.centralTopic),
       d3.select('svg'),
       container.width,
       container.height
