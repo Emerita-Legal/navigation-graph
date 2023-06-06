@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TopicService } from '../_services/topic.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-graph-switch',
@@ -24,11 +25,16 @@ export class GraphSwitchComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    if (this.router.url.includes('chat')) {
-      this.switchValue = 'chat';
-    }
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((e: any) => {
+        if (e.url.includes('chat')) {
+          this.switchValue = 'chat';
+        } else {
+          this.switchValue = 'graph';
+        }
+      });
   }
-
   onSwitchClick($event: any) {
     const selectedOption = $event.option;
     if (selectedOption.value === 'chat') {
