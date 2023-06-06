@@ -451,8 +451,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 57,
-            name: 'MEDIACIÓN LABORAL',
-            title: 'MEDIACIÓN LABORAL',
+            name: 'SERVICIOS DE MEDIACIÓN LABORAL',
+            title: 'SERVICIOS DE MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -461,8 +461,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 58,
-            name: 'ARBITRAJE LABORAL',
-            title: 'ARBITRAJE LABORAL',
+            name: 'SERVICIOS DE ARBITRAJE LABORAL',
+            title: 'SERVICIOS DE ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -572,7 +572,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 57,
+            id: 64,
             name: 'MEDIACIÓN LABORAL',
             title: 'MEDIACIÓN LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
@@ -582,7 +582,7 @@ export const topics: Array<Topic> = [
             isCentral: false,
           },
           {
-            id: 58,
+            id: 65,
             name: 'ARBITRAJE LABORAL',
             title: 'ARBITRAJE LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
