@@ -56,6 +56,7 @@ export class TopicService {
 
   emitChatTopic() {
     this.chatTopic = chatTopic;
+    this.alreadyUsedChat = true;
     this.chatTopicSubject.next(chatTopic);
   }
 
