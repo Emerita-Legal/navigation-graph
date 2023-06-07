@@ -86,8 +86,8 @@ export const topics: Array<Topic> = [
         childs: [
           {
             id: 20,
-            name: 'DERECHOS DE LOS EMPLEADORES',
-            title: 'DERECHOS DE LOS EMPLEADORES',
+            name: 'EMPLEADORES',
+            title: 'EMPLEADORES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -96,8 +96,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 21,
-            name: 'DERECHOS DE LOS EMPLEADOS',
-            title: 'DERECHOS DE LOS EMPLEADOS',
+            name: 'EMPLEADOS',
+            title: 'EMPLEADOS',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -106,8 +106,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 22,
-            name: 'DERECHOS DE LOS AUTÓNOMOS',
-            title: 'DERECHOS DE LOS AUTÓNOMOS',
+            name: 'AUTÓNOMOS',
+            title: 'AUTÓNOMOS',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -116,8 +116,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 23,
-            name: 'DERECHOS DE LOS TRABAJADORES INTERNACIONALES',
-            title: 'DERECHOS DE LOS TRABAJADORES INTERNACIONALES',
+            name: 'TRABAJADORES INTERNACIONALES',
+            title: 'TRABAJADORES INTERNACIONALES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -126,8 +126,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 24,
-            name: 'DERECHOS EN CASO DE DISCRIMINACIÓN O ACOSO LABORAL',
-            title: 'DERECHOS EN CASO DE DISCRIMINACIÓN O ACOSO LABORAL',
+            name: 'DISCRIMINACIÓN O ACOSO LABORAL',
+            title: 'DISCRIMINACIÓN O ACOSO LABORAL',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -339,8 +339,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 44,
-            name: 'LEY SOBRE INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
-            title: 'LEY SOBRE INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
+            name: 'INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
+            title: 'INFRACCIONES Y SANCIONES DEL ORDEN SOCIAL',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',

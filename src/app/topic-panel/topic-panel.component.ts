@@ -49,6 +49,6 @@ export class TopicPanelComponent implements OnInit {
   }
 
   getMaxHeight() {
-    return window.innerHeight - 80 + 'px';
+    return `${window.innerHeight - window.innerHeight * 0.22}px`;
   }
 }
