@@ -36,6 +36,8 @@ import { UserService } from './shared/_services/user.service';
 import { SubMessageDirective } from './chat/chat-message/subMessageDirective';
 import { TextComponent } from './chat/chat-message/sub-messages/text.component';
 import { SubMessageComponent } from './chat/chat-message/sub-messages/sub-message.component';
+import { LineChartComponent } from './chat/chat-message/sub-messages/line-chart.component';
+import { CircleChartComponent } from './chat/chat-message/sub-messages/circle-chart.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -59,7 +61,9 @@ import { SubMessageComponent } from './chat/chat-message/sub-messages/sub-messag
     GraphSwitchComponent,
     SubMessageDirective,
     TextComponent,
-    SubMessageComponent
+    SubMessageComponent,
+    LineChartComponent,
+    CircleChartComponent
   ],
   imports: [
     BrowserModule,

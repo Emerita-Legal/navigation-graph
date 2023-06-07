@@ -66,6 +66,18 @@ body {
 .justify-content-center {
   justify-content: center;
 }
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.d-block {
+  display: block;
+}
+.font-big {
+  font-size: 1.5em;
+}
 
 .bar {
   fill: #0f1820;
