@@ -25,7 +25,7 @@ export class ChatService {
       this.newMessageEmmiter.next(responseMessage);
       this.topicService.emitChatTopic();
       this.isLoadingEmmiter.next(false);
-    }, 1000);
+    }, 1500);
   }
 
   getConversation(): Conversation {

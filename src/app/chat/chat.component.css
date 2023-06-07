@@ -7,4 +7,5 @@
   width: 100%;
   padding: 4%;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
