@@ -28,37 +28,32 @@ export class Conversation {
   }
 
   private generateResponse(message: Message): Message {
-    return new Message(
-      message.getId() + 1,
-      `Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-        Labore a voluptates corporis illum quae, quasi esse dicta vitae maxime aspernatur? 
-        Earum atque reiciendis odit molestiae culpa quisquam fuga repellat`,
-      new Date(),
-      'received',
-      [
-        new SubMessage(TextComponent, {
-          text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-              Labore a voluptates corporis illum quae, quasi esse dicta vitae maxime aspernatur? 
-              Earum atque reiciendis odit molestiae culpa quisquam fuga repellat`,
-        }),
-        new SubMessage(LineChartComponent, [
-          { year: 2018, global: 70, media: 70 },
-          { year: 2019, global: 40, media: 40 },
-          { year: 2020, global: 40, media: 40 },
-          { year: 2021, global: 30, media: 30 },
-          { year: 2022, global: 80, media: 80 },
-          { year: 2023, global: 100, media: 100 },
-        ]),
-        new SubMessage(TextComponent, {
-          text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit.`,
-        }),
-        new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
-        new SubMessage(TextComponent, {
-          text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-              Labore a voluptates corporis illum quae, quasi esse dicta vitae maxime aspernatur? 
-              Earum atque reiciendis odit molestiae culpa quisquam fuga repellat`,
-        }),
-      ]
-    );
+    return new Message(message.getId() + 1, '', new Date(), 'received', [
+      new SubMessage(TextComponent, {
+        text: `La probabilidad de éxito con los factores que indicas es del 62%. Para ello, he considerado
+          la tasa de éxito en casos de despido disciplinario en los que se defiende al trabajador en los
+          Juzgados de lo Social de A Coruña de los últimos cinco años y la tasa de éxito promedio del
+          abogado contrario con los mismos factores.
+          Aquí puedes ver la representación gráfica de las tasas de éxito.`,
+      }),
+
+      new SubMessage(LineChartComponent, [
+        { year: 2018, global: 70, media: 70 },
+        { year: 2019, global: 40, media: 40 },
+        { year: 2020, global: 40, media: 40 },
+        { year: 2021, global: 30, media: 30 },
+        { year: 2022, global: 80, media: 80 },
+        { year: 2023, global: 100, media: 100 },
+      ]),
+      new SubMessage(TextComponent, {
+        text: `Juzgado de lo Social de A Coruña - Evolución de la tasa de éxito en casos de despido
+          disciplinario defendiendo al trabajador.`,
+      }),
+      new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
+      new SubMessage(TextComponent, {
+        text: `Puedo ser más preciso calculando la probabilidad de éxito. ¿Quieres incluir
+          otros factores?`,
+      }),
+    ]);
   }
 }
