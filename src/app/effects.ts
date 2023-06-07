@@ -1,9 +1,17 @@
 export const applyEffects = () => {
   popOnLoad();
   scaleOnHover();
+  resetOnCentralClick();
   highlightOnNodeClick();
   highlightEdgesOnInnerClick();
   highlightEdgesOnOuterClick();
+};
+
+const resetOnCentralClick = () => {
+  document.querySelector('.centralNode + g')?.addEventListener('click', () => {
+    removeAllNodeHighLightClasses('.innerNode, .outerNode');
+    removeAllEdgeHighLightClasses();
+  });
 };
 
 const getAllEdgesFromNode = (node: Element, type: 'source' | 'target') => {
