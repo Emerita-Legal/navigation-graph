@@ -8,6 +8,7 @@ export class TopicService {
   private centralTopic?: Topic;
   private outerTopic?: Topic;
   private chatTopic?: Topic;
+  private alreadyUsedChat = false;
 
   private readonly graphCentralTopic: ReplaySubject<Topic> =
     new ReplaySubject<Topic>();
@@ -35,7 +36,7 @@ export class TopicService {
       throw new Error('Topic not found');
     }
     this.outerTopic = topic;
-    if (!this.chatTopic) {
+    if (!this.alreadyUsedChat) {
       this.chatTopic = topic;
     }
     this.graphTopic.next(topic);
