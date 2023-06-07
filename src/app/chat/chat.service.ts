@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Conversation } from './chat-elements/conversation';
 import { Message } from './chat-elements/message';
-import { BehaviorSubject, Observable, Subject, debounceTime } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject, debounceTime } from 'rxjs';
 import { TopicService } from '../topic-panel/_services/topic.service';
 
 @Injectable()
 export class ChatService {
-  private newMessageEmmiter = new Subject<Message>();
+  private newMessageEmmiter = new ReplaySubject<Message>();
   public newMessage$ = this.newMessageEmmiter.asObservable();
 
   private conversation = new Conversation();

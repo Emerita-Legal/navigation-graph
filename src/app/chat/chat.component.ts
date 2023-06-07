@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  AfterViewInit,
   Component,
   ElementRef,
   ViewChild,
@@ -13,12 +14,14 @@ import { Message } from './chat-elements/message';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })
-export class ChatComponent {
+export class ChatComponent implements AfterViewInit {
   messages: Message[] = [];
-  private conversationSubscription: Subscription;
+  private conversationSubscription!: Subscription;
   @ViewChild('chatContainer', { static: false }) chatContainer!: ElementRef;
 
-  constructor(private chatService: ChatService) {
+  constructor(private chatService: ChatService) {}
+
+  ngAfterViewInit() {
     this.conversationSubscription = this.chatService.newMessage$.subscribe(
       (newMessage) => {
         this.messages.push(newMessage);
