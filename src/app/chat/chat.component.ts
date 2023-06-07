@@ -31,17 +31,7 @@ export class ChatComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.chatService.newMessage$
-      .pipe(
-        takeUntil(this.destroySubject),
-        filter((message) => message.getType() === 'sent')
-      )
-      .subscribe((m) => this.addMessage(m));
-    this.chatService.newMessage$
-      .pipe(
-        takeUntil(this.destroySubject),
-        filter((message) => message.getType() === 'received'),
-        debounceTime(2000)
-      )
+      .pipe(takeUntil(this.destroySubject))
       .subscribe((m) => this.addMessage(m));
   }
 

@@ -9,7 +9,14 @@ import { Message } from '../chat-elements/message';
   styleUrls: ['./chat-input.component.css'],
 })
 export class ChatInputComponent {
-  constructor(private router: Router, private chatService: ChatService) {}
+  responseLoading = false;
+
+  constructor(private router: Router, private chatService: ChatService) {
+    this.chatService.isResponseLoading$.subscribe((changeState) => {
+      this.responseLoading = changeState;
+    });
+  }
+
   onMessageSent() {
     this.chatService.addMessage(
       new Message(
