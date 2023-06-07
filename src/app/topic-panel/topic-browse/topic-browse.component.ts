@@ -21,6 +21,9 @@ export class TopicBrowseComponent {
     this.topicService.graphTopic$.subscribe((topic) => {
       this.topic = topic;
     });
+    this.topicService.chatTopic$.subscribe((topic) => {
+      this.topic = topic;
+    });
     this.userService.getUser().subscribe((user) => {
       this.user = user;
     });

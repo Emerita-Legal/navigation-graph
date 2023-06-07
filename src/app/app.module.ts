@@ -38,6 +38,7 @@ import { TextComponent } from './chat/chat-message/sub-messages/text.component';
 import { SubMessageComponent } from './chat/chat-message/sub-messages/sub-message.component';
 import { LineChartComponent } from './chat/chat-message/sub-messages/line-chart.component';
 import { CircleChartComponent } from './chat/chat-message/sub-messages/circle-chart.component';
+import { TopicService } from './topic-panel/_services/topic.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -63,7 +64,7 @@ import { CircleChartComponent } from './chat/chat-message/sub-messages/circle-ch
     TextComponent,
     SubMessageComponent,
     LineChartComponent,
-    CircleChartComponent
+    CircleChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,9 +82,9 @@ import { CircleChartComponent } from './chat/chat-message/sub-messages/circle-ch
     SelectButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    DialogModule
+    DialogModule,
   ],
-  providers: [ChatService, UserService],
+  providers: [ChatService, UserService, TopicService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

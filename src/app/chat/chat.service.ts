@@ -6,13 +6,14 @@ import { SubMessage } from './chat-elements/subMessage';
 import { TextComponent } from './chat-message/sub-messages/text.component';
 import { LineChartComponent } from './chat-message/sub-messages/line-chart.component';
 import { CircleChartComponent } from './chat-message/sub-messages/circle-chart.component';
+import { TopicService } from '../topic-panel/_services/topic.service';
 
 @Injectable()
 export class ChatService {
   messageId = 0;
   private conversation: BehaviorSubject<Conversation> =
     new BehaviorSubject<Conversation>(new Conversation());
-  constructor() {}
+  constructor(private topicService: TopicService) {}
 
   addMessage(message: Message) {
     this.conversation.getValue().addMessage(message);
@@ -61,6 +62,7 @@ export class ChatService {
           ]
         )
       );
+      this.topicService.emitChatTopic();
     }, 1000);
   }
 }

@@ -723,3 +723,19 @@ export const topics: Array<Topic> = [
     // related
   },
 ];
+
+export const chatTopic = {
+  id: 1,
+  name: 'DERECHO LABORAL',
+  type: 'Derecho',
+  isCentral: false,
+  title: 'DERECHO LABORAL',
+  image:
+    'https://humanidades.com/wp-content/uploads/2017/03/derecho-laboral-e1563660386267.jpg',
+  subtitle: 'Revisado por 150 expertos en la materia',
+  description:
+    'El derecho laboral es una especialidad que busca proteger a los trabajadores y regular la contratación por parte de las empresas. Las reclamaciones de salarios, los despidos, las indemnizaciones… son de las materias más discutidas en esta rama de derecho',
+  profiles,
+  laws,
+  related,
+};

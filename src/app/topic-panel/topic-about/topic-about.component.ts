@@ -22,16 +22,19 @@ export class TopicAboutComponent {
   ) {}
 
   ngOnInit() {
-    this.topicService.graphTopic$.subscribe((topic) => {
-      this.topic = topic;
-      this.topic.title = capitalizeFirst(this.topic.title);
-      this.description.value = this.descriptionBeforeExpand();
-      this.description.expanded = false;
-      this.breadcrumbs = this.topicRepository
-        .getTopicsParents(topic.id)
-        .reverse()
-        .join(' > ');
-    });
+    this.topicService.graphTopic$.subscribe((topic) => this.updateTopic(topic));
+    this.topicService.chatTopic$.subscribe((topic) => this.updateTopic(topic));
+  }
+
+  updateTopic(topic: Topic) {
+    this.topic = topic;
+    this.topic.title = capitalizeFirst(this.topic.title);
+    this.description.value = this.descriptionBeforeExpand();
+    this.description.expanded = false;
+    this.breadcrumbs = this.topicRepository
+      .getTopicsParents(topic.id)
+      .reverse()
+      .join(' > ');
   }
 
   onExpand() {
