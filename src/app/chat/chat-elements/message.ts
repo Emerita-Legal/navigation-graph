@@ -24,6 +24,10 @@ export class Message {
   getTimestamp() {
     return this.timestamp;
   }
+  
+  getId() {
+    return this.id;
+  }
 
   getTimestampHHMM() {
     const amOrPm = this.timestamp.getHours() <= 12 ? 'AM' : 'PM';
