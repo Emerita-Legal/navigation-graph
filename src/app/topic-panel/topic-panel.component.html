@@ -1,14 +1,14 @@
 <app-graph-switch [topicId]="topicId"></app-graph-switch>
 <div class="grid">
     <div class="col-8">
-        <div class="multi-container" [style.max-height]="getMaxHeight()">
+        <div class="multi-container" [style.height]="getMaxHeight()">
             <router-outlet></router-outlet>
         </div>
         <div class="chat-input-box">
             <app-chat-input></app-chat-input>
         </div>
     </div>
-    <div class="col-4 p-5" [style.overflow]="'scroll'" [style.height]="getMaxHeight()">
+    <div class="col-4 p-5" [style.overflow-y]="'scroll'" [style.height]="getMaxHeight()">
         <app-topic-about></app-topic-about>
         <div class="subscription mt-5">
             <app-subscription-banner></app-subscription-banner>

@@ -4,21 +4,23 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TopicService } from './_services/topic.service';
 import { TopicRepositoryService } from './_services/topic-repository.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-topic-panel',
   templateUrl: './topic-panel.component.html',
   styleUrls: ['./topic-panel.component.css'],
-  providers: [TopicService, TopicRepositoryService],
+  providers: [TopicRepositoryService],
 })
 export class TopicPanelComponent implements OnInit {
   topicId: number | undefined;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private topicRepository: TopicRepositoryService,
     private topicService: TopicService,
     private cdr: ChangeDetectorRef
@@ -35,9 +37,18 @@ export class TopicPanelComponent implements OnInit {
       this.topicId = topic.id;
       this.topicService.emitGraphCentralTopic(topic);
     });
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((e: any) => {
+        if (e.url.includes('chat')) {
+          this.topicService.refreshChatTopic();
+        } else {
+          this.topicService.refreshGraphTopic();
+        }
+      });
   }
 
   getMaxHeight() {
-    return window.innerHeight - 80 + 'px';
+    return `${window.innerHeight - window.innerHeight * 0.22}px`;
   }
 }

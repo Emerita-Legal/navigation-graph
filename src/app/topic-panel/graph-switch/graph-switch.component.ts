@@ -7,7 +7,6 @@ import { filter } from 'rxjs/operators';
   selector: 'app-graph-switch',
   templateUrl: './graph-switch.component.html',
   styleUrls: ['./graph-switch.component.css'],
-  providers: [TopicService],
 })
 export class GraphSwitchComponent {
   switchValue = 'graph';

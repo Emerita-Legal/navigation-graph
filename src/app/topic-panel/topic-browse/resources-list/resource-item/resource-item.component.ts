@@ -14,12 +14,14 @@ export class ResourceItemComponent {
     country: '',
     type: ResourceTypes.Lawyer,
     url: '',
- };
+  };
 
- resourceTypes = ResourceTypes;
+  resourceTypes = ResourceTypes;
 
-  goto(link: string) {
-    window.open(link, '__blank');
+  goto(link?: string) {
+    if (link) {
+      window.open(link, '__blank');
+    }
   }
 
   getResourceBorder() {

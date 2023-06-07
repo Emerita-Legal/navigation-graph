@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { Topic } from '../_types/topic';
+import { chatTopic } from '../data/topics';
 
 @Injectable()
 export class TopicService {
-  private masterTopic?: Topic;
+  private centralTopic?: Topic;
+  private outerTopic?: Topic;
+  private chatTopic?: Topic;
+  private alreadyUsedChat = false;
 
   private readonly graphCentralTopic: ReplaySubject<Topic> =
     new ReplaySubject<Topic>();
@@ -14,20 +18,46 @@ export class TopicService {
     new ReplaySubject<Topic>();
   graphTopic$ = this.graphTopic.asObservable();
 
+  private readonly chatTopicSubject: ReplaySubject<Topic> =
+    new ReplaySubject<Topic>();
+  chatTopic$ = this.chatTopicSubject.asObservable();
+
   constructor() {}
 
   emitGraphCentralTopic(topic: Topic) {
-    this.masterTopic = topic;
+    this.centralTopic = topic;
     this.graphCentralTopic.next(topic);
     this.emitGraphTopic(topic.id);
   }
 
   emitGraphTopic(topicId: number) {
-    const topic = this.getTopicById(this.masterTopic!, topicId);
+    const topic = this.getTopicById(this.centralTopic!, topicId);
     if (!topic) {
       throw new Error('Topic not found');
     }
+    this.outerTopic = topic;
+    if (!this.alreadyUsedChat) {
+      this.chatTopic = topic;
+    }
     this.graphTopic.next(topic);
+  }
+
+  refreshGraphTopic() {
+    if (this.outerTopic) {
+      this.graphTopic.next(this.outerTopic);
+    }
+  }
+
+  refreshChatTopic() {
+    if (this.chatTopic) {
+      this.chatTopicSubject.next(this.chatTopic);
+    }
+  }
+
+  emitChatTopic() {
+    this.chatTopic = chatTopic;
+    this.alreadyUsedChat = true;
+    this.chatTopicSubject.next(chatTopic);
   }
 
   private getTopicById(topic: Topic, topicId: number): Topic | undefined {
