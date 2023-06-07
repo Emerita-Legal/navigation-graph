@@ -6,7 +6,15 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ChatService } from './chat.service';
-import { Subscription } from 'rxjs';
+import {
+  Subject,
+  Subscription,
+  debounceTime,
+  filter,
+  map,
+  takeUntil,
+  tap,
+} from 'rxjs';
 import { Message } from './chat-elements/message';
 
 @Component({
@@ -16,18 +24,30 @@ import { Message } from './chat-elements/message';
 })
 export class ChatComponent implements AfterViewInit {
   messages: Message[] = [];
-  private conversationSubscription!: Subscription;
+  private destroySubject = new Subject<void>();
   @ViewChild('chatContainer', { static: false }) chatContainer!: ElementRef;
 
   constructor(private chatService: ChatService) {}
 
   ngAfterViewInit() {
-    this.conversationSubscription = this.chatService.newMessage$.subscribe(
-      (newMessage) => {
-        this.messages.push(newMessage);
-        this.scrollToBottom();
-      }
-    );
+    this.chatService.newMessage$
+      .pipe(
+        takeUntil(this.destroySubject),
+        filter((message) => message.getType() === 'sent')
+      )
+      .subscribe((m) => this.addMessage(m));
+    this.chatService.newMessage$
+      .pipe(
+        takeUntil(this.destroySubject),
+        filter((message) => message.getType() === 'received'),
+        debounceTime(2000)
+      )
+      .subscribe((m) => this.addMessage(m));
+  }
+
+  private addMessage(message: Message) {
+    this.messages.push(message);
+    this.scrollToBottom();
   }
 
   private scrollToBottom(): void {
@@ -42,6 +62,7 @@ export class ChatComponent implements AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.conversationSubscription.unsubscribe();
+    this.destroySubject.next();
+    this.destroySubject.complete();
   }
 }
