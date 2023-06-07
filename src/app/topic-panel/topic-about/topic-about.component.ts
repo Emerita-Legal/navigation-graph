@@ -10,7 +10,7 @@ import { TopicRepositoryService } from '../_services/topic-repository.service';
 })
 export class TopicAboutComponent {
   topic: Topic | undefined;
-  breadcrumbs: string[] = [];
+  breadcrumbs: string = '';
   description: { value?: string; expanded: boolean } = {
     value: '',
     expanded: false,
@@ -27,7 +27,10 @@ export class TopicAboutComponent {
       this.topic.title = capitalizeFirst(this.topic.title);
       this.description.value = this.descriptionBeforeExpand();
       this.description.expanded = false;
-      this.breadcrumbs = this.topicRepository.getTopicsParents(topic.id);
+      this.breadcrumbs = this.topicRepository
+        .getTopicsParents(topic.id)
+        .reverse()
+        .join(' > ');
     });
   }
 
