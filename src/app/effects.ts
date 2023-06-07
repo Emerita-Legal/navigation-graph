@@ -1,10 +1,3 @@
-/**
- * Cuando se carga el grafo, solo estan las circunferencias
- * Después las labels y los nodos hacen pop, primero el central, luego los inner
- * Las relaciones hacen desde opacity 0 a 1
- * Y de ultimo hacen pop los outer
- */
-
 export const applyEffects = () => {
   popOnLoad();
   scaleOnHover();
@@ -130,6 +123,3 @@ const popOnLoad = () => {
     }, 1500);
   });
 };
-
-// TODO: Mantener efectos on resize
-// const onLoadGraph
