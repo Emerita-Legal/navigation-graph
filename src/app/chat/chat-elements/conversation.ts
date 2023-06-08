@@ -49,7 +49,7 @@ export class Conversation {
       new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
       new SubMessage(TextComponent, {
         text: `Puedo ser más preciso calculando la probabilidad de éxito. ¿Quieres incluir
-          otros factores?`,
+          otros factores como el Juez o la normativa aplicable?`,
       }),
     ]);
   }
