@@ -90,6 +90,12 @@ input.p-autocomplete-input {
   font-size: medium;
   height: 50px;
 }
-p-autocomplete input, .p-autocomplete input:enabled:focus, .p-autocomplete input:enabled:hover {
+p-autocomplete input,
+.p-autocomplete input:enabled:focus,
+.p-autocomplete input:enabled:hover {
   font-size: medium;
+}
+.title-graphs {
+  color: #525252;
+  font-size: 0.9em;
 }

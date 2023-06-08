@@ -65,9 +65,6 @@ import { ISubMessage } from '../../chat-elements/subMessage';
       h5 {
         color: #6c6c6c
       }
-       h4 {
-        color: black
-       }
     `,
   ],
 })

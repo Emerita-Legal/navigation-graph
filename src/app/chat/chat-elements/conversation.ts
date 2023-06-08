@@ -38,10 +38,6 @@ export class Conversation {
       new SubMessage(TextComponent, {
         text: `Aquí puedes ver la representación gráfica de las tasas de éxito.`,
       }),
-      new SubMessage(TextComponent, {
-        text: `Juzgado de lo Social de A Coruña - Evolución de la tasa de éxito en casos de despido
-          disciplinario defendiendo al trabajador.`,
-      }),
       new SubMessage(LineChartComponent, [
         { year: 2018, global: 70, media: 70 },
         { year: 2019, global: 40, media: 40 },
@@ -50,9 +46,6 @@ export class Conversation {
         { year: 2022, global: 80, media: 80 },
         { year: 2023, global: 100, media: 100 },
       ]),
-      new SubMessage(TextComponent, {
-        text: `Tasa de éxito de Pablo Luis Vazquez García en despidos disciplinarios.`,
-      }),
       new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
       new SubMessage(TextComponent, {
         text: `Puedo ser más preciso calculando la probabilidad de éxito. ¿Quieres incluir

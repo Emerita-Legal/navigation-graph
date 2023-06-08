@@ -23,7 +23,7 @@ interface LineChartItem {
   template: `
     <section class="p-3" style="background: #dcdcdc50;">
       <div>
-        <h4 class="m-2">{{ heading }}</h4>
+        <h4 class="m-2 title-graphs">{{ heading }}</h4>
       </div>
       <div class="">
         <canvas height="100" #lineChart>{{ chart }}</canvas>
@@ -45,7 +45,7 @@ interface LineChartItem {
   `,
 })
 export class LineChartComponent implements OnInit, ISubMessage {
-  heading: string = 'Evolución Resultados';
+  heading: string = 'Juzgado de lo Social de A Coruña - Evolución de la tasa de éxito en casos de despido disciplinario defendiendo al trabajador';
   @Input() data: LineChartItem[] = [];
   isPercentage = false;
   individualLabel: string = '';
