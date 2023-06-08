@@ -63,9 +63,11 @@ import { ISubMessage } from '../../chat-elements/subMessage';
         margin: 0 10px;
       }
       h5 {
-        font-size: 16px;
-        color: gray
+        color: #6c6c6c
       }
+       h4 {
+        color: black
+       }
     `,
   ],
 })

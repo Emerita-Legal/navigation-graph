@@ -33,10 +33,15 @@ export class Conversation {
         text: `La probabilidad de éxito con los factores que indicas es del 62%. Para ello, he considerado
           la tasa de éxito en casos de despido disciplinario en los que se defiende al trabajador en los
           Juzgados de lo Social de A Coruña de los últimos cinco años y la tasa de éxito promedio del
-          abogado contrario con los mismos factores.
-          Aquí puedes ver la representación gráfica de las tasas de éxito.`,
+          abogado contrario con los mismos factores.`,
       }),
-
+      new SubMessage(TextComponent, {
+        text: `Aquí puedes ver la representación gráfica de las tasas de éxito.`,
+      }),
+      new SubMessage(TextComponent, {
+        text: `Juzgado de lo Social de A Coruña - Evolución de la tasa de éxito en casos de despido
+          disciplinario defendiendo al trabajador.`,
+      }),
       new SubMessage(LineChartComponent, [
         { year: 2018, global: 70, media: 70 },
         { year: 2019, global: 40, media: 40 },
@@ -46,8 +51,7 @@ export class Conversation {
         { year: 2023, global: 100, media: 100 },
       ]),
       new SubMessage(TextComponent, {
-        text: `Juzgado de lo Social de A Coruña - Evolución de la tasa de éxito en casos de despido
-          disciplinario defendiendo al trabajador.`,
+        text: `Tasa de éxito de Pablo Luis Vazquez García en despidos disciplinarios.`,
       }),
       new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
       new SubMessage(TextComponent, {
