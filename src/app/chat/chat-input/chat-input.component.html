@@ -1,17 +1,9 @@
-<span class="p-fluid flex justify-content-center align-items-center">
-  <span class="p-input-icon-right">
-    <i *ngIf="!responseLoading" class="pi pi-send"></i>
-    <i *ngIf="responseLoading" class="pi pi-spin pi-spinner"></i>
-    <textarea
-      class="draw"
-      [disabled]="responseLoading"
-      (keydown)="onKeyPress($event)"
-      placeholder="Haz una pregunta..."
-      type="text"
-      pInputTextarea
-      [style.overflow-y]="'scroll'"
-      [autoResize]="true"
-      [style.max-height]="'100px'"
-    ></textarea>
-  </span>
+<span class="p-fluid">
+    <span class="p-input-icon-right flex justify-content-center align-items-center">
+        <i *ngIf="!responseLoading" class="pi pi-send"></i>
+        <i *ngIf="responseLoading" class="pi pi-spin pi-spinner"></i>
+        <textarea class="draw" [disabled]="responseLoading" (keydown)="onKeyPress($event)"
+            placeholder="Haz una pregunta..." type="text" pInputTextarea [style.overflow-y]="'scroll'"
+            [autoResize]="true" [style.max-height]="'100px'"></textarea>
+    </span>
 </span>
