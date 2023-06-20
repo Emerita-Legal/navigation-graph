@@ -217,11 +217,12 @@ export class Layout {
         position: labelPosition,
         width: 2 * this.dimensions.getCentralLabelSize(),
         height: 2 * this.dimensions.getCentralNodeSize(),
+        centerContent: true,
         styles: [
           { attr: 'color', value: 'white' },
           {
             attr: 'font-size',
-            value: '2.5vmin',
+            value: '2.1vmin',
           },
           {
             attr: 'text-align',
@@ -232,8 +233,8 @@ export class Layout {
             value: 'relative',
           },
           {
-            attr: 'top',
-            value: '40%',
+            attr: 'letter-spacing',
+            value: '-0.4px',
           },
         ],
       })
@@ -286,7 +287,7 @@ export class Layout {
         styles: [
           {
             attr: 'font-size',
-            value: '1.3vmin',
+            value: '1.8vmin',
           },
           {
             attr: 'text-align',
@@ -348,7 +349,7 @@ export class Layout {
           },
           {
             attr: 'font-size',
-            value: '1vmin',
+            value: '1.2vmin',
           },
           {
             attr: 'text-align',

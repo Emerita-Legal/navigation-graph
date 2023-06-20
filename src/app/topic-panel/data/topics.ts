@@ -257,8 +257,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 34,
-            name: 'DERECHO DE LA NEGOCIACIÓN COLECTIVA',
-            title: 'DERECHO DE LA NEGOCIACIÓN COLECTIVA',
+            name: 'NEGOCIACIÓN COLECTIVA',
+            title: 'NEGOCIACIÓN COLECTIVA',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -267,8 +267,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 35,
-            name: 'DERECHO DE LA PREVENCIÓN DE RIESGOS LABORALES',
-            title: 'DERECHO DE LA PREVENCIÓN DE RIESGOS LABORALES',
+            name: 'PREVENCIÓN DE RIESGOS LABORALES',
+            title: 'PREVENCIÓN DE RIESGOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',

@@ -9,6 +9,7 @@ export class Label {
       height: number;
       position: Position;
       rotation?: number;
+      centerContent?: boolean;
       styles?: { attr: string; value: string }[];
     }
   ) {}
@@ -41,6 +42,15 @@ export class Label {
       .attr('width', this.options.width)
       .attr('height', this.options.height)
       .append('xhtml:div');
+
+    if (this.options.centerContent) {
+      labelContainer
+        .style('width', this.options.width + 'px')
+        .style('height', this.options.height + 'px')
+        .style('display', 'flex')
+        .style('justify-content', 'center')
+        .style('align-items', 'center');
+    }
 
     if (this.options?.styles) {
       for (const style of this.options.styles) {

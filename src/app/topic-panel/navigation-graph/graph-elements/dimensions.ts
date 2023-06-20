@@ -1,7 +1,7 @@
 import { Circle } from './circle';
 import { Position } from './layout';
 
-const RADIUS_FACTOR = 3.9;
+const RADIUS_FACTOR = 3.8;
 const NODE_SIZE_FACTOR = 53;
 const OUTER_NODES_RADIUS_SCALE_FACTOR = 1.4;
 const INNER_NODES_RADIUS_SCALE_FACTOR = 0.65;
@@ -67,7 +67,7 @@ export class Dimensions {
   }
 
   getOuterLabelSize(): number {
-    return this.getOuterNodesRadius() / 2.75;
+    return this.getOuterNodesRadius() / 3.5;
   }
 
   getOuterLabelMargin(): number {
