@@ -14,19 +14,17 @@ const profiles: Resource[] = [
     type: ResourceTypes.Court,
     subtitle: 'Órgano Judicial',
     country: 'España',
-    image:
-      'https://media.istockphoto.com/id/1145896663/es/vector/icono-del-juzgado.jpg?s=170667a&w=0&k=20&c=clTlTtAnRdR9a08jWKoFfmgglVFl0eZTrJBqG3aO27U=',
+    image: '../../../assets/court.svg',
     url: 'https://www.emerita.legal',
   },
 ];
 const laws: Resource[] = [
   {
     title: 'Artículo 54 - Despido disciplinario',
-    type: ResourceTypes.Law,
+    type: ResourceTypes.Article,
     subtitle: 'Estatuto de los trabajadores',
     country: 'España',
-    image:
-      'https://e7.pngegg.com/pngimages/661/185/png-clipart-contract-legal-instrument-document-computer-icons-law-recycle-bin-miscellaneous-angle.png',
+    image: '../../../assets/article.svg',
     url: 'https://www.emerita.legal',
   },
   {
@@ -34,8 +32,7 @@ const laws: Resource[] = [
     subtitle: 'Resoluciones - 1ª instancia',
     type: ResourceTypes.Sentence,
     country: 'España',
-    image:
-      'https://static.vecteezy.com/system/resources/thumbnails/006/692/271/small/document-icon-template-black-color-editable-document-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector.jpg',
+    image: '../../../assets/resolution.png',
     url: 'https://www.emerita.legal',
   },
 ];
@@ -45,8 +42,7 @@ const related: Resource[] = [
     subtitle: 'Plantillas demandante',
     type: ResourceTypes.Template,
     country: 'España',
-    image:
-      'https://static.vecteezy.com/system/resources/previews/000/378/595/original/template-vector-icon.jpg',
+    image: '../../../assets/template.svg',
     url: 'https://www.emerita.legal',
   },
   {
@@ -55,8 +51,7 @@ const related: Resource[] = [
     subtitle: 'Plantillas demandante',
     type: ResourceTypes.Template,
     country: 'España',
-    image:
-      'https://static.vecteezy.com/system/resources/previews/000/378/595/original/template-vector-icon.jpg',
+    image: '../../../assets/template.svg',
     url: 'https://www.emerita.legal',
   },
 ];
@@ -70,7 +65,7 @@ export const topics: Array<Topic> = [
     title: 'DERECHO LABORAL',
     image:
       'https://humanidades.com/wp-content/uploads/2017/03/derecho-laboral-e1563660386267.jpg',
-    subtitle: 'Revisado por 150 expertos en la materia',
+    subtitle: 'Curación por Emérita Legal y 250 expertos',
     description:
       'El derecho laboral es una especialidad que busca proteger a los trabajadores y regular la contratación por parte de las empresas. Las reclamaciones de salarios, los despidos, las indemnizaciones… son de las materias más discutidas en esta rama de derecho',
     childs: [
@@ -142,7 +137,7 @@ export const topics: Array<Topic> = [
         title: 'MATERIAS',
         image:
           'https://bbl-bdb.s3.amazonaws.com/sets/images/derecho_laboral.jpg',
-        subtitle: 'Revisado por 150 expertos en la materia',
+        subtitle: 'Curación por Emérita Legal y 250 expertos',
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
         type: 'Derecho',
@@ -186,7 +181,7 @@ export const topics: Array<Topic> = [
             title: 'DERECHO DEL CONFLICTO LABORAL',
             image:
               'https://economipedia.com/wp-content/uploads/conflicto-laboral.jpg',
-            subtitle: 'Revisado por 150 expertos en la materia',
+            subtitle: 'Curación por Emérita Legal y 55 expertos',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
             type: 'Derecho',
@@ -725,16 +720,15 @@ export const topics: Array<Topic> = [
 ];
 
 export const chatTopic = {
-  id: 1,
-  name: 'DERECHO LABORAL',
+  id: 84,
+  name: 'DESPIDO DISCIPLINARIO',
+  title: 'DESPIDO DISCIPLINARIO',
+  image: 'https://allabogados.com/wp-content/uploads/2021/09/IMG-1.png',
+  subtitle: 'Curación por Emérita Legal y 55 expertos',
+  description:
+    'El despido disciplinario en España es una acción que un empleador comete una falta grave en el trabajo, como indisciplina, violación de la buena fe contractual o acoso. Este tipo de despido, regulado por el Estatuto de los Trabajadores, no conlleva a indemnización para el trabajador y puede tener consecuencias significativas para su estabilidad laboral y sus derechos laborales.',
   type: 'Derecho',
   isCentral: false,
-  title: 'DERECHO LABORAL',
-  image:
-    'https://humanidades.com/wp-content/uploads/2017/03/derecho-laboral-e1563660386267.jpg',
-  subtitle: 'Revisado por 150 expertos en la materia',
-  description:
-    'El derecho laboral es una especialidad que busca proteger a los trabajadores y regular la contratación por parte de las empresas. Las reclamaciones de salarios, los despidos, las indemnizaciones… son de las materias más discutidas en esta rama de derecho',
   profiles,
   laws,
   related,

@@ -27,18 +27,18 @@ export class ResourceItemComponent {
   getResourceBorder() {
     switch (this.resource.type) {
       case ResourceTypes.Lawyer:
-        return '5px solid #0f1820';
+        return '1px solid #dee2e6';
       case ResourceTypes.Court:
         return '5px solid #ADD8E6';
       case ResourceTypes.Article:
-        return '5px solid #ff8b22';
+        return '5px solid #B9A0FF';
       case ResourceTypes.Law:
       case ResourceTypes.Sentence:
-        return '5px solid #00ccb1';
+        return '5px solid #00D1FF';
       case ResourceTypes.Template:
-        return '5px solid #ff8b22';
+        return '5px solid #FFCCA2';
       default:
-        return '5px solid #ff8b22';
+        return '5px solid #FFCCA2';
     }
   }
 }

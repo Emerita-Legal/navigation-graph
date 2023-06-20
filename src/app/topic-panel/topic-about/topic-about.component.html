@@ -3,7 +3,7 @@
         <div class="p-5 header-img" style='background-image: url("{{topic?.image}}");'>
             <div class="header-title">
                 <p class="font-light text-sm">
-                    {{breadcrumbs}}
+                    {{breadcrumbs}} <span *ngIf="breadcrumbs.length > 0">- </span>España
                 </p>
                 <h1>
                     {{topic?.title}}

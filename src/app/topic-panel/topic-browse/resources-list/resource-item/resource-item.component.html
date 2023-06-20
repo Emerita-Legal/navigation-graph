@@ -1,8 +1,10 @@
 <div class="resource-item mt-3" [style.border-left]="getResourceBorder()" (click)="goto(resource.url)">
-  <div class="surface-card shadow-2 border-round pl-3 pt-2 pb-2 pr-1">
+  <div class="surface-card pl-3 pt-2 pb-2 pr-1">
     <div class="grid">
       <div class="col-2 d-flex align-items-center justify-content-center pt-3">
-        <p-avatar class="d-flex" image="{{ resource.image }}" size="large" shape="circle"></p-avatar>
+        <p-avatar class="d-flex" image="{{ resource.image }}" size="large" [shape]="
+          resource.type===resourceTypes.Lawyer 
+          || resource.type === resourceTypes.Publication ? 'circle' : 'square'"></p-avatar>
       </div>
       <div class="col-10 flex align-items-center pr-5">
         <div>

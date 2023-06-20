@@ -39,14 +39,13 @@ export class Conversation {
         text: `Aquí puedes ver la representación gráfica de las tasas de éxito.`,
       }),
       new SubMessage(LineChartComponent, [
-        { year: 2018, global: 70, media: 70 },
         { year: 2019, global: 40, media: 40 },
         { year: 2020, global: 40, media: 40 },
         { year: 2021, global: 30, media: 30 },
         { year: 2022, global: 80, media: 80 },
         { year: 2023, global: 100, media: 100 },
       ]),
-      new SubMessage(CircleChartComponent, { value: 20, mediaValue: 34 }),
+      new SubMessage(CircleChartComponent, { value: 81, mediaValue: 52.2 }),
       new SubMessage(TextComponent, {
         text: `Puedo ser más preciso calculando la probabilidad de éxito. ¿Quieres incluir
           otros factores como el Juez o la normativa aplicable?`,

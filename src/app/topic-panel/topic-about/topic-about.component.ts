@@ -34,7 +34,8 @@ export class TopicAboutComponent {
     this.breadcrumbs = this.topicRepository
       .getTopicsParents(topic.id)
       .reverse()
-      .join(' > ');
+      .map((breadcrumb) => capitalizeFirst(breadcrumb))
+      .join(' - ');
   }
 
   onExpand() {
