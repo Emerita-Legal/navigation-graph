@@ -1,20 +1,33 @@
 <div class="register-block" *ngIf="!user">
+    <span class="text-xs" style="color: #ccc;">ACCESO GRATUITO</span>
     <h3>
-        <a (click)="showDialog()">Regístrate</a> para ver todo nuestro contenido
+        Regístrate o inicia sesión
     </h3>
     <ul>
         <li>Investigación y análisis en más de 250 temas</li>
         <li>Contenido actualizado diariamente por nuestros expertos</li>
     </ul>
+    <p-button (click)="showDialog()"
+        [style]="{background:'#ff8b22', border: 'none', 'border-radius': '3px', color:'#fff', 'font-weight':'bold'}">
+        Regístrate
+    </p-button>
+    <p-button (click)="showDialog()"
+        [style]="{'margin-left': '1%', background:'none', border: '1px solid #fff', 'border-radius': '3px', color:'#fff', 'font-weight':'bold'}">
+        Inicia sesión
+    </p-button>
 </div>
 <div class="register-block" *ngIf="user">
     <h3>Ahora que estás registrado,
-        <a>hazte miembro</a> para ver nuestro contenido premium
+        hazte miembro para ver nuestro contenido premium
     </h3>
     <ul>
         <li>Investigación y análisis en más de 250 temas</li>
         <li>Contenido actualizado diariamente por nuestros expertos</li>
     </ul>
+    <p-button (click)="showDialog()"
+        [style]="{background:'#ff8b22', border: 'none', 'border-radius': '3px', color:'#fff', 'font-weight':'bold'}">
+        Hazte miembro
+    </p-button>
 </div>
 
 <p-dialog header="¿Qué tipo de profesional eres?" [(visible)]="dialogVisible">
