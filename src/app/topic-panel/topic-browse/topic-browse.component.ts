@@ -12,6 +12,12 @@ export class TopicBrowseComponent {
   user: { type: string } | null = null;
   topic: Topic | undefined;
 
+  capitalizeFirst = (string: string) => {
+    return (
+      string[0].toUpperCase() + string.slice(1, string.length).toLowerCase()
+    );
+  };
+
   constructor(
     private topicService: TopicService,
     private userService: UserService
