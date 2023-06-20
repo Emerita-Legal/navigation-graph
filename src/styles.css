@@ -24,7 +24,7 @@ body {
 .p-autocomplete input:enabled:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 1.5%;
   font-weight: 300;
   width: 100%;
@@ -88,7 +88,6 @@ body {
 }
 input.p-autocomplete-input {
   font-size: medium;
-  height: 50px;
 }
 p-autocomplete input,
 .p-autocomplete input:enabled:focus,
