@@ -3,10 +3,9 @@ textarea:enabled:focus,
 textarea:enabled:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #ccc;
-  padding: 1%;
-}
-i {
-  font-size: 1.2em;
+  padding: 1% 4% 1% 1%;
+  resize: none;
+  height: 33px;
 }
 
 .chat-input {
@@ -18,12 +17,28 @@ i {
 
 .pi-send {
   background: #ff8b22;
-  border-radius: 10px;
+  border-radius: 8px;
+  font-size: 0.6rem;
   padding: 0.4rem;
-  margin-top: -1rem;
+  margin-top: -0.7rem;
   color: white !important;
 }
 
 .p-inputtext {
-  font-size: 12px;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 732px) {
+  .pi-send {
+    background: #ff8b22;
+    border-radius: 5px;
+    font-size: 0.4rem;
+    padding: 0.3rem;
+    margin-top: -0.5rem;
+    color: white !important;
+  }
+
+  .p-inputtext {
+    font-size: 0.4rem;
+  }
 }
