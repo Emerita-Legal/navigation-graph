@@ -3,7 +3,7 @@ textarea:enabled:focus,
 textarea:enabled:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #ccc;
-  padding: 0.5rem 0.25rem 0.25rem 0.5rem;
+  padding: 1%;
 }
 i {
   font-size: 1.2em;
@@ -19,7 +19,11 @@ i {
 .pi-send {
   background: #ff8b22;
   border-radius: 10px;
-  padding: 1%;
+  padding: 0.4rem;
+  margin-top: -1rem;
   color: white !important;
-  margin-top: -2%;
+}
+
+.p-inputtext {
+  font-size: 12px;
 }
