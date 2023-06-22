@@ -32,7 +32,7 @@ textarea:enabled:hover {
   textarea,
   textarea:enabled:focus,
   textarea:enabled:hover {
-    height: 25px;
+    height: 29px;
   }
   .pi-send {
     background: #ff8b22;
