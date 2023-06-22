@@ -133,8 +133,8 @@ export const topics: Array<Topic> = [
       },
       {
         id: 3,
-        name: 'MATERIAS',
-        title: 'MATERIAS',
+        name: 'ESPECIALIDADES',
+        title: 'ESPECIALIDADES',
         image:
           'https://bbl-bdb.s3.amazonaws.com/sets/images/derecho_laboral.jpg',
         subtitle: 'Curación por Emérita Legal y 250 expertos',
@@ -177,8 +177,8 @@ export const topics: Array<Topic> = [
         childs: [
           {
             id: 30,
-            name: 'DERECHO DEL CONFLICTO LABORAL',
-            title: 'DERECHO DEL CONFLICTO LABORAL',
+            name: 'DERECHO DEL CONFLICTO DEL TRABAJO',
+            title: 'DERECHO DEL CONFLICTO DEL TRABAJO',
             image:
               'https://economipedia.com/wp-content/uploads/conflicto-laboral.jpg',
             subtitle: 'Curación por Emérita Legal y 55 expertos',
