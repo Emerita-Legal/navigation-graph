@@ -5,5 +5,24 @@ import { ISubMessage } from '../../chat-elements/subMessage';
   template: `{{ data.text }}`,
 })
 export class TextComponent implements ISubMessage {
-  @Input() data = { text: ''};
+  @Input() data = { text: '' };
+
+  ngOnInit() {
+    this.typewriterEffect();
+  }
+
+  private typewriterEffect() {
+    if (this.data.text.length > 0) {
+      const text = this.data.text.split(' ');
+      this.data.text = '';
+      let i = 0;
+      let interval = setInterval(() => {
+        if (text[i]) this.data.text += text[i] + ' ';
+        i++;
+        if (i === text.length) {
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+  }
 }
