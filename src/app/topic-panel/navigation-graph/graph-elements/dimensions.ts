@@ -67,7 +67,7 @@ export class Dimensions {
   }
 
   getOuterLabelSize(): number {
-    return this.getOuterNodesRadius() / 3.5;
+    return this.getOuterNodesRadius() / 2.8;
   }
 
   getOuterLabelMargin(): number {
