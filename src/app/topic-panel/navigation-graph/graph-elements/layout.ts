@@ -329,7 +329,7 @@ export class Layout {
           this.dimensions.getOuterNodeSize() +
           this.dimensions.getOuterLabelMargin();
 
-      const degreeAdjustment = ((node.getName().length / 20) * Math.PI) / 180;
+      const degreeAdjustment = ((node.getName().length / 10) * Math.PI) / 180;
 
       const labelPosition = Circle.translatePosition(
         nodePosition,

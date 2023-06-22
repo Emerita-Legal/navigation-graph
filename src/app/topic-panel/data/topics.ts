@@ -496,8 +496,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 552,
-            name: 'ASESORAMIENTO EN CUMPLIMIENTO NORMATIVO',
-            title: 'ASESORAMIENTO EN CUMPLIMIENTO NORMATIVO',
+            name: 'CUMPLIMIENTO NORMATIVO',
+            title: 'CUMPLIMIENTO NORMATIVO',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
@@ -506,8 +506,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 553,
-            name: 'ASESORAMIENTO EN RELACIONES LABORALES INTERNACIONALES',
-            title: 'ASESORAMIENTO EN RELACIONES LABORALES INTERNACIONALES',
+            name: 'RELACIONES LABORALES INTERNACIONALES',
+            title: 'RELACIONES LABORALES INTERNACIONALES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',
