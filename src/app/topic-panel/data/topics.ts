@@ -314,8 +314,8 @@ export const topics: Array<Topic> = [
           },
           {
             id: 42,
-            name: 'LEY DE PREVENCIÓN DE RIESGOS LABORALES',
-            title: 'LEY DE PREVENCIÓN DE RIESGOS LABORALES',
+            name: 'LEY PREVENCIÓN RIESGOS LABORALES',
+            title: 'LEY PREVENCIÓN RIESGOS LABORALES',
             subtitle: 'Revisado por 150 expertos en la materia',
             description:
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quos repellat, nostrum, cum voluptatibus possimus velit debitis aliquid aliquam repudiandae voluptatem, maxime id in doloremque consequuntur eos vitae mollitia quae!',

@@ -19,11 +19,13 @@ export class ChatService {
     this.conversation.addMessage(inputMessage);
     this.newMessageEmmiter.next(inputMessage);
     this.isLoadingEmmiter.next(true);
-    const responseMessage =
-      this.conversation.addAutomaticResponse(inputMessage);
-    this.newMessageEmmiter.next(responseMessage);
-    this.topicService.emitChatTopic();
-    this.isLoadingEmmiter.next(false);
+    setTimeout(() => {
+      const responseMessage =
+        this.conversation.addAutomaticResponse(inputMessage);
+      this.newMessageEmmiter.next(responseMessage);
+      this.topicService.emitChatTopic();
+      this.isLoadingEmmiter.next(false);
+    }, 1500);
   }
 
   getConversation(): Conversation {
